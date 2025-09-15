@@ -1,3 +1,5 @@
+import { assets } from "../../assets/assets";
+
 const AboutBanner = () => {
   return (
     <div className="h-[75vh] sm:h-full bg-green-700 py-4 px-4 sm:px-10 grid grid-rows-[160px_1fr] sm:grid-rows-1 sm:grid-cols-[60%_40%]">
@@ -25,9 +27,9 @@ const AboutBanner = () => {
       {/* Image Section */}
       <div className="flex items-center justify-center bg-green-800 rounded-t sm:rounded-r-lg md:rounded-t-none overflow-hidden sm:p-2 md:p-4 h-40 sm:h-auto sm:scale-y-95 order-first sm:order-none">
         <img
-          src="https://placehold.co/400x400"
+          src={assets.dispose}
           alt="WasteWorth recycling illustration"
-          className="w-full h-full object-cover sm:object-contain sm:rounded-lg"
+          className="w-full h-full object-cover object-top sm:object-contain "
         />
       </div>
     </div>
