@@ -1,5 +1,6 @@
 import { FaBars } from "react-icons/fa";
 import useStore from "..//../../store";
+import { assets } from "../../assets/assets";
 
 const Nav = ({
   activeTab,
@@ -10,8 +11,8 @@ const Nav = ({
 }) => {
   const { sidebarOpen, setSidebarOpen } = useStore();
   return (
-    <nav className=" flex items-center justify-between p-4 bg-gray-100 px-[1.5rem] sm:px-[2rem] md:px-[5rem]">
-      <div className="flex items-center justify-center">Logo</div>
+    <nav className=" flex items-center justify-between bg-gray-100 px-[1.5rem] sm:px-[2rem] md:px-[5rem]">
+      <div className="flex items-center justify-center"><img src={assets.logo} alt="" className="w-15" /></div>
       <ul className="hidden sm:flex items-center gap-6 md:gap-10 justify-around font-semibold">
         {["Home", "About Us", "Contact", "FAQs"].map((tab) => {
           return (
