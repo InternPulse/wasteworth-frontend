@@ -66,7 +66,8 @@ const Footer = () => {
         </div>
       </div>
       <p className="font-semibold text-sm mb-1">
-        Copyright 2025 | WasteWorth All Rights Reserved
+        Copyright &copy; {new Date().getFullYear()} | WasteWorth All Rights
+        Reserved
       </p>
       <hr className="block w-full opacity-40" />
     </div>

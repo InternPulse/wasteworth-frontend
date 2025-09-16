@@ -1,7 +1,7 @@
 const MandVCards = ({ data }: { data: string[][] }) => {
   const MandV = data;
   return (
-    <div className="grid grid-cols-2 gap-5 md:gap-10">
+    <div className="grid grid-cols-2 gap-5 md:gap-10 px-5">
       {MandV.map((m) => (
         <div key={m[0]} className="flex flex-col gap-2">
           <h1 className="text-teal-600 font-semibold text-lg">{m[0]}</h1>

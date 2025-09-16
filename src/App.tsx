@@ -16,15 +16,18 @@ function App() {
           <Route path="start" element={<RoleSelection />} />
           <Route path=":role/login" element={<Login />} />
           <Route path=":role/register" element={<Signup />} />
-        <Route path="*" element={<div>Not Found</div>} />
+          <Route
+            path="*"
+            element={
+              <div className="flex items-center justify-center w-full h-full text-4xl sm:text-5xl font-bold">
+                Coming Soon!!!
+              </div>
+            }
+          />
         </Route>
 
-        <Route path="/user" element={<div>User</div>}>
-        
-        </Route>
-        <Route path="/recycler" element={<div>Recycler</div>}>
-        
-        </Route>
+        <Route path="/disposer" element={<div>User</div>}></Route>
+        <Route path="/recycler" element={<div>Recycler</div>}></Route>
 
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>

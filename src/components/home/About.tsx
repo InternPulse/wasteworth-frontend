@@ -1,3 +1,4 @@
+import Slider from "../../utils/Slider";
 import AboutBanner from "./AboutBanner";
 import MandVCards from "./MandVCards";
 
@@ -7,13 +8,7 @@ const About = () => {
       <AboutBanner />
       <div className="py-5 px-5 space-y-5">
         <MandVCards key={11011} data={[mission, vision]} />
-        <div className="flex gap-2 items-center p-1 bg-green-700">
-          <div className="w-[50px] h-[50px] flex items-center justify-center bg-white"></div>
-          <p className="text-gray-100 text-[0.6rem] font-semibold">
-            WasteWorth; Making recycling simple, rewarding, and impactful for
-            everyone.
-          </p>
-        </div>
+        <Slider/>
         <MandVCards key={2} data={[commitment, offer]} />
       </div>
     </div>
