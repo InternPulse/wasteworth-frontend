@@ -5,6 +5,7 @@ import Signup from "./pages/authentication/Signup";
 import Landing from "./pages/home/Landing";
 import About from "./components/home/About";
 import RoleSelection from "./pages/authentication/RoleSelection";
+import ComingSoon from "./pages/ComingSoon";
 
 function App() {
   return (
@@ -13,18 +14,11 @@ function App() {
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Landing />} />
           <Route path="about" element={<About />} />
-          <Route path="start" element={<RoleSelection />} />
-          <Route path=":role/login" element={<Login />} />
-          <Route path=":role/register" element={<Signup />} />
-          <Route
-            path="*"
-            element={
-              <div className="flex items-center justify-center w-full h-[80vh] text-4xl sm:text-5xl font-bold">
-                Coming Soon!!!
-              </div>
-            }
-          />
+          <Route path="*" element={<ComingSoon />} />
         </Route>
+        <Route path="/start" element={<RoleSelection />} />
+        <Route path="/login" element={<Login />} />
+        <Route path=":role/register" element={<Signup />} />
 
         <Route path="/disposer" element={<div>User</div>}></Route>
         <Route path="/recycler" element={<div>Recycler</div>}></Route>
