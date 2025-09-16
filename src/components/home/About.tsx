@@ -6,7 +6,7 @@ const About = () => {
     <div className="pb-10">
       <AboutBanner />
       <div className="py-5 px-5 space-y-5">
-        <MandVCards data={[mission, vision]} />
+        <MandVCards key={11011} data={[mission, vision]} />
         <div className="flex gap-2 items-center p-1 bg-green-700">
           <div className="w-[50px] h-[50px] flex items-center justify-center bg-white"></div>
           <p className="text-gray-100 text-[0.6rem] font-semibold">
@@ -14,7 +14,7 @@ const About = () => {
             everyone.
           </p>
         </div>
-        <MandVCards data={[commitment, offer]} />
+        <MandVCards key={2} data={[commitment, offer]} />
       </div>
     </div>
   );
