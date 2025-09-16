@@ -3,7 +3,7 @@ import { assets } from "../../assets/assets";
 
 const CoreFeatures = () => {
   return (
-    <div className="p-5 bg-gray-100">
+    <div className="p-5 my-2">
       <h2 className="text-green-600 font-semibold text-center mb-5">
         Core Features
       </h2>
@@ -24,8 +24,11 @@ const CoreFeatures = () => {
             "Schedule Pickups",
             "Request and track waste collections easily",
           ],
-        ].map((feature) => (
-          <div className="p-2 grid gap-2 rounded-md bg-white text-center">
+        ].map((feature, idx) => (
+          <div
+            key={`core-feature-${idx}`}
+            className="p-2 grid gap-2 rounded-md bg-white text-center"
+          >
             <div className="rounded-md flex items-center justify-center">
               <img src={assets.dispose} alt="" />
             </div>

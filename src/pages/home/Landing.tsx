@@ -6,7 +6,11 @@ const Landing = () => {
   return (
     <div className="">
       <Hero />
+      <div className="bg-gray-100">
       <CoreFeatures/>
+      <CoreFeatures />
+
+      </div>
       <Footer />
     </div>
   );
