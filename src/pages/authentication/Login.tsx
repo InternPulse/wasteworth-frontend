@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import Form from "../../components/authentication/LoginForm";
-import { FaGoogle } from "react-icons/fa";
 import { assets } from "../../assets/assets";
+import { MdArrowBack } from "react-icons/md";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-gray-100">
       <Link
         to={"/"}
-        className="absolute right-2 text-sm top-5 text-green-600 font-semibol"
+        className="absolute right-2 text-xs top-5 text-green-600 font-semibold flex items-center gap-1"
       >
-        back to home
+        <MdArrowBack size={15} /> <span>back to home</span>
       </Link>
       <div className="grid sm:grid-cols-2 max-w-4xl rounded-lg w-full p-4">
         {/* Image */}

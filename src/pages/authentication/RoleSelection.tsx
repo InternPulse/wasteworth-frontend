@@ -1,13 +1,19 @@
 import { useState } from "react";
-import { AiOutlineFileMarkdown } from "react-icons/ai";
-import { FaCheck, FaMarker } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
+import { MdArrowBack } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const RoleSelection = () => {
   const [role, setRole] = useState<"recycler" | "disposer" | "">("");
 
   return (
-    <div className="bg-gray-100 h-screen w-screen flex items-center justify-center">
+    <div className="relative bg-gray-100 h-screen w-screen flex items-center justify-center">
+      <Link
+        to={"/"}
+        className="absolute right-2 text-xs top-5 text-green-600 font-semibold flex items-center gap-1"
+      >
+        <MdArrowBack size={15} /> <span>back to home</span>
+      </Link>
       <div className="rounded-lg shadow sm:rounded-xl w-9/10 sm:w-lg  p-5 sm:py-15 bg-white text-black space-y-2">
         <h2 className="font-semibold sm:text-2xl mb-2 sm:mb-4 text-center">
           How will you like to use WasteWorth?

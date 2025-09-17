@@ -2,6 +2,7 @@ import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useStore from "../../../store/store";
+import { MdArrowBack } from "react-icons/md";
 
 const ForgotPassword = () => {
   const { email, setEmail } = useStore();
@@ -11,7 +12,13 @@ const ForgotPassword = () => {
     navigate("/otp-verification");
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="relative min-h-screen flex items-center justify-center bg-gray-100">
+      <Link
+              to={"/"}
+              className="absolute right-2 text-xs top-5 text-green-600 font-semibold flex items-center gap-1"
+            >
+              <MdArrowBack size={15} /> <span>back to home</span>
+            </Link>
       {/* Auth */}
       <div className="w-9/10 max-w-sm bg-white px-4 py-15 rounded-xl sm:rounded-l-none h130 flex flex-col items-center justify-center">
         <h2 className="font-semibold text-2xl text-gray-800 mb-1">

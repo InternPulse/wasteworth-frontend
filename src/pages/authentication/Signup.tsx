@@ -2,10 +2,17 @@ import { Link } from "react-router-dom";
 import Form from "../../components/authentication/SignupForm";
 import { FaGoogle } from "react-icons/fa";
 import { assets } from "../../assets/assets";
+import { MdArrowBack } from "react-icons/md";
 
 const Signup = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="relative min-h-screen flex items-center justify-center bg-gray-100">
+      <Link
+              to={"/"}
+              className="absolute right-2 text-xs top-5 text-green-600 font-semibold flex items-center gap-1"
+            >
+              <MdArrowBack size={15} /> <span>back to home</span>
+            </Link>
       <div className="grid sm:grid-cols-2 max-w-4xl rounded-lg w-full p-4 sm:p-4">
         {/* Image */}
         <div className="hidden sm:flex items-center justify-center h-full sm:rounded-l-lg overflow-hidden">
