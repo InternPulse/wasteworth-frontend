@@ -78,6 +78,4 @@ const Form = () => {
 export default Form;
 const inputStyle =
   " border border-gray-200 rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200";
-const buttonStyle =
-  "mt-4 py-3 px-6 rounded-lg text-white font-semibold bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500";
 const formStyle = "mt-5 w-full flex flex-col gap-6";
