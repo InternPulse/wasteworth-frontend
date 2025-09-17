@@ -1,6 +1,6 @@
 import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface formDataProps {
   get: (arg: string) => any;
@@ -8,7 +8,6 @@ interface formDataProps {
 
 const Form = () => {
   const navigate = useNavigate();
-  const { role } = useParams();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     const formData: formDataProps = new FormData(e.currentTarget);
     e.preventDefault();
@@ -44,7 +43,7 @@ const Form = () => {
   return (
     <form onSubmit={handleSubmit} className={"mt-2 w-full flex flex-col gap-2"}>
       <div className="flex flex-col gap-1">
-        <label htmlFor="email" className="font-semibold text-gray-800 text-sm">
+        <label htmlFor="email" className="font-thin text-gray-800 text-xs mb-1">
           Email
         </label>
         <input
@@ -59,7 +58,7 @@ const Form = () => {
       <div className="flex flex-col gap-1">
         <label
           htmlFor="password"
-          className="font-semibold text-gray-800 text-sm"
+          className="font-thin text-gray-800 text-xs mb-1"
         >
           Password
         </label>
@@ -75,7 +74,7 @@ const Form = () => {
       <div className="flex flex-col gap-1">
         <label
           htmlFor="password2"
-          className="font-semibold text-gray-800 text-sm"
+          className="font-thin text-gray-800 text-xs mb-1"
         >
           Confirm Password
         </label>
@@ -88,18 +87,6 @@ const Form = () => {
           required
         />
       </div>
-      <select name="role" id="role" className={inputStyle}>
-        {role ? (
-          <option value={role.slice(1, role.length).toUpperCase()}>
-            {role.slice(1, role.length).toUpperCase()}
-          </option>
-        ) : (
-          <>
-            <option value="FARMER">Farmer</option>
-            <option value="RECYCLER">Recycler</option>
-          </>
-        )}
-      </select>
       <p className="text-xs">
         <span className="text-green-600">
           <Link to={""}>Terms</Link>
@@ -112,7 +99,7 @@ const Form = () => {
       <div className="flex justify-center items-center">
         <button
           type="submit"
-          className="mt-2 w-35 h-9 text-xs rounded-lg  font-semibold text-white bg-green-800 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative"
+          className="mt-2 w-full py-3 text-xs rounded-full  font-semibold text-white bg-green-800 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative"
         >
           Create account
         </button>
@@ -122,4 +109,4 @@ const Form = () => {
 };
 export default Form;
 const inputStyle =
-  "bg-gray-100 text-sm rounded-lg p-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500  transition-all duration-200";
+  "border-black/20 border rounded-md p-2.5 text-sm text-gray-700 placeholder-gray-400 text-semibold focus:outline-none focus:ring-2 focus:ring-green-600  transition-all duration-200";

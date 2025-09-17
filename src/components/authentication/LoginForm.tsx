@@ -43,7 +43,7 @@ const Form = () => {
   return (
     <form onSubmit={handleSubmit} className={"mt-2 w-full flex flex-col gap-2"}>
       <div className="flex flex-col gap-1">
-        <label htmlFor="email" className="font-semibold text-gray-800 text-sm">
+        <label htmlFor="email" className="text-gray-800 text-xs mb-1">
           Email
         </label>
         <input
@@ -56,10 +56,7 @@ const Form = () => {
         />
       </div>
       <div className="flex flex-col gap-1">
-        <label
-          htmlFor="password"
-          className="font-semibold text-gray-800 text-sm"
-        >
+        <label htmlFor="password" className="text-gray-800 text-xs mb-1">
           Password
         </label>
         <input
@@ -76,12 +73,14 @@ const Form = () => {
           <input type="checkbox" id="remember" />
           <label htmlFor="remember">Remember Password</label>
         </div>
-        <Link to={'/forgot-password'} className="text-green-600">Forgot Password?</Link>
+        <Link to={"/auth/forgot-password"} className="text-green-600">
+          Forgot Password?
+        </Link>
       </div>
       <div className="flex justify-center items-center">
         <button
           type="submit"
-          className="mt-2 w-35 h-9 text-xs rounded-lg  font-semibold text-white bg-green-800 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative"
+          className="mt-2 w-full py-3 text-xs rounded-full  font-semibold text-white bg-green-800 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative"
         >
           Login
         </button>
@@ -91,4 +90,4 @@ const Form = () => {
 };
 export default Form;
 const inputStyle =
-  "bg-gray-100 text-sm rounded-lg p-2 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500  transition-all duration-200";
+  "border-black/20 border rounded-md p-2.5 text-sm text-gray-700 placeholder-gray-400 text-semibold focus:outline-none focus:ring-2 focus:ring-green-600  transition-all duration-200";

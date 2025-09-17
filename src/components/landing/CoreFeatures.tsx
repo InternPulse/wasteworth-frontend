@@ -4,10 +4,10 @@ import { assets } from "../../assets/assets";
 const CoreFeatures = () => {
   return (
     <div className="p-5 my-2">
-      <h2 className="text-green-600 font-semibold sm:text-lg md:text-2xl text-center mb-5 md:mb-10">
+      <h2 className="text-green-600 font-semibold text-lg md:text-2xl text-center mb-5 md:mb-10">
         Core Features
       </h2>
-      <div className="grid grid-cols-3 gap-2 md:gap-5">
+      <div className="grid sm:grid-cols-3 gap-2 md:gap-5">
         {[
           [
             <FaHome />,
@@ -35,7 +35,7 @@ const CoreFeatures = () => {
             <div className="flex flex-col items-center gap-1">
               <span>{feature[0]}</span>
               <h2 className="text-green-600 sm:text-lg md:text-xl font-semibold">{feature[1]}</h2>
-              <p className="text-gray-700 text-xs sm:text-sm md:text-base">{feature[2]}</p>
+              <p className="text-gray-700 mb-2 text-xs sm:text-sm md:text-base">{feature[2]}</p>
             </div>
           </div>
         ))}

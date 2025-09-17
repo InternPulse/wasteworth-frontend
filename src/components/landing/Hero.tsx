@@ -5,7 +5,7 @@ import ButtonOutline from "../../utils/ButtonOutline";
 
 const Hero = () => {
   return (
-    <div className="relative overflow-hidden grid lg:grid-cols-2 h-[80vh] md:h-[90vh] -gap-5">
+    <div className="relative overflow-hidden grid lg:grid-cols-2 h-[calc(100vh-60px)] gap-5">
       <div className="sm:px-15 flex flex-col items-center sm:items-start gap-5 justify-center">
         <h1 className="text-6xl md:text-7xl text-center sm:text-left text-white lg:text-gray-800 font-bold leading-[5.5rem] mb-[1rem]">
           Turn Your Waste <br /> Into Worth
@@ -15,10 +15,10 @@ const Hero = () => {
           transparent, and profitable.
         </p>
         <div className="flex gap-5 justify-center sm:justify-start">
-          <Link to="start">
+          <Link to="auth">
             <Button text="Get Started" />
           </Link>
-          <Link to=":recycler/register">
+          <Link to="auth/:recycler">
             <ButtonOutline text="Join as Recycler" />
           </Link>
         </div>

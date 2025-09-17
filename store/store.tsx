@@ -6,6 +6,6 @@ interface Store {
 }
 const useStore = create<Store>((set) => ({
   email: "",
-  setEmail: (email) => set((state) => ({ email })),
+  setEmail: (email) => set(() => ({ email })),
 }));
 export default useStore;

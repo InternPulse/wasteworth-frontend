@@ -20,7 +20,7 @@ const AboutBanner = () => {
           </p>
           <div className="flex justify-center sm:justify-start">
             <button className="bg-green-700 hover:bg-green-600 transition-colors duration-300 ease-in-out px-6 py-3 text-white font-semibold rounded-md cursor-pointer">
-              <Link to='/start'>Get Started</Link>
+              <Link to="/auth">Get Started</Link>
             </button>
           </div>
         </div>
