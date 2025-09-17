@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { AiOutlineFileMarkdown } from "react-icons/ai";
-import { FaCheck, FaMarker } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const RoleSelection = () => {
