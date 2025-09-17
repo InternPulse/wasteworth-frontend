@@ -1,24 +1,48 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Form from "../../components/authentication/LoginForm";
+import { FaGoogle } from "react-icons/fa";
+import { assets } from "../../assets/assets";
 
 const Login = () => {
-  const { role } = useParams();
   return (
-    <div className="min-h-screen bg-[#90ff75] md:py-8 md:px-15">
-      <div className="grid sm:grid-cols-2 rounded-lg w-full p-5">
-        <div className="hidden sm:flex items-center justify-center h-full sm:rounded-l-lg">
-          me
+    <div className="relative min-h-screen flex items-center justify-center bg-gray-100">
+      <Link
+        to={"/"}
+        className="absolute right-2 text-sm top-5 text-green-600 font-semibol"
+      >
+        back to home
+      </Link>
+      <div className="grid sm:grid-cols-2 max-w-4xl rounded-lg w-full p-4">
+        {/* Image */}
+        <div className="hidden sm:flex items-center justify-center h-full sm:rounded-l-lg overflow-hidden">
+          <img
+            src={assets.dispose}
+            className="scale-105 h-full w-full object-cover object-right"
+          />
         </div>
-        <div className="bg-white p-5 rounded-lg sm:rounded-l-none h-120 flex flex-col items-center">
-          <h2 className="font-semibold text-xl">Log in to your Account</h2>
-          <p>
+        {/* Auth */}
+        <div className="bg-white p-3 py-8 rounded-lg sm:rounded-l-none h130 flex flex-col items-center justify-center">
+          <h2 className="font-semibold text-2xl text-gray-800 mb-1">
+            Log into your Account
+          </h2>
+          <p className="text-xs font-semibold text-gray-700">
             Don't have an account?{" "}
-            <span className="text-green-500 cursor-pointer">
-              <Link to={`/${role}/register`}>Sign up here</Link>
+            <span className="text-green-700 cursor-pointer">
+              <Link to={`/start`}>Sign up here</Link>
             </span>
           </p>
+          <button className="px-6 py-1 flex items-center cursor-pointer rounded-lg font-semibold my-2 gap-2 text-xs border border-gray-200">
+            <FaGoogle />
+            <span>Sign in with Google</span>
+          </button>
+          <div className="flex gap-2 items-center text-gray-500 text-xs w-8/10">
+            <hr className="w-full text-gray-200 " />
+            or
+            <hr className="w-full text-gray-200" />
+          </div>
           {/* form */}
-          <div className="flex items-center justify-center w-full h-full text-4xl sm:text-5xl font-bold">
-            Coming Soon!!!
+          <div className="w-full">
+            <Form />
           </div>
         </div>
       </div>

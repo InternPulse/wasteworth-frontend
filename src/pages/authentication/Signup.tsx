@@ -1,21 +1,28 @@
-import { Link, useParams } from "react-router-dom";
-import Form from "../../components/authentication/Form";
+import { Link } from "react-router-dom";
+import Form from "../../components/authentication/SignupForm";
 import { FaGoogle } from "react-icons/fa";
+import { assets } from "../../assets/assets";
 
 const Signup = () => {
-  const { role } = useParams();
   return (
-    <div className="min-h-screen md:py-8 md:px-15">
-      <div className="grid sm:grid-cols-2 rounded-lg w-full p-5">
-        <div className="hidden border sm:flex items-center justify-center h-full sm:rounded-l-lg">
-          me
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="grid sm:grid-cols-2 max-w-4xl rounded-lg w-full p-4 sm:p-4">
+        {/* Image */}
+        <div className="hidden sm:flex items-center justify-center h-full sm:rounded-l-lg overflow-hidden">
+          <img
+            src={assets.dispose}
+            className="scale-105 h-full w-full object-cover object-right"
+          />
         </div>
-        <div className="bg-white border p-5 rounded-lg sm:rounded-l-none h-120 flex flex-col items-center">
-          <h2 className="font-bold text-2xl">Create your Account</h2>
+        {/* Auth */}
+        <div className="bg-white p-5 py-8 rounded-lg sm:rounded-l-none h130 flex flex-col items-center justify-center">
+          <h2 className="font-semibold text-2xl text-gray-800 mb-1">
+            Create your Account
+          </h2>
           <p className="text-xs font-semibold text-gray-700">
             Already have an account?{" "}
             <span className="text-green-700 cursor-pointer">
-              <Link to={`/${role}/login`}>Login here</Link>
+              <Link to={`/login`}>Login here</Link>
             </span>
           </p>
           <button className="px-6 py-1 flex items-center cursor-pointer rounded-lg font-semibold my-2 gap-2 text-xs border border-gray-200">

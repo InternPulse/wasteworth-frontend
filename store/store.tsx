@@ -1,16 +1,11 @@
 import { create } from "zustand";
 
 interface Store {
-  sidebarOpen: boolean;
-  setSidebarOpen: (open: boolean) => void;
-  toggleSidebar: () => void;
+  email: string;
+  setEmail: (email: string) => void;
 }
 const useStore = create<Store>((set) => ({
-  sidebarOpen: false,
-  setSidebarOpen: (open: boolean) => set({ sidebarOpen: open }),
-  toggleSidebar: () =>
-    set((state: { sidebarOpen: boolean }) => ({
-      sidebarOpen: !state.sidebarOpen,
-    })),
+  email: "",
+  setEmail: (email) => set((state) => ({ email })),
 }));
 export default useStore;

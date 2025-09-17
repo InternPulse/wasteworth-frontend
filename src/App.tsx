@@ -6,6 +6,8 @@ import Landing from "./pages/home/Landing";
 import About from "./components/home/About";
 import RoleSelection from "./pages/authentication/RoleSelection";
 import ComingSoon from "./pages/ComingSoon";
+import ForgotPassword from "./pages/authentication/ForgotPassword";
+import OtpVerification from "./pages/authentication/OtpVerification";
 
 function App() {
   return (
@@ -16,8 +18,10 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="*" element={<ComingSoon />} />
         </Route>
-        <Route path="/start" element={<RoleSelection />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/otp-verification" element={<OtpVerification />} />
+        <Route path="/start" element={<RoleSelection />} />
         <Route path=":role/register" element={<Signup />} />
 
         <Route path="/disposer" element={<div>User</div>}></Route>
