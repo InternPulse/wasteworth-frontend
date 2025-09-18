@@ -1,43 +1,41 @@
-import type { FormEvent } from "react";
+import axios from "axios";
+import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
-interface formDataProps {
-  get: (arg: string) => any;
-}
+import useStore from "../../../store/store";
 
 const Form = () => {
+  const { setUser, setTokens, setIsLoggedIn } = useStore();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    const formData: formDataProps = new FormData(e.currentTarget);
     e.preventDefault();
     // You can access form data using formData.get('inputName');
     const data = {
-      email: formData.get("email"),
-      password: formData.get("password"),
-      password2: formData.get("password2"),
-      role: formData.get("role"),
+      email,
+      password,
     };
-    console.log(JSON.stringify(data));
+    console.log("Logging in...");
 
-    /* const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://agricon-django-backend.onrender.com/api/v1/auth/register/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          }
-        );
-        console.log(response);
-      } catch (error) {
+    setIsLoading(true);
+    axios
+      .post(
+        "https://wasteworth-backend-django.onrender.com/api/v1/users/login/",
+        data
+      )
+      .then((response) => {
+        console.log("Form submitted successfully:", response);
+        response.status === 200 && setIsLoggedIn(true);
+        setUser(response.data.user);
+        setTokens(response.data.tokens);
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        setIsLoading(false);
         console.error("Error submitting form:", error);
-      }
-    }; */
-    navigate("/user");
+      });
   };
 
   return (
@@ -51,7 +49,8 @@ const Form = () => {
           id="email"
           type="email"
           placeholder="Enter your email address"
-          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </div>
@@ -64,7 +63,8 @@ const Form = () => {
           id="password"
           type="password"
           placeholder="Enter your password"
-          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
         />
       </div>
@@ -82,7 +82,7 @@ const Form = () => {
           type="submit"
           className="mt-2 w-full py-3 text-xs rounded-full  font-semibold text-white bg-green-800 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative"
         >
-          Login
+          {isLoading ? "Logging in..." : "Login"}
         </button>
       </div>
     </form>

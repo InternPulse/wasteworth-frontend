@@ -5,31 +5,31 @@ import Slider from "../../utils/Slider";
 import Collectibles from "../../components/landing/Collectibles";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
+import Partners from "../../components/landing/Partners";
 
 const Landing = () => {
   return (
     <>
       <Hero />
       <div className="bg-gray-100">
+        <Partners />
         <CoreFeatures />
-        <Slider />
         <ForWhom />
+        <Slider />
         <Collectibles />
-        <div className="flex items-center justify-center relative">
-          <div className="absolute top-0 bg-cover bg-center brightness-70 w-full h-full bg-[url('src/assets/bin2.png')] "></div>
-          <div className="flex flex-col z-1 p-5">
-            <div className="flex items-center w-1/2 ml-auto justify-center">
-              <img src={assets.logo} className=" object-cover scale-140" />
+        <div className="px-30">
+          <h2 className="text-green-600 font-semibold sm:text-lg md:text-2xl text-center mb-10">
+            Together, We’re Building Cleaner Nigeria
+          </h2>
+          <div className="grid grid-cols-2">
+            <div className="flex flex-col p-5 justify-center">
+              <div className="">
+                <h2 className="text-green-600 font-semibold sm:text-lg md:text-2xl text-center">1.200+</h2>
+                <p>Pickups Completed</p>
+              </div>
             </div>
-            <div className=" space-y-2">
-              <p className="text-white text-xs font-semibold">
-                Be part of the change; Join the WasteWorth movement
-              </p>
-              <Link to="/auth">
-                <button className="bg-green-700 hover:bg-green-600 transition duration-300 ease flex justify-center items-center text-xs px-4 py-1 sm:py-2 text-white font-semibold rounded-md cursor-pointer">
-                  Get Started
-                </button>
-              </Link>
+            <div className="flex items-center justify-center">
+              <img src={assets.bin} alt="" />
             </div>
           </div>
         </div>

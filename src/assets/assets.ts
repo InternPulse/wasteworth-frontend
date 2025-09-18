@@ -1,16 +1,28 @@
+import hero from "./hero.png";
+import uba from "./uba.png";
+import walletMoney from "./walletMoney.png";
 import logo from "./Logo.png";
 import logo2 from "./Logo2.png";
 import bin from "./bin.png";
-import bin2 from "./bin2.png";
-import bottle from "./bottle.png";
+import collect1 from "./collect1.png";
+import collect2 from "./collect2.png";
+import collect3 from "./collect3.png";
+import collect4 from "./collect4.png";
+import collect5 from "./collect5.png";
+import collect6 from "./collect6.png";
 import dispose from "./dispose.png";
-import spoon from "./spoon.png";
 export const assets = {
+  hero,
+  uba,
+  walletMoney,
   logo,
   logo2,
   bin,
-  bin2,
-  bottle,
+  collect1,
+  collect2,
+  collect3,
+  collect4,
+  collect5,
+  collect6,
   dispose,
-  spoon,
 };

@@ -23,9 +23,9 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-      <div className="absolute lg:relative -z-2 lg:z-1 w-full h-full border brightness-50 lg:brightness-100">
+      <div className="absolute lg:relative -z-2 lg:z-1 w-full h-full  brightness-50 lg:brightness-100">
         <img
-          src={assets.bin2}
+          src={assets.hero}
           className="object-cover scale-105 h-full w-full"
         />
       </div>
