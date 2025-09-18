@@ -12,6 +12,8 @@ interface User {
   createdAt: string;
 }
 interface Store {
+  email: string;
+  setEmail: (email: string) => void;
   isLoggedIn: boolean;
   setIsLoggedIn: (isLoggedIn: boolean) => void;
   user: User;
@@ -23,6 +25,8 @@ interface Store {
   setTokens: (tokens: { access: string; refresh: string }) => void;
 }
 const useStore = create<Store>((set) => ({
+  email: "",
+  setEmail: (email) => set({ email }),
   /* Authentication status */
   isLoggedIn: false,
   setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),

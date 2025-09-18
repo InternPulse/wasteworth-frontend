@@ -1,4 +1,3 @@
-import { FaHome } from "react-icons/fa";
 import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
 

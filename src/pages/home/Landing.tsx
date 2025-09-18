@@ -4,7 +4,6 @@ import ForWhom from "../../components/landing/ForWhom";
 import Slider from "../../utils/Slider";
 import Collectibles from "../../components/landing/Collectibles";
 import { assets } from "../../assets/assets";
-import { Link } from "react-router-dom";
 import Partners from "../../components/landing/Partners";
 
 const Landing = () => {
