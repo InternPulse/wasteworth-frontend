@@ -11,33 +11,26 @@ const ForWhom = () => {
       <div className="grid grid-cols-2 gap-2 sm:gap-5 md:gap-8">
         {[
           [
-            <FaHome />,
+            assets.dispose,
             "Clear your space, earn rewards.",
             "Easily post your waste and let recyclers come to you. No stress, no dumping.",
             "Join as Disposers",
             "disposer",
           ],
           [
-            <FaHome />,
+            assets.dispose,
             "Find valuable recyclables faster",
             "Browse waste listings nearby, contact disposers, and grow your recycling business",
             "Join as recycler",
             "recycler",
           ],
         ].map((feature, idx) => (
-          <div
-            key={`core-feature-${idx}`}
-            className="sm:p-2 md:p-5 md:py-8 grid gap-2 sm:gap-5  rounded-md bg-white text-center"
-          >
-            <div className=" flex sm:rounded-md items-center justify-center">
-              <img
-                src={assets.dispose}
-                className="h-20 sm:h-full w-full object-cover rounded-t-md sm:rounded-md"
-              />
+          <div key={`core-feature-${idx}`} className="grid text-center">
+            <div className="rounded-md flex items-center justify-center">
+              <img src={feature[0]} className="w-full" />
             </div>
-            <div className="flex flex-col items-center pb-2 sm:pb-0 sm:gap-1">
-              <span className="text-green-600">{feature[0]}</span>
-              <h2 className="text-gray-900 font-semibold text-[0.7rem] sm:text-base md:text-2xl">
+            <div className="flex flex-col items-center p-2 md:p-5 gap-1 md:gap-4 bg-white rounded-b-lg sm:rounded-b-xl">
+              <h2 className="text-[#222222] font-semibold text-[0.7rem] sm:text-base md:text-2xl">
                 {feature[1]}
               </h2>
               <p className="text-gray-700 text-[0.6rem] sm:text-sm md:text-base mb-2">
@@ -45,7 +38,7 @@ const ForWhom = () => {
               </p>
               <Link
                 to={`/auth/:${feature[4] as string}`}
-                className={`mt-auto bg-white border border-green-700 flex justify-center items-center px-2 md:px-4 py-1 md:py-2 text-xs sm:text-sm md:text-base text-green-700 font-semibold rounded-md cursor-pointer `}
+                className={`mt-auto bg-gray-100/80 border border-green-700 flex justify-center items-center px-2 md:px-5 py-1 md:py-2 text-xs sm:text-sm md:text-base text-green-700 font-semibold rounded-md cursor-pointer `}
               >
                 {feature[3]}
               </Link>
