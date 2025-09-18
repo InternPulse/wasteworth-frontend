@@ -1,14 +1,15 @@
 import axios from "axios";
 import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useStore from "../../../store/store";
 
 const Form = () => {
   const { setUser, setTokens, setIsLoggedIn } = useStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // You can access form data using formData.get('inputName');
@@ -18,6 +19,7 @@ const Form = () => {
     };
     console.log("Logging in...");
 
+    setIsLoading(true);
     axios
       .post(
         "https://wasteworth-backend-django.onrender.com/api/v1/users/login/",
@@ -28,12 +30,12 @@ const Form = () => {
         response.status === 200 && setIsLoggedIn(true);
         setUser(response.data.user);
         setTokens(response.data.tokens);
+        navigate("/dashboard");
       })
       .catch((error) => {
+        setIsLoading(false);
         console.error("Error submitting form:", error);
       });
-
-    //navigate("/user");
   };
 
   return (
@@ -80,7 +82,7 @@ const Form = () => {
           type="submit"
           className="mt-2 w-full py-3 text-xs rounded-full  font-semibold text-white bg-green-800 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative"
         >
-          Login
+          {isLoading ? "Logging in..." : "Login"}
         </button>
       </div>
     </form>

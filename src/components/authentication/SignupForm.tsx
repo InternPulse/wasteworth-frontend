@@ -9,7 +9,7 @@ const Form = () => {
   const [role, setRole] = useState("");
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    setRole("recycler");
+    setRole("disposer");
     e.preventDefault();
     const data = { email, password, confirm_password, role };
     console.log('Posting...');

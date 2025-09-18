@@ -11,7 +11,7 @@ import WalletAndRewards from "../pages/wallet&reward/WalletAndRewards";
 import CollectorProfile from "../pages/collectorProfile/CollectorProfile";
 
 const DashboardLayout = () => {
-  const [sidebarOpen, setSidebarOpen] = useState<boolean | null>(true);
+  const [sidebarOpen, setSidebarOpen] = useState<boolean | null>(false);
   const [activeTab, setActiveTab] = useState("dashboard");
   return (
     <div className="h-screen overflow-hidden">
