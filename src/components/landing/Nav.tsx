@@ -35,7 +35,10 @@ const Nav = ({
           );
         })}
       </ul>
-      <NavLink to='start' className="hidden bg-green-700 hover:bg-green-600 transition duration-300 ease sm:flex justify-center items-center px-4 py-2 text-white font-semibold rounded-md cursor-pointer hover:shadow-md shadow-gray-400/50">
+      <NavLink
+        to="auth"
+        className="hidden bg-green-700 hover:bg-green-600 transition duration-300 ease sm:flex justify-center items-center px-4 py-2 text-white font-semibold rounded-md cursor-pointer hover:shadow-md shadow-gray-400/50"
+      >
         Get Started
       </NavLink>
       <div className="sm:hidden">

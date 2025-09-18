@@ -1,8 +1,6 @@
 import hero from "./hero.png";
 import uba from "./uba.png";
-import walletMoney from "./walletMoney.png";
 import logo from "./Logo.png";
-import logo2 from "./Logo2.png";
 import bin from "./bin.png";
 import collect1 from "./collect1.png";
 import collect2 from "./collect2.png";
@@ -14,9 +12,7 @@ import dispose from "./dispose.png";
 export const assets = {
   hero,
   uba,
-  walletMoney,
   logo,
-  logo2,
   bin,
   collect1,
   collect2,

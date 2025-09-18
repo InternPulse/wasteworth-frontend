@@ -5,7 +5,7 @@ import { TbBrandX } from "react-icons/tb";
 const Footer = () => {
   return (
     <div className="bg-green-900 px-4 sm:px-15 py-5 flex flex-col items-center text-white">
-      <div className="grid grid-cols-2 lg:grid-cols-[20%_1fr_20%] gap-5 sm:gap-10 md:gap-20 sm:py-10 mb-10">
+      <div className="grid lg:grid-cols-[20%_1fr_20%] gap-5 sm:gap-10 md:gap-20 sm:py-10 mb-10">
         <div className="flex flex-col gap-5 text-white">
           <p className="sm:mt-auto font-semibold text-sm sm:text-base">
             WasteWorth: Since 2025, expert tours blending culture, adventure and
@@ -21,7 +21,7 @@ const Footer = () => {
           </div>
         </div>
         {/* Links */}
-        <div className="grid grid-cols-2 space-y-2 sm:grid-cols-3 w-full ">
+        <div className=" grid grid-cols-3 space-y-2 w-full ">
           <div className="flex flex-col gap-3 text-white">
             <h2 className="font-semibold">Company</h2>
             <div className="text-sm flex flex-col">
@@ -47,7 +47,7 @@ const Footer = () => {
           </div>
         </div>
         {/* Contact */}
-        <div className="col-span-2 sm:col-span-1 flex flex-col gap-4 text-white">
+        <div className=" flex flex-col gap-4 text-white">
           <h2 className="font-semibold">Contact Information</h2>
           <div className="flex gap-2 items-start">
             <MdLocationOn className="text-5xl sm:text-7xl h-5 sm:h-10" />

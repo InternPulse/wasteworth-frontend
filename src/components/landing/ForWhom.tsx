@@ -7,7 +7,7 @@ const ForWhom = () => {
       <h2 className="text-green-600 font-semibold sm:text-lg md:text-2xl text-center mb-2 sm:mb-5 md:mb-10">
         For Whom
       </h2>
-      <div className="grid grid-cols-2 gap-2 sm:gap-5 md:gap-8">
+      <div className="grid grid-cols-2 gap-2 sm:gap-5 md:gap-8 max-w-5xl mx-auto">
         {[
           [
             assets.dispose,

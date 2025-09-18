@@ -5,8 +5,8 @@ import ButtonOutline from "../../utils/ButtonOutline";
 
 const Hero = () => {
   return (
-    <div className="relative overflow-hidden grid lg:grid-cols-2 h-[calc(100vh-60px)] gap-5">
-      <div className="sm:px-15 flex flex-col items-center sm:items-start gap-5 justify-center">
+    <div className="grid lg:grid-cols-2 h-[calc(100vh-60px)] gap-5">
+      <div className="sm:px-15 flex flex-col items-center sm:items-start gap-5 justify-center w-full">
         <h1 className="text-6xl md:text-7xl text-center sm:text-left text-white lg:text-gray-800 font-bold leading-[5.5rem] mb-[1rem]">
           Turn Your Waste <br /> Into Worth
         </h1>
@@ -23,10 +23,10 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-      <div className="absolute lg:relative -z-2 lg:z-1 w-full h-full  brightness-50 lg:brightness-100">
+      <div className="absolute lg:static h-[calc(100vh-60px)] flex items-center justify-center -z-2 lg:z-1 w-full   brightness-60 lg:brightness-100">
         <img
           src={assets.hero}
-          className="object-cover scale-105 h-full w-full"
+          className="object-cover scale-100 h-full w-full"
         />
       </div>
     </div>

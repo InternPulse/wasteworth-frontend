@@ -8,7 +8,7 @@ const CoreFeatures = () => {
       <h2 className="text-green-600 font-semibold text-lg md:text-xl text-center mb-5 md:mb-5">
         Core Features
       </h2>
-      <div className="grid grid-cols-3 gap-2 md:gap-5">
+      <div className="grid grid-cols-3 gap-2 md:gap-5 max-w-5xl mx-auto">
         {[
           [
             <HiOutlineChartBar />,

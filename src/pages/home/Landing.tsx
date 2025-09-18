@@ -16,7 +16,7 @@ const Landing = () => {
         <ForWhom />
         <Slider />
         <Collectibles />
-        <div className="px-30">
+        {/* <div className="px-5 max-w-4xl mx-auto">
           <h2 className="text-green-600 font-semibold sm:text-lg md:text-2xl text-center mb-10">
             Together, We’re Building Cleaner Nigeria
           </h2>
@@ -31,7 +31,7 @@ const Landing = () => {
               <img src={assets.bin} alt="" />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
