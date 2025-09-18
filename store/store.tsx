@@ -1,29 +1,51 @@
 import { create } from "zustand";
 
-interface Store {
+interface User {
+  userId: string;
+  name: string | null;
   email: string;
-  setEmail: (email: string) => void;
+  phone: string | null;
+  role: string;
+  location: string | null;
+  walletBalance: string;
+  referralCode: string;
+  createdAt: string;
+}
+interface Store {
+  isLoggedIn: boolean;
+  setIsLoggedIn: (isLoggedIn: boolean) => void;
+  user: User;
+  setUser: (user: User) => void;
+  tokens: {
+    access: string;
+    refresh: string;
+  };
+  setTokens: (tokens: { access: string; refresh: string }) => void;
 }
 const useStore = create<Store>((set) => ({
-  email: "",
-  setEmail: (email) => set(() => ({ email })),
+  /* Authentication status */
+  isLoggedIn: false,
+  setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
+
+  /* Data */
+  user: {
+    createdAt: "2025-09-18T06:37:08.116690Z",
+    email: "tofexzyno@gmail.com",
+    location: null,
+    name: null,
+    phone: null,
+    referralCode: "GWB4ZFT7",
+    role: "recycler",
+    userId: "0d6de97d-3c22-4283-a29c-dcff680b74f4",
+    walletBalance: "0.00",
+  },
+  setUser: (user) => set({ user }),
+
+  /* Authentication requirements */
+  tokens: {
+    access: "",
+    refresh: "",
+  },
+  setTokens: (tokens) => set({ tokens }),
 }));
 export default useStore;
-/* {
-    "message": "User created successfully",
-    "user": {
-        "userId": "0d6de97d-3c22-4283-a29c-dcff680b74f4",
-        "name": null,
-        "email": "tofexzyno@gmail.com",
-        "phone": null,
-        "role": "recycler",
-        "location": null,
-        "walletBalance": "0.00",
-        "referralCode": "GWB4ZFT7",
-        "createdAt": "2025-09-18T06:37:08.116690Z"
-    },
-    "tokens": {
-        "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1ODc4MjIzMSwiaWF0IjoxNzU4MTc3NDMxLCJqdGkiOiI2YmMyYmEzMDlkMTk0YTg5OWFhODA0ODRkNDY1MDk3OSIsInVzZXJfaWQiOiIwZDZkZTk3ZC0zYzIyLTQyODMtYTI5Yy1kY2ZmNjgwYjc0ZjQifQ.l7xe_TV944lOEokIH0WtrcVmJypfWMFHAyRFLK1JbEE",
-        "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU4MTgxMDMxLCJpYXQiOjE3NTgxNzc0MzEsImp0aSI6ImY4MzE3MzFmZmM3YTRlYjE5ZjFhYzc2NDgwOTMyMTk5IiwidXNlcl9pZCI6IjBkNmRlOTdkLTNjMjItNDI4My1hMjljLWRjZmY2ODBiNzRmNCJ9.33R1yCX_oSSqBia_PoFkxepmPvwNO0xmMzFRPwHVL7k"
-    }
-} */
