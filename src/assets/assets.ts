@@ -1,6 +1,7 @@
 import hero from "./hero.png";
 import uba from "./uba.png";
 import logo from "./Logo.png";
+import logo1 from "./logo.svg";
 import bin from "./bin.png";
 import collect1 from "./collect1.png";
 import collect2 from "./collect2.png";
@@ -13,6 +14,7 @@ export const assets = {
   hero,
   uba,
   logo,
+  logo1,
   bin,
   collect1,
   collect2,

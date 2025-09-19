@@ -6,11 +6,9 @@ const About = () => {
   return (
     <div className="pb-10">
       <AboutBanner />
-      <div className="py-5 px-5 space-y-5">
-        <MandVCards key={11011} data={[mission, vision]} />
-        <Slider/>
-        <MandVCards key={2} data={[commitment, offer]} />
-      </div>
+      <MandVCards key={11011} data={[mission, vision]} />
+      <Slider />
+      <MandVCards key={2} data={[commitment, offer]} />
     </div>
   );
 };
@@ -23,7 +21,7 @@ const vision = [
   "Our vision is to create a future where every community treats  waste as valuable resources. We see a world where recycling is effortless, streets are cleaner, and recyclers are empowered with steady opportunities to grow theirs businesses. By turning waste into impact, we aim to inspire a culture of sustainability that benefits people, the planet, and the economy.",
 ];
 const commitment = [
-  "Our Commitnet",
+  "Our Commitment",
   "At WasteWorth, we are commited to promoting sustainable waste management practices. Our approach combines technology and community engagements to ensure that waste is collected, sorted, and recycled responsibly for a cleaner environment.",
 ];
 const offer = [

@@ -4,6 +4,7 @@ import Login from "./pages/authentication/Login";
 import Signup from "./pages/authentication/Signup";
 import Landing from "./pages/home/Landing";
 import About from "./components/landing/About";
+import ContactUs from "./components/landing/ContactUs";
 import RoleSelection from "./pages/authentication/RoleSelection";
 import ComingSoon from "./pages/ComingSoon";
 import ForgotPassword from "./pages/authentication/ForgotPassword";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Landing />} />
           <Route path="about" element={<About />} />
+          <Route path="contact" element={<ContactUs />} />
           <Route path="*" element={<ComingSoon />} />
         </Route>
         {/* Authentication */}

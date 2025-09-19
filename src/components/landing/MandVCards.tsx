@@ -1,13 +1,22 @@
 const MandVCards = ({ data }: { data: string[][] }) => {
   const MandV = data;
   return (
-    <div className="grid grid-cols-2 gap-5 md:gap-10 px-5">
-      {MandV.map((m) => (
-        <div key={m[0]} className="flex flex-col gap-2">
-          <h1 className="text-teal-600 font-semibold text-lg">{m[0]}</h1>
-          <p className="text-gray-600 font-[500] text-[0.8rem]">{m[1]}</p>
-        </div>
-      ))}
+    <div className="space-y-10 mt-5 sm:px-8 lg:px-15 sm:py-8 w-9/10 mx-auto sm:w-full">
+      <div className="grid grid-rows-2 sm:grid-rows-1 sm:grid-cols-2 gap-5 md:gap-10 rounded-lg sm:bg-gray-100/30 sm:py-5 xl:py-10 sm:px-8">
+        {MandV.map((m) => (
+          <div
+            key={m[0]}
+            className="flex flex-col justify-center sm:justify-start gap-3 lg:gap-5 sm:bg-transparent p-4 sm:p-0 shadow-lg sm:shadow-none"
+          >
+            <h1 className="text-green-600 font-semibold text-[1.5rem] sm:text-[1.7rem] xl:text-[2rem] text-center sm:text-left">
+              {m[0]}
+            </h1>
+            <p className="text-gray-800 tracking-wider leading-[1.4rem] xl:leading-[1.6rem] xl:leading-[1.8rem] text-sm sm:text-[0.9rem] xl:text-[1.1rem] text-center sm:text-left">
+              {m[1]}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
