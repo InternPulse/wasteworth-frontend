@@ -1,37 +1,40 @@
-import { Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
 
 const AboutBanner = () => {
   return (
-    <div className="h-[75vh] sm:h-full bg-green-700 py-4 px-4 sm:px-10 grid grid-rows-[160px_1fr] sm:grid-rows-1 sm:grid-cols-[60%_40%]">
-      {/* Text Section */}
-      <div className="shadow-lg bg-white p-2 sm:p-6 md:p-10  sm:rounded-l-lg sm:rounded-r-none flex items-center justify-center sm:scale-y-95 order-last sm:order-none">
-        <div>
-          <p className="text-gray-600 text-xs sm:text-sm mb-2 uppercase tracking-wide">
-            Over 10,000 plastics recycled
-          </p>
-          <h1 className="text-xl sm:text-4xl lg:text-[3.3rem] font-bold text-gray-800 leading-tight mb-4 text-center sm:text-left">
-            Connecting Communities to responsible waste management
-          </h1>
-          <p className="text-gray-700 text-sm sm:text-base mb-6 text-center sm:text-left font-medium">
-            WasteWorth is a waste recycling application that simplifies
-            collection of plastic waste, enables tracking, and adds gamification
-            incentives.
-          </p>
-          <div className="flex justify-center sm:justify-start">
-            <button className="bg-green-700 hover:bg-green-600 transition-colors duration-300 ease-in-out px-6 py-3 text-white font-semibold rounded-md cursor-pointer">
-              <Link to="/auth">Get Started</Link>
-            </button>
+    <div className="bg-green-600 h-[calc(100%)] md:h-auto md:py-8 lg:py-15  flex items-center justify-center relative">
+      <div className="rounded-lg grid md:grid-cols-2 w-9/10">
+        {/* text */}
+        <div className="flex-1 z-1 md:z-0">
+          <div className="flex items-center justify-center px-5 py-8 md:p-10 xl:p-20 md:bg-white md:rounded-l-lg h-full w-full">
+            <div className="space-y-1 lg:space-y-3">
+              <p className="text-yellow-500 md:text-yellow-600 font-semibold text-xs md:text-sm lg:text-base">
+                OVER 10,000 PLASTICS RECYCLED
+              </p>
+              <h2 className="font-bold text-2xl sm:text-3xl lg:text-2xl xl:text-3xl text-white md:text-gray-800 lg:leading-[2.5rem] mb-3 lg:mb-5 text-center sm:text-left">
+                Connecting Communities to <br className="hidden sm:block" />{" "}
+                responsible waste <br className="hidden sm:block" /> management
+              </h2>
+              <p className="text-gray-300 text-center sm:text-left md:text-gray-600 mb-8 sm:mb-5 lg:mb-8 text-sm lg:text-base max-w-lg">
+                WasteWorth is a waste recycling application that simplifies
+                collections of plastic waste, enables tracking and adds
+                gamification incentives.
+              </p>
+              <div className="w-full flex justify-center sm:justify-start">
+                <button className="bg-green-700 text-white px-6 xl:px-8 py-2 xl:py-3 rounded-lg font-semibold ">
+                  Get Started
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      {/* Image Section */}
-      <div className="flex items-center justify-center bg-green-800 rounded-t sm:rounded-r-lg md:rounded-t-none overflow-hidden sm:p-2 md:p-4 h-40 sm:h-auto sm:scale-y-95 order-first sm:order-none">
-        <img
-          src={assets.dispose}
-          alt="WasteWorth recycling illustration"
-          className="w-full h-full object-cover object-top sm:object-contain "
-        />
+        <div className="flex-1 brightness-50 md:brightness-100 absolute h-full w-full top-0 left-0 md:static ">
+          <img
+            src={assets.hero}
+            alt=""
+            className="w-full h-full object-cover self-stretch-none md:rounded-r-lg aspect-[4/3]"
+          />
+        </div>
       </div>
     </div>
   );
