@@ -2,8 +2,8 @@ import { assets } from "../../assets/assets";
 
 const AboutBanner = () => {
   return (
-    <div className="bg-green-600 h-[calc(100%)] md:h-auto md:p-8 lg:p-15 xl:p-20 flex items-center justify-center relative">
-      <div className="rounded-lg grid md:grid-cols-2 w-full">
+    <div className="bg-green-600 h-[calc(100%)] md:h-auto md:py-8 lg:py-15  flex items-center justify-center relative">
+      <div className="rounded-lg grid md:grid-cols-2 w-9/10">
         {/* text */}
         <div className="flex-1 z-1 md:z-0">
           <div className="flex items-center justify-center px-5 py-8 md:p-10 xl:p-20 md:bg-white md:rounded-l-lg h-full w-full">

@@ -13,9 +13,11 @@ import AuthLayout from "./layout/AuthLayout";
 import Private from "./routes/Private";
 import DashboardLayout from "./layout/DashboardLayout";
 import useStore from "../store/store";
+import TermsAndConditions from "./components/landing/TermsAndConditions";
+import Privacy from "./components/landing/Privacy";
 
 function App() {
-  const {isLoggedIn} = useStore();
+  const { isLoggedIn } = useStore();
   return (
     <>
       <Routes>
@@ -24,6 +26,8 @@ function App() {
           <Route index element={<Landing />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<ContactUs />} />
+          <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="privacy-policy" element={<Privacy />} />
           <Route path="*" element={<ComingSoon />} />
         </Route>
         {/* Authentication */}
