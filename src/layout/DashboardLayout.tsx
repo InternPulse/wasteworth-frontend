@@ -2,23 +2,23 @@ import { useState } from "react";
 import { assets } from "../assets/assets";
 import { FaBars } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
-import Dashboard from "../pages/Dashboard/Dashboard";
 import MarketPlace from "../pages/marketPlace/MarketPlace";
 import Notification from "../pages/notifications/Notification";
 import MyProfile from "../pages/collectorProfile/CollectorProfile";
 import MyLisiting from "../pages/myListing/MyLisiting";
 import WalletAndRewards from "../pages/wallet&reward/WalletAndRewards";
 import CollectorProfile from "../pages/collectorProfile/CollectorProfile";
+import Recycler from "../pages/dashboard/Recycler";
 
 const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean | null>(false);
   const [activeTab, setActiveTab] = useState("dashboard");
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="min-h-screen">
       {/* NavBar */}
-      <nav className=" h-15 fixed top-0 left-0 right-0 flex items-center justify-between bg-gray-100 px-[1.5rem] sm:px-[2rem] md:px-[5rem]">
+      <nav className="flex items-center justify-between bg-white px-[1.5rem] sm:px-[2rem] md:px-[5rem]">
         {/* Logo */}
-        <div className="flex items-center justify-center h-14">
+        <div className="flex items-center justify-center">
           <img src={assets.logo} alt="" className="w-15 scale-115" />
         </div>
 
@@ -33,7 +33,7 @@ const DashboardLayout = () => {
           )}
         </div>
       </nav>
-      <div className="relative grid sm:grid-cols-[256px_1fr] mt-15 h-[calc(100vh-60px)] overflow-hidden ">
+      <div className="relative grid sm:grid-cols-[256px_1fr] h-[calc(100vh-60px)] ">
         <aside
           className={`w-64 ${
             sidebarOpen ? "fixed" : "hidden md:block"
@@ -79,7 +79,7 @@ const DashboardLayout = () => {
         {/* Content */}
         <div className="w-full h-full ">
           {activeTab === "dashboard" ? (
-            <Dashboard />
+            <Recycler />
           ) : activeTab === "marketplace" ? (
             <MarketPlace />
           ) : activeTab === "notification" ? (

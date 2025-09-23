@@ -2,7 +2,7 @@
 const Dashboard = () => {
   return (
     <div>
-      Sample
+      Sample of the disposers and recyclers dashboard
     </div>
   )
 }
