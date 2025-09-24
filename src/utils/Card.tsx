@@ -19,7 +19,7 @@ export default function Card({ bgColor, title, kilo, icon }: cardType) {
     <div className={`p-5 rounded-md ${selectedClass}`}>
         <div className="space-y-3">
             <div className="flex items justify-between">
-                <h5 className="text-[16px]">{title}</h5>
+                <h5 className="text-[16px] font-semibold">{title}</h5>
                 <p className="bg-white rounded-full p-2">{icon}</p>
             </div>
             <h2 className="text-[24px] font-bold">{kilo}</h2>

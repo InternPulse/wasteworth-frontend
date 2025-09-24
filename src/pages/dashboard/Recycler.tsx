@@ -1,17 +1,18 @@
-import React from "react";
 import MainCard from "../../components/dashboards/recycler/MainCard";
 import Referral from "../../components/dashboards/recycler/Referral";
 import RecentListing from "../../components/dashboards/recycler/RecentListing";
+import MainHeader from "../../components/dashboards/MainHeader";
 
 
 export default function Recycler() {
   return (
-    <React.Fragment>
-        <div className="bg-[#F5F5F5] min-h-screen p-6 space-y-5">
+      <div className="w-full">
+        <MainHeader />
+        <div className="min-h-screen p-5 space-y-5 w-full">
             <MainCard />
             <Referral />
-            <RecentListing />
+            <RecentListing />           
         </div>
-    </React.Fragment>
+    </div>
   )
 }
