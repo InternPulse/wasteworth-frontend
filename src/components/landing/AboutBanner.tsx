@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
 
 const AboutBanner = () => {
   return (
-    <div className="bg-green-600 h-[calc(100%)] md:h-auto md:py-8 lg:py-15  flex items-center justify-center relative">
+    <div className="bg-[#2E7D32] h-[calc(100vh-60px)] md:py-8 lg:py-15  flex items-center justify-center relative top-2">
       <div className="rounded-lg grid md:grid-cols-2 w-9/10">
         {/* text */}
         <div className="flex-1 z-1 md:z-0">
@@ -21,16 +22,18 @@ const AboutBanner = () => {
                 gamification incentives.
               </p>
               <div className="w-full flex justify-center sm:justify-start">
-                <button className="bg-green-700 text-white px-6 xl:px-8 py-2 xl:py-3 rounded-lg font-semibold ">
-                  Get Started
-                </button>
+                <Link to={"/login"}>
+                  <button className="bg-green-700 text-white px-6 xl:px-8 py-2 xl:py-3 rounded-lg font-semibold cursor-pointer">
+                    Get Started
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
         <div className="flex-1 brightness-50 md:brightness-100 absolute h-full w-full top-0 left-0 md:static ">
           <img
-            src={assets.hero}
+            src={assets.about}
             alt=""
             className="w-full h-full object-cover self-stretch-none md:rounded-r-lg aspect-[4/3]"
           />

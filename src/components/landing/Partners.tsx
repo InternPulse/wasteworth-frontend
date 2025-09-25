@@ -8,15 +8,26 @@ const Partners = () => {
       </h2>
       <div className="w-full overflow-x-hidden">
         <div className="flex items-center justify-around gap-2 scroll">
-          {Array(10)
-            .fill(0)
-            .map((_, i) => (
-              <img
-                src={assets.uba}
-                key={i}
-                className="w-12 sm:w-15 md:w-20 lg:w-24 object-fit"
-              />
-            ))}
+          {[
+            assets.uba,
+            assets.bolt,
+            assets.zenith,
+            assets.mobnia,
+            assets.sterling,
+            assets.fcmb,
+            assets.nb,
+            assets.chowdeck,
+            assets.ehealth,
+            assets.dano,
+            assets.peak,
+            assets.alat,
+          ].map((img, i) => (
+            <img
+              src={img}
+              key={i}
+              className="w-8 sm:w-10 md:w-12 object-fit"
+            />
+          ))}
         </div>
       </div>
     </div>
