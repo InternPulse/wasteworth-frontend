@@ -1,4 +1,6 @@
 import { FaArrowLeft, FaGift, FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { IoMdNotificationsOutline } from "react-icons/io";
 
 
 export default function SubHeader() {
@@ -18,6 +20,9 @@ export default function SubHeader() {
                     <FaUser size={30} className="rounded-full"/>
                     <p>user Name</p>
                 </div>
+                <Link to='#'>
+                    <IoMdNotificationsOutline />
+                </Link>
             </div>
         </div>
     </nav>

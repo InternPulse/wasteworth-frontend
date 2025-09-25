@@ -37,7 +37,7 @@ export default function DashboardLayout() {
     };
 
     return (
-        <div className='flex w-screen min-h-screen bg-[#F5F5F5] overflow-hidden'>
+        <div className='flex w-screen min-h-screen bg-[#F5F5F5]'>
             <Sidebar />
             <div className='grow h-full lg:h-full lg:pl-60'>
                 <div className="">

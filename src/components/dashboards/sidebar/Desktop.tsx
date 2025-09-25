@@ -6,9 +6,9 @@ import { assets } from '../../../assets/assets';
 export default function Desktop({ links, isActive, activeClass, inactiveClass }: DesktopProps) {
     
     return (
-        <div className="hidden lg:block bg-[#FFFFFF] min-h-screen fixed w-60">
+        <div className="hidden lg:block bg-[#FFFFFF] min-h-screen fixed w-60 space-y-20">
             <ul className='flex flex-col mt-5 text-[16px] px-4 space-y-3 font-semibold'>
-                <img src={assets.greenLogo} alt="waste_worth" width={60} className='mx-auto'/>
+                <img src={assets.greenLogo} alt="waste_worth" width={100} className='px-4'/>
                 {links.map((link, index) => {
                     // Get the icon component from the link data
                     const Icon = link.icon; 
@@ -24,6 +24,7 @@ export default function Desktop({ links, isActive, activeClass, inactiveClass }:
                     );
                 })}
             </ul>
+            <button className='text-red-600 font-semibold px-8 hover:cursor-pointer'>Logout</button>
         </div>
     );
 };

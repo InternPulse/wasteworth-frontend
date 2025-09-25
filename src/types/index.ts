@@ -21,3 +21,11 @@ export interface DesktopProps{
     activeClass: string;
     inactiveClass: string;
 }
+
+export interface MainHeaderProps{
+    firstName: string,
+    question: string,
+    points: number,
+    initial: string,
+    user: string
+}
