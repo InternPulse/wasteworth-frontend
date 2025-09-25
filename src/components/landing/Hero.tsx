@@ -1,32 +1,37 @@
 import { Link } from "react-router-dom";
 import { assets } from "../../assets/assets";
-import Button from "../../utils/Button";
-import ButtonOutline from "../../utils/ButtonOutline";
 
 const Hero = () => {
   return (
-    <div className="grid lg:grid-cols-2 h-[calc(100vh-60px)] gap-5">
-      <div className="sm:px-15 flex flex-col items-center sm:items-start gap-5 justify-center w-full">
-        <h1 className="text-6xl md:text-7xl text-center sm:text-left text-white lg:text-gray-800 font-bold leading-[5.5rem] mb-[1rem]">
-          Turn Your Waste <br /> Into Worth
-        </h1>
-        <p className="text-gray-200 lg:text-gray-700 text-center sm:text-left text-lg max-w-md">
-          A reward-driven recycling app that makes waste disposal simple,
-          transparent, and profitable.
-        </p>
-        <div className="flex gap-5 justify-center sm:justify-start">
-          <Link to="auth">
-            <Button text="Get Started" />
-          </Link>
-          <Link to="auth/:recycler">
-            <ButtonOutline text="Join as Recycler" />
-          </Link>
+    <div
+      className={`h-[calc(100vh-60px)] bg-[#2E7D32] flex items-center justify-center`}
+    >
+      <div className="grid md:grid-cols-2 rounded-lg items-center w-9/10 h-17/20">
+        <div className="md:rounded-l-lg bg-white h-full w-full flex items-center justify-center">
+          <div className="w-lg p-8">
+            <div className="">
+              <h3 className="text-[#B48F00] font-bold mb-2">
+                RECYCLE. EARN. LEVEL UP.
+              </h3>
+              <h2 className="font-bold text-2xl sm:text-3xl lg:text-3xl xl:text-4xl text-white md:text-gray-800 lg:leading-[2.5rem] mb-3 lg:mb-5 text-center sm:text-left">
+                Your Waste. Tour Rewards. <br /> Our Future.
+              </h2>
+              <p className="text-gray-300 text-center sm:text-left md:text-gray-600 mb-8 sm:mb-5 lg:mb-8 text-sm lg:text-base max-w-lg">
+                With WasteWorth, every item you recycle is tracked, rewarded,
+                and celebrated. Earn cash, unlock gamified incentives, and help
+                protect the planet
+              </p>
+            </div>
+            <Link to={"/login"}>
+              <button className="bg-green-700 text-white px-6 xl:px-8 py-2 xl:py-3 rounded-lg font-semibold ">
+                Get Started
+              </button>
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className="absolute lg:static h-[calc(100vh-60px)] flex items-center justify-center -z-2 lg:z-1 w-full   brightness-60 lg:brightness-100">
         <img
           src={assets.hero}
-          className="object-cover scale-100 h-full w-full"
+          className="h-full w-full object-cover md:rounded-r-lg"
         />
       </div>
     </div>
