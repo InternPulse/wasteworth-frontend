@@ -4,16 +4,19 @@ import { Link } from "react-router-dom";
 import type { MainHeaderProps } from "../../types";
 
 
-export default function MainHeader({firstName, question, points, initial, user}: MainHeaderProps) {
+export default function MainHeader({ firstName, question, points, initial, user }: MainHeaderProps) {
+    const activeClass = 'text-green-700'
+    const inActiveClass = 'text-gray-500'
+
   return (
     <nav className="px-10 py-2 bg-white fixed w-full">
         <div className="flex items-center space-x-[40%]">
             <div>
-                  <h3>Welcome back {firstName} 👋</h3>
+                  <h3 className="font-bold">Welcome back {firstName} 👋</h3>
                   <p>{question}</p>
             </div>
             <div className="lg:flex items-center gap-5 hidden">
-                <div className="flex items-center space-x-3 bg-[#FFEFDA] rounded-md px-3 py-1">
+                <div className="flex items-center space-x-3 bg-[#FFEFDA] rounded-xl px-3 py-1">
                     <span className="bg-white p-2 rounded-full"><FaGift size={15} className="text-[#FB8C00]"/></span>
                     <p className="text-black">{points} <span className="text-[#847E7E]">Points</span></p>
                 </div>
@@ -23,8 +26,8 @@ export default function MainHeader({firstName, question, points, initial, user}:
                     </p>
                     <p className=" font-bold">{user}</p>
                 </div>
-                <Link to='#'>
-                    <IoMdNotificationsOutline />
+                <Link to='notifications' className={`active ? ${activeClass} : ${inActiveClass}`}>
+                    <IoMdNotificationsOutline size={25}/>
                 </Link>
             </div>
         </div>

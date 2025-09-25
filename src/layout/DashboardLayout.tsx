@@ -21,6 +21,7 @@ export default function DashboardLayout() {
                     <Route path="offers" element={<Notification />} />
                     <Route path='wallet&rewards' element={<MyProfile />} />
                     <Route path='community' element={<WalletAndRewards />} />
+                    <Route path='notifications' element={<div className="p-5">Your Notification is Empty</div>} />
                 </Routes>
             );
         } else if (userRole === 'disposer') {
@@ -29,7 +30,7 @@ export default function DashboardLayout() {
                     <Route index element={<Disposer />} />
                     <Route path="my-waste" element={<MyLisiting />} />
                     <Route path='wallet&rewards' element={<MyProfile />} />
-                    <Route path='community' element={<WalletAndRewards />} />
+                    <Route path='notifications' element={<div className="p-5">Your Notification is Empty</div>} />
                 </Routes>
             );
         }

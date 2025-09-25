@@ -1,5 +1,4 @@
 import { FaShoppingCart } from "react-icons/fa";
-import { HiOutlineChatAlt2 } from "react-icons/hi";
 import { MdDashboard } from "react-icons/md";
 import { CiShop } from "react-icons/ci";
 import { GiWallet } from "react-icons/gi";
@@ -15,7 +14,7 @@ export const sidebarData = {
   ],
   disposer: [
     { to: "/disposer", label: "Dashboard", icon: MdDashboard },
-    { to: "/disposer/my-waste", label: "My Waste", icon: HiOutlineChatAlt2 },
+    { to: "/disposer/my-waste", label: "My Waste", icon: FaShoppingCart },
     { to: "/disposer/wallet&rewards", label: "Wallet & Rewards", icon: GiWallet },
   ]
 };
