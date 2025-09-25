@@ -45,7 +45,7 @@ function App() {
         <Route
           path="/:userRole/*"
           element={
-            <Private isAuthenticated={isLoggedIn}>
+            <Private isAuthenticated={true}>
               <DashboardLayout />
             </Private>
           }
