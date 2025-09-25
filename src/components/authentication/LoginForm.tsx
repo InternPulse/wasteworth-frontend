@@ -76,7 +76,7 @@ const Form = () => {
       </div>
       <div className="flex items-center text-xs my-1 px-1">
         <Link
-          to={"/auth/forgot-password"}
+          to={"/forgot-password"}
           className="text-[14px] sm:text-base font-semibold text-[#006837]"
         >
           Forgot Password?
