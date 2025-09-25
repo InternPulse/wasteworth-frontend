@@ -43,13 +43,15 @@ function App() {
         </Route>
 
         <Route
-          path="/dashboard"
+          path="/:userRole/*"
           element={
             <Private isAuthenticated={isLoggedIn}>
               <DashboardLayout />
             </Private>
           }
-        ></Route>
+        >
+
+        </Route>
 
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>

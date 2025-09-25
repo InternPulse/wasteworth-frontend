@@ -10,6 +10,8 @@ import collect4 from "./collect4.png";
 import collect5 from "./collect5.png";
 import collect6 from "./collect6.png";
 import dispose from "./dispose.png";
+
+import greenLogo from "./greenLogo.png";
 import google from "./google.png";
 import step1 from "./step1.png";
 import step2 from "./step2.png";
@@ -44,6 +46,7 @@ export const assets = {
   collect5,
   collect6,
   dispose,
+  greenLogo,
   google,
   step1,
   step2,
