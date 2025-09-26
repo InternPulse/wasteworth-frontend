@@ -9,10 +9,10 @@ const QuickActions = () => {
                  <h2 className="text-[#5D5D5D]"> Quick Actions</h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 text-[#3D3A3A]">
-                <Button variant="secondary" className="py-5"> <img src={assets.shoppingCard} alt="shpping Cart" /> My Waste</Button>
-                <Button variant="secondary" className="py-5"> <img src={assets.award} alt="vector" /> Claim Badge</Button>
-                <Button variant="secondary" className="py-5"> <img src={assets.crown} alt="Crown icon" /> Invite to Earn</Button>
-                <Button variant="secondary" className="py-5"> <img src={assets.cardAdd} alt="Card-Add" /> Withdraw Funds</Button>
+                <Button variant="secondary" className="py-5 text-xs md:text-sm hover:shadow-md transition-shadow duration-200"> <img src={assets.shoppingCard} alt="shpping Cart" /> My Waste</Button>
+                <Button variant="secondary" className="py-5 text-xs md:text-sm hover:shadow-md transition-shadow duration-200"> <img src={assets.award} alt="vector" /> Claim Badge</Button>
+                <Button variant="secondary" className="py-5 text-xs md:text-sm hover:shadow-md transition-shadow duration-200"> <img src={assets.crown} alt="Crown icon" /> Invite to Earn</Button>
+                <Button variant="secondary" className="py-5 text-xs md:text-sm hover:shadow-md transition-shadow duration-200"> <img src={assets.cardAdd} alt="Card-Add" /> Withdraw Funds</Button>
             </div>
         </div>
     </div>
