@@ -1,3 +1,4 @@
+import type { IconType } from "react-icons/lib";
 
 
 export interface LinkType {
@@ -27,7 +28,8 @@ export interface MainHeaderProps{
     question: string,
     points: number,
     initial: string,
-    user: string
+    user: string,
+    role: string
 }
 
 export interface Tdata {

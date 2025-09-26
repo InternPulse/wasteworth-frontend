@@ -28,7 +28,7 @@ export default function Sidebar() {
     const currentLinks: LinkType[] = sidebarData[userRole as keyof typeof sidebarData] || [];
 
     return (
-        <div className='min-h-screen' style={{ zIndex: 999 }}>
+        <div className='lg:min-h-screen' style={{ zIndex: 999 }}>
             {/* The mobile menu toggle button, visible only on small screens. */}
             <div className="lg:hidden fixed top-3 right-3 z-50">
                 <FaBars
