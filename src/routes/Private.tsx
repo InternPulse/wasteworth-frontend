@@ -6,7 +6,7 @@ const Private: FC<{
   isAuthenticated: boolean;
 }> = ({ children, isAuthenticated }) => {
   if (!isAuthenticated) {
-    return <Navigate to={"/unauthorized"} />;
+    return <Navigate to={"/login"} />;
   }
 
   return <>{children}</>;

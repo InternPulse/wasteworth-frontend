@@ -27,8 +27,9 @@ interface Store {
 const useStore = create<Store>((set) => ({
   email: "",
   setEmail: (email) => set({ email }),
+
   /* Authentication status */
-  isLoggedIn: true,
+  isLoggedIn: false,
   setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
 
   /* Data */

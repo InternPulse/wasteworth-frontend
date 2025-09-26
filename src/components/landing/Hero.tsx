@@ -13,8 +13,8 @@ const Hero = () => {
               <h3 className="text-[#B48F00] font-bold mb-2">
                 RECYCLE. EARN. LEVEL UP.
               </h3>
-              <h2 className="font-bold text-2xl sm:text-3xl lg:text-3xl xl:text-4xl text-white md:text-gray-800 lg:leading-[2.5rem] mb-3 lg:mb-5 text-center sm:text-left">
-                Your Waste. Tour Rewards. <br /> Our Future.
+              <h2 className="font-bold text-2xl sm:text-3xl lg:text-3xl xl:text-3xl text-white md:text-gray-800 lg:leading-[2.5rem] mb-3 lg:mb-5 text-center sm:text-left">
+                Your Waste. Your Rewards. <br /> Our Future.
               </h2>
               <p className="text-gray-300 text-center sm:text-left md:text-gray-600 mb-8 sm:mb-5 lg:mb-8 text-sm lg:text-base max-w-lg">
                 With WasteWorth, every item you recycle is tracked, rewarded,

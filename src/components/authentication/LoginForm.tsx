@@ -27,10 +27,10 @@ const Form = () => {
       )
       .then((response) => {
         console.log("Form submitted successfully:", response);
-        response.status === 200 && setIsLoggedIn(true);
+        response.data.success && setIsLoggedIn(true);
         setUser(response.data.user);
         setTokens(response.data.tokens);
-        navigate("/dashboard");
+        navigate(`/:${response.data.user.role}`);
       })
       .catch((error) => {
         setIsLoading(false);
@@ -95,4 +95,4 @@ const Form = () => {
 };
 export default Form;
 const inputStyle =
-  "border-gray-200 border sm:h-[54px] rounded-lg sm:rounded-xl p-3 text-sm text-[#8E8E8E22] placeholder-[#8E8E8E99] font-semibold focus:outline-none focus:ring-2 focus:ring-green-600  transition-all duration-200";
+  "border-gray-200 border sm:h-[54px] rounded-lg sm:rounded-xl p-3 text-sm text-[#4E4E4E] placeholder-[#8E8E8E99] font-semibold focus:outline-none focus:ring-2 focus:ring-green-600  transition-all duration-200";

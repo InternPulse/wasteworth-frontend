@@ -2,21 +2,21 @@ import { Route, Routes, useParams } from "react-router-dom";
 import Sidebar from "../components/dashboards/Sidebar";
 import MyLisiting from "../pages/myListing/MyLisiting";
 import WalletAndRewards from "../pages/wallet&reward/WalletAndRewards";
-import Marketplace from "../pages/marketPlace/MarketPlace";
 import Notification from "../pages/notifications/Notification";
 import Recycler from "../pages/dashboard/Recycler";
 import Disposer from "../pages/dashboard/Disposer";
 import MainHeader from "@/components/dashboards/MainHeader";
+import MarketplaceDashboard from "../pages/marketPlace/MarketPlace";
 
 export default function DashboardLayout() {
   const { userRole } = useParams();
 
   const renderDashboardContent = () => {
-    if (userRole === "recycler") {
+    if (userRole?.slice(1, 100) === "recycler") {
       return (
         <Routes>
           <Route index element={<Recycler />} />
-          <Route path="marketplace" element={<Marketplace />} />
+          <Route path="marketplace" element={<MarketplaceDashboard />} />
           <Route path="offers" element={<Notification />} />
           <Route path="wallet&rewards" element={<WalletAndRewards />} />
           <Route path="community" element={<WalletAndRewards />} />
@@ -26,7 +26,7 @@ export default function DashboardLayout() {
           />
         </Routes>
       );
-    } else if (userRole === "disposer") {
+    } else if (userRole?.slice(1, 100) === "disposer") {
       return (
         <Routes>
           <Route index element={<Disposer />} />
@@ -52,7 +52,7 @@ export default function DashboardLayout() {
           points={25}
           initial="C"
           user="Colleta Intern"
-          role={userRole || ""}
+          role={userRole?.slice(1, 100) || ""}
         />
         <div className="mt-17">{renderDashboardContent()}</div>
       </div>

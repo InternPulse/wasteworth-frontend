@@ -4,6 +4,7 @@ import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [tab, setTab] = useState("role");
@@ -16,6 +17,7 @@ const Signup = () => {
   const [errors, setErrors] = useState<{ [key: string]: string }>({
     message: "",
   });
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     const data = { name, email, password, confirm_password, phone, role };
@@ -27,6 +29,7 @@ const Signup = () => {
         data
       );
       const resData = await res.data;
+      resData.success && navigate("/login");
       console.log({ resData });
     } catch (error) {
       if (axios.isAxiosError(error)) {
