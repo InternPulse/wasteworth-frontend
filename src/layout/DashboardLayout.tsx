@@ -16,7 +16,7 @@ const DashboardLayout = () => {
   return (
     <div className="h-screen overflow-hidden">
       {/* NavBar */}
-      <nav className=" h-15 fixed top-0 left-0 right-0 flex items-center justify-between bg-gray-100 px-[1.5rem] sm:px-[2rem] md:px-[5rem]">
+      <nav className="h-15 fixed top-0 left-0 right-0 flex items-center justify-between bg-gray-100 px-[1.5rem] sm:px-[2rem] md:px-[5rem]">
         {/* Logo */}
         <div className="flex items-center justify-center h-14">
           <img src={assets.logo} alt="" className="w-15 scale-115" />
@@ -77,7 +77,7 @@ const DashboardLayout = () => {
           </ul>
         </aside>
         {/* Content */}
-        <div className="w-full h-full ">
+        <div className="w-full h-full overflow-y-scroll ">
           {activeTab === "dashboard" ? (
             <Dashboard />
           ) : activeTab === "marketplace" ? (

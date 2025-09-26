@@ -43,7 +43,7 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <Private isAuthenticated={isLoggedIn}>
+            <Private isAuthenticated={true}>
               <DashboardLayout />
             </Private>
           }
