@@ -33,6 +33,15 @@ import impactDashboard from "./impactDashboard.png";
 import clearSpace from "./clearSpace.jpg";
 import findVal from "./findVal.jpg";
 import about from "./about.jpg";
+import balance from './Balance.png'
+import token from './Token.png'
+import points from './Points.png'
+import rightArrow from './arrow-right.png'
+import shoppingCard from './shopping-cart.png'
+import award from './award.png'
+import crown from './crown-2.png'
+import cardAdd from './card-add.png'
+import tick from './tick-circle.png'
 export const assets = {
   hero,
   uba,
@@ -48,6 +57,15 @@ export const assets = {
   dispose,
   greenLogo,
   google,
+  balance,
+  token,
+  points,
+  rightArrow,
+  shoppingCard,
+  award,
+  crown,
+  cardAdd,
+  tick,
   step1,
   step2,
   step3,
