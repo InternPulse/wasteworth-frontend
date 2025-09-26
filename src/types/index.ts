@@ -1,10 +1,9 @@
-import type { IconType } from "react-icons/lib";
 
 
 export interface LinkType {
     to: string;
     label: string;
-    icon: IconType;
+    icon: any;
 }
 
 export interface MobileProps{
