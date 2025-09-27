@@ -13,7 +13,7 @@ const AuthLayout = () => {
         {isLoggedIn && "Logged in"}
       </div>
       {/* Content */}
-      <div className="flex h-[calc(100%-60px)] w-full justify-center pt-15 md:pt-0 sm:p-5 relative overflow-hidden">
+      <div className="flex h-[calc(100%-60px)] w-full justify-center sm:p-5 relative overflow-hidden">
         <button
           onClick={() => back(-1)}
           className="absolute left-4 sm:left-2 md:left-4 text-xs top-3 text-gray-500 flex items-center gap-1 z-2"
