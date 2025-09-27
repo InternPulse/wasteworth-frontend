@@ -13,7 +13,7 @@ const Cards = () => {
     <div>
        <div className="bg-white rounded-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
        {cardDetails.map((card) => 
-    <div key={card.id}  style={{ backgroundColor: card.bgColor }} className="h-35 flex flex-col justify-center gap-2 rounded-md px-5">
+    <div key={card.id}  style={{ backgroundColor: card.bgColor }} className="h-35 flex flex-col justify-center gap-2 rounded-md px-5 hover:shadow-md transition-shadow duration-200">
       
         <div className="flex justify-between items-center align-center ">
             <span className="text-[#535353]"><h2>{card.title}</h2></span>

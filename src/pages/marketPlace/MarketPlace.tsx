@@ -84,14 +84,11 @@ const MarketplaceDashboard: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-200 flex">
-
-      {/* Main Content */}
+    <div className="min-h-screen bg-gray-200 flex overflow-y-auto">
       <div className="flex-1">
-        <div className="p-2 ">
-
+        <div className="p-1 ">
           {/* Stats Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 bg-white p-8 rounded-lg">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 mt-4 bg-white p-8 rounded-lg">
             <div className="bg-[#EDF5FD] p-6 rounded-lg">
               <div className="flex items-center justify-between mb-2 ">
                 <span className="text-sm text-gray-600">Number Of Listings Opened</span>
@@ -167,7 +164,7 @@ const MarketplaceDashboard: React.FC = () => {
       {/* Details Modal */}
       {activeModal === 'details' && selectedListing && (
         <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-96 max-w-md">
+          <div className="bg-white rounded-lg p-6 w-78 h-130 md:h-max md:w-96 max-w-md overflow-y-auto">
             <div className="flex items-center mb-4">
               <button onClick={handleCloseModal} className="mr-3">
                 <ChevronLeft className="w-5 h-5" />
@@ -234,7 +231,7 @@ const MarketplaceDashboard: React.FC = () => {
       {/* Accepted Modal */}
       {activeModal === 'accepted' && (
         <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-96 max-w-md">
+          <div className="bg-white rounded-lg p-6 w-82 md:w-96 max-w-md">
             <div className='flex items-center justify-start gap-3'>
               <div className="w-5 h-5 bg-[#006837] rounded-full flex items-center justify-center mb-2">
                 <span className="text-white text-sm">✓</span>
