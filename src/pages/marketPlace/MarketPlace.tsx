@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, MapPin, Bell}  from 'lucide-react';
+import { ChevronLeft, MapPin}  from 'lucide-react';
 
 interface Listing {
   id: string;
@@ -85,38 +85,11 @@ const MarketplaceDashboard: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-200 flex">
-
-      {/* Main Content */}
       <div className="flex-1">
         <div className="">
-          <div className="flex items-center justify-between mb-6 bg-white p-6">
-            <h1 className="md:text-2xl text-sm whitespace-nowrap font-bold text-gray-900">Market Place</h1>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 bg-[#FFEFDA] rounded-2xl p-2">
-                <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center">
-                 <div className="w-6 h-6 flex items-center justify-center bg-white rounded-full">
-                  <img className='w-3 h-3' src="/public/marketplace/images/25-points.png" alt="25 points icon" />
-                </div>
-                </div>
-                <span className="text-sm text-gray-600">25 Points</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8  rounded-full">
-                  <img className='w-full h-full rounded-full' src="/public/marketplace/images/marketplace-profile-pic.png" alt="" />
-                </div>
-                <span className="text-sm font-medium">Coletta Intern</span>
-                  <div className="relative">
-                  <Bell className="w-5 h-5 text-gray-600" />
-                  <div className="absolute -top-2 -right-2 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">9</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          
           {/* Stats Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 bg-white p-8 rounded-lg">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 mt-4 bg-white p-8 rounded-lg">
             <div className="bg-[#EDF5FD] p-6 rounded-lg">
               <div className="flex items-center justify-between mb-2 ">
                 <span className="text-sm text-gray-600">Number Of Listings Opened</span>
@@ -161,7 +134,7 @@ const MarketplaceDashboard: React.FC = () => {
         </div>
 
         {/* Listings Grid */}
-        <div className="grid md:grid-cols-3  lg:grid-cols-4  gap-4">
+        <div className="grid md:grid-cols-2  lg:grid-cols-3  gap-4">
           {mockListings.map((listing) => (
             <div key={listing.id} className="bg-white p-4 rounded-lg overflow-hidden">
               <img 
