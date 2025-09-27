@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, MapPin, Bell}  from 'lucide-react';
+import { ChevronLeft, MapPin}  from 'lucide-react';
 
 interface Listing {
   id: string;

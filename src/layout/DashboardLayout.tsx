@@ -11,7 +11,6 @@ import useStore from "../../store/store";
 
 export default function DashboardLayout() {
   const { user } = useStore();
-  console.log(user.role);
 
   setTimeout(() => {
     localStorage.setItem("loggedIn", "false");
