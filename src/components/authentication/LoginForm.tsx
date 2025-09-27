@@ -10,6 +10,7 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [errorOutput, setErrorOutput] = useState("");
   const navigate = useNavigate();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,6 +45,11 @@ const Form = () => {
       })
       .catch((error) => {
         setIsLoading(false);
+        setErrorOutput(
+          error.response.data.message
+            ? error.response.data.message
+            : error.message
+        );
         console.error("Error submitting form:", error);
       })
       .finally(() => {
@@ -88,13 +94,14 @@ const Form = () => {
           required
         />
       </div>
-      <div className="flex items-center text-xs my-1 px-1">
+      <div className="flex items-center justify-between gap-2 text-xs my-1 px-1">
         <Link
           to={"/forgot-password"}
-          className="text-[14px] sm:text-base font-semibold text-[#006837]"
+          className="text-[14px] sm:text-base font-semibold text-[#006837] min-w-3/10"
         >
           Forgot Password?
         </Link>
+        <p className="text-xs text-red-500 font-medium">{errorOutput}</p>
       </div>
       <div className="flex justify-center items-center">
         <button
