@@ -11,10 +11,10 @@ import OtpVerification from "./pages/authentication/OtpVerification";
 import AuthLayout from "./layout/AuthLayout";
 import Private from "./routes/Private";
 import DashboardLayout from "./layout/DashboardLayout";
-//import useStore from "../store/store";
+import useStore from "../store/store";
 
 function App() {
- // const {isLoggedIn} = useStore();
+  const {isLoggedIn} = useStore();
   return (
     <>
       <Routes>
@@ -37,7 +37,7 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <Private isAuthenticated={true}>
+            <Private isAuthenticated={isLoggedIn}>
               <DashboardLayout />
             </Private>
           }
