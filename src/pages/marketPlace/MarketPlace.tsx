@@ -86,8 +86,7 @@ const MarketplaceDashboard: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-200 flex overflow-y-auto">
       <div className="flex-1">
-        <div className="">
-          
+        <div className="p-1 ">
           {/* Stats Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 mt-4 bg-white p-8 rounded-lg">
             <div className="bg-[#EDF5FD] p-6 rounded-lg">
@@ -134,7 +133,7 @@ const MarketplaceDashboard: React.FC = () => {
         </div>
 
         {/* Listings Grid */}
-        <div className="grid md:grid-cols-2  lg:grid-cols-3  gap-4">
+        <div className="grid md:grid-cols-3  lg:grid-cols-4  gap-4 w-19/20 mx-auto">
           {mockListings.map((listing) => (
             <div key={listing.id} className="bg-white p-4 rounded-lg overflow-hidden">
               <img 

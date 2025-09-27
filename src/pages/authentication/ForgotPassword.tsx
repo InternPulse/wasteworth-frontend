@@ -1,6 +1,6 @@
 import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import useStore from "../../../store/store";
 import axios from "axios";
 
@@ -23,11 +23,11 @@ const ForgotPassword = () => {
   };
 
   const { email, setEmail } = useStore();
-  const navigate = useNavigate();
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  //const navigate = useNavigate();
+  /* const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     navigate("/auth/otp-verification");
-  };
+  }; */
   return (
     <div className="my-auto h-80 w-9/10 max-w-sm bg-white px-4 py-15 rounded-2xl flex flex-col items-center justify-center">
       <h2 className="font-semibold text-2xl text-gray-800 mb-1">

@@ -2,21 +2,27 @@ import { Route, Routes, useParams } from "react-router-dom";
 import Sidebar from "../components/dashboards/Sidebar";
 import MyLisiting from "../pages/myListing/MyLisiting";
 import WalletAndRewards from "../pages/wallet&reward/WalletAndRewards";
-import Marketplace from "../pages/marketPlace/MarketPlace";
 import Notification from "../pages/notifications/Notification";
 import Recycler from "../pages/dashboard/Recycler";
 import Disposer from "../pages/dashboard/Disposer";
 import MainHeader from "@/components/dashboards/MainHeader";
+import MarketplaceDashboard from "../pages/marketPlace/MarketPlace";
+import useStore from "../../store/store";
 
 export default function DashboardLayout() {
+  const { user } = useStore();
+
+  setTimeout(() => {
+    localStorage.setItem("loggedIn", "false");
+  }, 3600000);
   const { userRole } = useParams();
 
   const renderDashboardContent = () => {
-    if (userRole === "recycler") {
+    if (user.role === "recycler" ) {
       return (
         <Routes>
           <Route index element={<Recycler />} />
-          <Route path="marketplace" element={<Marketplace />} />
+          <Route path="marketplace" element={<MarketplaceDashboard />} />
           <Route path="offers" element={<Notification />} />
           <Route path="wallet&rewards" element={<WalletAndRewards />} />
           <Route path="community" element={<WalletAndRewards />} />
@@ -26,7 +32,7 @@ export default function DashboardLayout() {
           />
         </Routes>
       );
-    } else if (userRole === "disposer") {
+    } else if (user.role === "disposer") {
       return (
         <Routes>
           <Route index element={<Disposer />} />
@@ -45,14 +51,14 @@ export default function DashboardLayout() {
   return (
     <div className="grid lg:grid-cols-[240px_1fr] w-full min-h-screen bg-[#F5F5F5]">
       <Sidebar />
-      <div className="grow w-full h-full lg:h-full">
+      <div className="grow w-full h-full lg:h-full max-w-screen ">
         <MainHeader
-          firstName="Coley"
+          firstName={user?.name?.split(" ")[1] ?? ""}
           question="ready to recycle today?"
           points={25}
-          initial="C"
-          user="Colleta Intern"
-          role={userRole || ""}
+          initial={user?.name?.slice(0, 1) ?? ''}
+          user={user?.name ?? ''}
+          role={userRole?.slice(1, 100) || ""}
         />
         <div className="mt-17">{renderDashboardContent()}</div>
       </div>

@@ -3,9 +3,10 @@ import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useStore from "../../../store/store";
+import { PacmanLoader } from "react-spinners";
 
 const Form = () => {
-  const { setUser, setTokens, setIsLoggedIn } = useStore();
+  const { setUser, setTokens } = useStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -27,14 +28,27 @@ const Form = () => {
       )
       .then((response) => {
         console.log("Form submitted successfully:", response);
-        response.status === 200 && setIsLoggedIn(true);
-        setUser(response.data.user);
-        setTokens(response.data.tokens);
-        navigate("/dashboard");
+
+        if (response.data.success) {
+          localStorage.setItem("loggedIn", "true");
+        }
+
+        if (response.data.user) {
+          localStorage.setItem("userData", JSON.stringify(response.data));
+          setUser(response.data.user);
+          setTokens(response.data.tokens);
+          navigate(`/user`);
+        } else {
+          console.warn("Login successful but no user data received.");
+        }
       })
       .catch((error) => {
         setIsLoading(false);
         console.error("Error submitting form:", error);
+      })
+      .finally(() => {
+        // Ensure loading state is turned off
+        setIsLoading(false);
       });
   };
 
@@ -85,9 +99,13 @@ const Form = () => {
       <div className="flex justify-center items-center">
         <button
           type="submit"
-          className="mt-2 sm:h-[54px] w-full py-2 sm:text-[18px] rounded-lg sm:rounded-xl font-semibold text-white bg-[#006837] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative"
+          className="mt-2 sm:h-[54px] w-full py-2 sm:text-[18px] rounded-lg sm:rounded-xl font-semibold text-white bg-[#006837] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative flex justify-center items-center"
         >
-          {isLoading ? "Logging in..." : "Login"}
+          {isLoading ? (
+            <PacmanLoader color={"#36d7b7"} loading={isLoading} size={8} />
+          ) : (
+            "Login"
+          )}
         </button>
       </div>
     </form>
@@ -95,4 +113,4 @@ const Form = () => {
 };
 export default Form;
 const inputStyle =
-  "border-gray-200 border sm:h-[54px] rounded-lg sm:rounded-xl p-3 text-sm text-[#8E8E8E22] placeholder-[#8E8E8E99] font-semibold focus:outline-none focus:ring-2 focus:ring-green-600  transition-all duration-200";
+  "border-gray-200 border sm:h-[54px] rounded-lg sm:rounded-xl p-3 text-sm text-[#4E4E4E] placeholder-[#8E8E8E99] font-semibold focus:outline-none focus:ring-2 focus:ring-green-600  transition-all duration-200";

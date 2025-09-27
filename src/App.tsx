@@ -14,7 +14,6 @@ import DashboardLayout from "./layout/DashboardLayout";
 import useStore from "../store/store";
 
 function App() {
-  const {isLoggedIn} = useStore();
   return (
     <>
       <Routes>
@@ -35,9 +34,9 @@ function App() {
         </Route>
 
         <Route
-          path="/dashboard"
+          path="/user"
           element={
-            <Private isAuthenticated={isLoggedIn}>
+            <Private isAuthenticated={localStorage.getItem("loggedIn")}>
               <DashboardLayout />
             </Private>
           }
