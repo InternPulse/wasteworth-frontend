@@ -7,12 +7,19 @@ import Recycler from "../pages/dashboard/Recycler";
 import Disposer from "../pages/dashboard/Disposer";
 import MainHeader from "@/components/dashboards/MainHeader";
 import MarketplaceDashboard from "../pages/marketPlace/MarketPlace";
+import useStore from "../../store/store";
 
 export default function DashboardLayout() {
+  const { user } = useStore();
+  console.log(user.role);
+
+  setTimeout(() => {
+    localStorage.setItem("loggedIn", "false");
+  }, 3600000);
   const { userRole } = useParams();
 
   const renderDashboardContent = () => {
-    if (userRole?.slice(1, 100) === "recycler") {
+    if (user.role === "recycler" ) {
       return (
         <Routes>
           <Route index element={<Recycler />} />
@@ -26,7 +33,7 @@ export default function DashboardLayout() {
           />
         </Routes>
       );
-    } else if (userRole?.slice(1, 100) === "disposer") {
+    } else if (user.role === "disposer") {
       return (
         <Routes>
           <Route index element={<Disposer />} />
@@ -47,11 +54,11 @@ export default function DashboardLayout() {
       <Sidebar />
       <div className="grow w-full h-full lg:h-full max-w-screen ">
         <MainHeader
-          firstName="Coley"
+          firstName={user?.name?.split(" ")[1] ?? ""}
           question="ready to recycle today?"
           points={25}
-          initial="C"
-          user="Colleta Intern"
+          initial={user?.name?.slice(0, 1) ?? ''}
+          user={user?.name ?? ''}
           role={userRole?.slice(1, 100) || ""}
         />
         <div className="mt-17">{renderDashboardContent()}</div>

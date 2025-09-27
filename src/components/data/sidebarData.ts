@@ -5,20 +5,20 @@ import { GiWallet } from "react-icons/gi";
 
 export const sidebarData = {
   recycler: [
-    { to: "/:recycler", label: "Dashboard", icon: MdDashboard },
-    { to: "/:recycler/marketplace", label: "Marketplace", icon: CiShop },
-    { to: "/:recycler/offers", label: "Offers", icon: FaShoppingCart },
+    { to: "/user", label: "Dashboard", icon: MdDashboard },
+    { to: "/user/marketplace", label: "Marketplace", icon: CiShop },
+    { to: "/user/offers", label: "Offers", icon: FaShoppingCart },
     {
-      to: "/:recycler/wallet&rewards",
+      to: "/user/wallet&rewards",
       label: "Wallet & Rewards",
       icon: GiWallet,
     },
   ],
   disposer: [
-    { to: "/:disposer", label: "Dashboard", icon: MdDashboard },
-    { to: "/:disposer/my-waste", label: "My Waste", icon: FaShoppingCart },
+    { to: "/user", label: "Dashboard", icon: MdDashboard },
+    { to: "/user/my-waste", label: "My Waste", icon: FaShoppingCart },
     {
-      to: "/:disposer/wallet&rewards",
+      to: "/user/wallet&rewards",
       label: "Wallet & Rewards",
       icon: GiWallet,
     },
