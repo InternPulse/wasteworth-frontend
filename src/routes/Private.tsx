@@ -3,9 +3,9 @@ import { Navigate } from "react-router-dom";
 
 const Private: FC<{
   children: ReactNode;
-  isAuthenticated: boolean;
+  isAuthenticated: string | null;
 }> = ({ children, isAuthenticated }) => {
-  if (!isAuthenticated) {
+  if (isAuthenticated !== "true") {
     return <Navigate to={"/login"} />;
   }
 

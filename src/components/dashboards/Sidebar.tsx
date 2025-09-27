@@ -1,10 +1,11 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
 import { sidebarData } from "../data/sidebarData";
 import Desktop from "./sidebar/Desktop";
 import Mobile from "./sidebar/Mobile";
 import type { IconType } from "react-icons/lib";
+import useStore from "../../../store/store";
 
 // Define the shape of the data in your sidebarData
 interface LinkType {
@@ -15,7 +16,7 @@ interface LinkType {
 
 export default function Sidebar() {
   const location = useLocation();
-  const { userRole } = useParams<{ userRole: string }>();
+  const {user} = useStore();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const isActive = (path: string) => {
@@ -27,7 +28,7 @@ export default function Sidebar() {
 
   // Get the specific links for the current user role
   const currentLinks: LinkType[] =
-    sidebarData[userRole?.slice(1, 100) as keyof typeof sidebarData] || [];
+    sidebarData[user.role as keyof typeof sidebarData] || [];
 
   return (
     <div className="lg:min-h-screen" style={{ zIndex: 999 }}>

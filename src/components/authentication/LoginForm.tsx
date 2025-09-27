@@ -6,7 +6,7 @@ import useStore from "../../../store/store";
 import { PacmanLoader } from "react-spinners";
 
 const Form = () => {
-  const { setUser, setTokens, setIsLoggedIn } = useStore();
+  const { setUser, setTokens } = useStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -28,14 +28,27 @@ const Form = () => {
       )
       .then((response) => {
         console.log("Form submitted successfully:", response);
-        response.data.success && setIsLoggedIn(true);
-        setUser(response.data.user);
-        setTokens(response.data.tokens);
-        navigate(`/:${response.data.user.role}`);
+
+        if (response.data.success) {
+          localStorage.setItem("loggedIn", "true");
+        }
+
+        if (response.data.user) {
+          localStorage.setItem("userData", JSON.stringify(response.data));
+          setUser(response.data.user);
+          setTokens(response.data.tokens);
+          navigate(`/user`);
+        } else {
+          console.warn("Login successful but no user data received.");
+        }
       })
       .catch((error) => {
         setIsLoading(false);
         console.error("Error submitting form:", error);
+      })
+      .finally(() => {
+        // Ensure loading state is turned off
+        setIsLoading(false);
       });
   };
 
