@@ -3,6 +3,7 @@ import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useStore from "../../../store/store";
+import { PacmanLoader } from "react-spinners";
 
 const Form = () => {
   const { setUser, setTokens, setIsLoggedIn } = useStore();
@@ -85,9 +86,13 @@ const Form = () => {
       <div className="flex justify-center items-center">
         <button
           type="submit"
-          className="mt-2 sm:h-[54px] w-full py-2 sm:text-[18px] rounded-lg sm:rounded-xl font-semibold text-white bg-[#006837] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative"
+          className="mt-2 sm:h-[54px] w-full py-2 sm:text-[18px] rounded-lg sm:rounded-xl font-semibold text-white bg-[#006837] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative flex justify-center items-center"
         >
-          {isLoading ? "Logging in..." : "Login"}
+          {isLoading ? (
+            <PacmanLoader color={"#36d7b7"} loading={isLoading} size={8} />
+          ) : (
+            "Login"
+          )}
         </button>
       </div>
     </form>

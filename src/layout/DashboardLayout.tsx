@@ -45,7 +45,7 @@ export default function DashboardLayout() {
   return (
     <div className="grid lg:grid-cols-[240px_1fr] w-full min-h-screen bg-[#F5F5F5]">
       <Sidebar />
-      <div className="grow w-full h-full lg:h-full">
+      <div className="grow w-full h-full lg:h-full max-w-screen ">
         <MainHeader
           firstName="Coley"
           question="ready to recycle today?"

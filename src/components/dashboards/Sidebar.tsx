@@ -4,12 +4,13 @@ import { useState } from "react";
 import { sidebarData } from "../data/sidebarData";
 import Desktop from "./sidebar/Desktop";
 import Mobile from "./sidebar/Mobile";
+import type { IconType } from "react-icons/lib";
 
 // Define the shape of the data in your sidebarData
 interface LinkType {
   to: string;
   label: string;
-  icon: React.ComponentType<{ className: string }>;
+  icon: IconType;
 }
 
 export default function Sidebar() {

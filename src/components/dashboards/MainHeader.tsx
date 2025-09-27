@@ -15,11 +15,13 @@ export default function MainHeader({
   const inActiveClass = "text-gray-500";
 
   return (
-    <nav className="px-10 py-2 bg-white fixed w-full">
-      <div className="flex items-center space-x-[40%]">
+    <nav className="px-10 py-2 bg-white fixed min-h-15 w-full">
+      <div className="self-center flex items-center space-x-[40%]">
         <div>
-          <h3 className="font-bold">Welcome back {firstName} 👋</h3>
-          <p>{question}</p>
+          <h3 className="font-bold text-sm sm:text-base">
+            Welcome back {firstName} 👋
+          </h3>
+          <p className="text-xs sm:text-base">{question}</p>
         </div>
         <div className="lg:flex items-center gap-5 hidden">
           <div className="flex items-center space-x-3 bg-[#FFEFDA] rounded-xl px-3 py-1">
