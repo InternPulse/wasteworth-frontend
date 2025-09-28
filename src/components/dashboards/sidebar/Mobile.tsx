@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaGift, FaTimes } from 'react-icons/fa';
+import { FaAngleDown, FaGift, FaTimes } from 'react-icons/fa';
 import type { MobileProps } from '../../../types';
 import { assets } from '../../../assets/assets';
 
@@ -43,9 +43,12 @@ export default function Mobile({ links, isActive, setShowMobileMenu, activeClass
                         <span className="bg-white p-2 rounded-full"><FaGift size={15} className="text-[#FB8C00]"/></span>
                         <p className="text-black">25 <span className="text-[#847E7E]">Points</span></p>
                     </div>
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-2">
                         <p className="text-xl border border-green-600 rounded-full px-2.5 bg-[#FFEFDA] text-black pb-1">G</p>
                         <p className=" font-bold">User name</p>
+                        <Link to='my-profile'>
+                            <FaAngleDown />
+                        </Link>
                     </div>
                 </div>
                 <button className='text-red-600 font-semibold px-8 hover:cursor-pointer mt-5'>Logout</button>

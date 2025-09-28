@@ -9,7 +9,7 @@ export const sidebarData = {
   recycler: [
     { to: "/recycler", label: "Dashboard", icon: MdDashboard },
     { to: "/recycler/marketplace", label: "Marketplace", icon: CiShop },
-    { to: "/recycler/offers", label: "Offers", icon: FaShoppingCart },
+    { to: "/recycler/offers", label: "My Offers", icon: FaShoppingCart },
     { to: "/recycler/wallet&rewards", label: "Wallet & Rewards", icon: GiWallet },
   ],
   disposer: [

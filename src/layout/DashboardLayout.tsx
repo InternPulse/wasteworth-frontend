@@ -1,12 +1,13 @@
 import { Route, Routes, useParams } from "react-router-dom";
 import Sidebar from "../components/dashboards/Sidebar";
-import MyLisiting from "../pages/myListing/MyLisiting";
 import WalletAndRewards from "../pages/wallet&reward/WalletAndRewards";
-import MyProfile from "../pages/collectorProfile/CollectorProfile";
 import Marketplace from "../pages/marketPlace/MarketPlace";
-import Notification from "../pages/notifications/Notification";
 import Recycler from "../pages/dashboard/Recycler";
 import Disposer from "../pages/dashboard/Disposer";
+import CollectorProfile from "../pages/collectorProfile/CollectorProfile";
+import MyOffers from "../pages/my-offers/My-Offers";
+import MyWaste from "../pages/myWaste/MyWaste";
+import DisposerProfile from "../pages/disposerProfile/DisposerProfile";
 
 export default function DashboardLayout() {
     const { userRole } = useParams();
@@ -18,18 +19,19 @@ export default function DashboardLayout() {
                 <Routes>
                     <Route index element={<Recycler />} />
                     <Route path='marketplace' element={<Marketplace />} />
-                    <Route path="offers" element={<Notification />} />
-                    <Route path='wallet&rewards' element={<MyProfile />} />
-                    <Route path='community' element={<WalletAndRewards />} />
+                    <Route path="offers" element={<MyOffers />} />
+                    <Route path='wallet&rewards' element={<WalletAndRewards />} />
                     <Route path='notifications' element={<div className="p-5">Your Notification is Empty</div>} />
+                    <Route path='my-profile' element={<CollectorProfile />} />
                 </Routes>
             );
         } else if (userRole === 'disposer') {
             return (
                 <Routes>
                     <Route index element={<Disposer />} />
-                    <Route path="my-waste" element={<MyLisiting />} />
-                    <Route path='wallet&rewards' element={<MyProfile />} />
+                    <Route path="my-waste" element={<MyWaste />} />
+                    <Route path='wallet&rewards' element={<div className="p-5">Your wallet is Empty</div>} />
+                     <Route path='my-profile' element={<DisposerProfile />} />
                     <Route path='notifications' element={<div className="p-5">Your Notification is Empty</div>} />
                 </Routes>
             );
@@ -38,7 +40,7 @@ export default function DashboardLayout() {
     };
 
     return (
-        <div className='flex w-screen min-h-screen bg-[#F5F5F5]'>
+        <div className='flex w-full min-h-screen bg-[#F5F5F5]'>
             <Sidebar />
             <div className='grow h-full lg:h-full lg:pl-60'>
                 <div className="">

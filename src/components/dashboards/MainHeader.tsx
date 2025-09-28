@@ -1,4 +1,4 @@
-import { FaGift } from "react-icons/fa";
+import { FaAngleDown, FaGift } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 import type { MainHeaderProps } from "../../types";
@@ -10,7 +10,7 @@ export default function MainHeader({ firstName, question, points, initial, user 
 
   return (
     <nav className="px-10 py-2 bg-white fixed w-full">
-        <div className="flex items-center space-x-[40%]">
+        <div className="flex items-center space-x-[35%]">
             <div>
                   <h3 className="font-bold">Welcome back {firstName} 👋</h3>
                   <p>{question}</p>
@@ -20,13 +20,16 @@ export default function MainHeader({ firstName, question, points, initial, user 
                     <span className="bg-white p-2 rounded-full"><FaGift size={15} className="text-[#FB8C00]"/></span>
                     <p className="text-black">{points} <span className="text-[#847E7E]">Points</span></p>
                 </div>
-                <div className="flex items-center space-x-3">
-                      <p className="text-xl border border-green-600 rounded-full px-2.5 bg-[#FFEFDA] text-black pb-1">
+                <div className="flex items-center space-x-2">
+                    <p className="text-xl border border-green-600 rounded-full px-2.5 bg-[#FFEFDA] text-black pb-1">
                           {initial}     
                     </p>
                     <p className=" font-bold">{user}</p>
+                    <Link to='/recycler/my-profile'>
+                        <FaAngleDown />
+                    </Link>
                 </div>
-                <Link to='notifications' className={`active ? ${activeClass} : ${inActiveClass}`}>
+                <Link to='/recycler/notifications' className={`active ? ${activeClass} : ${inActiveClass}`}>
                     <IoMdNotificationsOutline size={25}/>
                 </Link>
             </div>
