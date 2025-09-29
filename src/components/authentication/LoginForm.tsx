@@ -3,12 +3,14 @@ import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useStore from "../../../store/store";
+import { PacmanLoader } from "react-spinners";
 
 const Form = () => {
-  const { setUser, setTokens, setIsLoggedIn } = useStore();
+  const { setUser, setTokens } = useStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [errorOutput, setErrorOutput] = useState("");
   const navigate = useNavigate();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,22 +29,43 @@ const Form = () => {
       )
       .then((response) => {
         console.log("Form submitted successfully:", response);
-        response.status === 200 && setIsLoggedIn(true);
-        setUser(response.data.user);
-        setTokens(response.data.tokens);
-        navigate("/dashboard");
+
+        if (response.data.success) {
+          localStorage.setItem("loggedIn", "true");
+        }
+
+        if (response.data.user) {
+          localStorage.setItem("userData", JSON.stringify(response.data));
+          setUser(response.data.user);
+          setTokens(response.data.tokens);
+          navigate(`/user`);
+        } else {
+          console.warn("Login successful but no user data received.");
+        }
       })
       .catch((error) => {
         setIsLoading(false);
+        setErrorOutput(
+          error.response.data.message
+            ? error.response.data.message
+            : error.message
+        );
         console.error("Error submitting form:", error);
+      })
+      .finally(() => {
+        // Ensure loading state is turned off
+        setIsLoading(false);
       });
   };
 
   return (
     <form onSubmit={handleSubmit} className={"mt-2 w-full flex flex-col gap-2"}>
       <div className="flex flex-col gap-1">
-        <label htmlFor="email" className="text-gray-800 text-xs mb-1">
-          Email
+        <label
+          htmlFor="email"
+          className="text-[#5D5D5D] text-[14px] sm:text-base font-semibold mb-1"
+        >
+          Email address
         </label>
         <input
           className={inputStyle}
@@ -55,7 +78,10 @@ const Form = () => {
         />
       </div>
       <div className="flex flex-col gap-1">
-        <label htmlFor="password" className="text-gray-800 text-xs mb-1">
+        <label
+          htmlFor="password"
+          className="text-[#5D5D5D] text-[14px] sm:text-base font-semibold mb-1"
+        >
           Password
         </label>
         <input
@@ -68,21 +94,25 @@ const Form = () => {
           required
         />
       </div>
-      <div className="flex justify-between items-center text-xs my-1 px-1">
-        <div className="flex gap-1">
-          <input type="checkbox" id="remember" />
-          <label htmlFor="remember">Remember Password</label>
-        </div>
-        <Link to={"/auth/forgot-password"} className="text-green-600">
+      <div className="flex items-center justify-between gap-2 text-xs my-1 px-1">
+        <Link
+          to={"/forgot-password"}
+          className="text-[14px] sm:text-base font-semibold text-[#006837] min-w-3/10"
+        >
           Forgot Password?
         </Link>
+        <p className="text-xs text-red-500 font-medium">{errorOutput}</p>
       </div>
       <div className="flex justify-center items-center">
         <button
           type="submit"
-          className="mt-2 w-full py-3 text-xs rounded-full  font-semibold text-white bg-green-800 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative"
+          className="mt-2 sm:h-[54px] w-full py-2 sm:text-[18px] rounded-lg sm:rounded-xl font-semibold text-white bg-[#006837] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative flex justify-center items-center"
         >
-          {isLoading ? "Logging in..." : "Login"}
+          {isLoading ? (
+            <PacmanLoader color={"#36d7b7"} loading={isLoading} size={8} />
+          ) : (
+            "Login"
+          )}
         </button>
       </div>
     </form>
@@ -90,4 +120,4 @@ const Form = () => {
 };
 export default Form;
 const inputStyle =
-  "border-black/20 border rounded-md p-2.5 text-sm text-gray-700 placeholder-gray-400 text-semibold focus:outline-none focus:ring-2 focus:ring-green-600  transition-all duration-200";
+  "border-gray-200 border sm:h-[54px] rounded-lg sm:rounded-xl p-3 text-sm text-[#4E4E4E] placeholder-[#8E8E8E99] font-semibold focus:outline-none focus:ring-2 focus:ring-green-600  transition-all duration-200";
