@@ -33,7 +33,7 @@ const useStore = create<Store>((set) => ({
   setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
 
   /* Data */
-  user: JSON.parse(localStorage.getItem("userData") || "").user || '',
+  user: JSON.parse(localStorage.getItem("userData") || "{}").user || "",
   setUser: (user) => set({ user }),
 
   /* Authentication requirements */

@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 interface cardType {
   bgColor: string;
   title: string;
-  kilo: number;
+  kilo: number | string;
   icon: ReactNode;
 }
 

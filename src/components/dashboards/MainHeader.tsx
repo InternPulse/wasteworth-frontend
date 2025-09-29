@@ -16,7 +16,7 @@ export default function MainHeader({
 
   return (
     <nav className="px-10 py-2 bg-white fixed min-h-15 w-full">
-      <div className="self-center flex items-center space-x-[40%]">
+      <div className="self-center flex items-center justify-between w-full">
         <div>
           <h3 className="font-bold text-sm sm:text-base">
             Welcome back {firstName} 👋

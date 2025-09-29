@@ -13,7 +13,6 @@ import Private from "./routes/Private";
 import DashboardLayout from "./layout/DashboardLayout";
 import TermsAndConditions from "./components/landing/TermsAndConditions";
 import Privacy from "./components/landing/Privacy";
-import PaymentLayout from "./layout/PaymentLayout";
 import VerifyEmail from "./pages/authentication/VerifyEmail";
 import FAQs from "./components/landing/FAQs";
 
@@ -49,12 +48,6 @@ function App() {
             </Private>
           }
         ></Route>
-        
-        <Route path="/payment" element={
-        <Private isAuthenticated={true}>
-          <PaymentLayout />
-        </Private>}>
-        </Route>
 
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>
