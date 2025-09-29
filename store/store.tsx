@@ -29,7 +29,7 @@ const useStore = create<Store>((set) => ({
   setEmail: (email) => set({ email }),
 
   /* Authentication status */
-  isLoggedIn: false,
+  isLoggedIn: true,
   setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
 
   /* Data */
