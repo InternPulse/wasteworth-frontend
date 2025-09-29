@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Form from "../../components/authentication/LoginForm";
-import { assets } from "../../assets/assets";
 
 const Login = () => {
   return (
@@ -9,7 +8,7 @@ const Login = () => {
         <div className="w-full">
           <h2 className="font-bold text-[18px] text-gray-800">Welcome Back!</h2>
         </div>
-        <button className="w-full sm:h-[54px] px-6 py-2 flex items-center justify-center cursor-pointer rounded-lg sm:rounded-xl my-2 gap-2 text-[12px] sm:text-[18px] text-gray-500 border border-gray-200">
+        {/* <button className="w-full sm:h-[54px] px-6 py-2 flex items-center justify-center cursor-pointer rounded-lg sm:rounded-xl my-2 gap-2 text-[12px] sm:text-[18px] text-gray-500 border border-gray-200">
           <img src={assets.google} className="size-5 md:size-base" />
           <span>Sign in with Google</span>
         </button>
@@ -17,14 +16,14 @@ const Login = () => {
           <hr className="flex-1 text-gray-200 " />
           <span className="text-[14px] sm:text-base">Or continue with</span>
           <hr className="flex-1 text-gray-200" />
-        </div>
+        </div> */}
         {/* form */}
         <div className="w-full space-y-2">
           <Form />
           <p className="text-[14px] sm:text-base text-[#5D5D5D] font-semibold">
             Are you a new user?{" "}
             <span>
-              <Link to={"/auth"} className="text-[#006837]">
+              <Link to={"/sign-up"} className="text-[#006837]">
                 Create an account
               </Link>
             </span>

@@ -40,8 +40,8 @@ const Nav = ({
         })}
       </ul>
       <NavLink
-        to="auth"
-        className="hidden border border-green-700 hover:bg-green-600 transition duration-300 ease sm:flex justify-center items-center px-5 py-2 text-sm text-green-700 font-semibold rounded-lg cursor-pointer hover:shadow-md shadow-gray-400/50"
+        to="login"
+        className="hidden border border-green-700 hover:bg-green-600 hover:text-white hover:border-none transition duration-300 ease sm:flex justify-center items-center px-5 py-2 text-sm text-green-700 font-semibold rounded-lg cursor-pointer hover:shadow-md shadow-gray-400/50"
       >
         Get Started
       </NavLink>

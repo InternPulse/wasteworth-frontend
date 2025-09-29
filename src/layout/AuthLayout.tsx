@@ -1,19 +1,16 @@
 import { assets } from "../assets/assets";
 import { Outlet, useNavigate } from "react-router-dom";
 import { FaArrowCircleLeft } from "react-icons/fa";
-import useStore from "../../store/store";
 
 const AuthLayout = () => {
-  const { isLoggedIn } = useStore();
   const back = useNavigate();
   return (
     <div className="w-full h-screen bg-gray-100">
       <div className="w-full h-15 px-2 flex items-center border-b-2 border-gray-200 overflow-hidden">
         <img src={assets.logo} className="object-cover h-18" />
-        {isLoggedIn && "Logged in"}
       </div>
       {/* Content */}
-      <div className="flex h-[calc(100%-60px)] w-full justify-center pt-15 md:pt-0 sm:p-5 relative overflow-hidden">
+      <div className="flex h-[calc(100%-60px)] w-full justify-center sm:p-5 relative overflow-hidden">
         <button
           onClick={() => back(-1)}
           className="absolute left-4 sm:left-2 md:left-4 text-xs top-3 text-gray-500 flex items-center gap-1 z-2"
