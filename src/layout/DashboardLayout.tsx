@@ -1,7 +1,6 @@
 import Notification from "../pages/notifications/Notification";
 import { Route, Routes } from "react-router-dom";
 import Sidebar from "../components/dashboards/Sidebar";
-import MyLisiting from "../pages/myListing/MyLisiting";
 import WalletAndRewards from "../pages/wallet&reward/WalletAndRewards";
 import Recycler from "../pages/dashboard/Recycler";
 import Disposer from "../pages/dashboard/Disposer";
@@ -34,7 +33,7 @@ export default function DashboardLayout() {
       return (
         <Routes>
           <Route index element={<Disposer />} />
-          <Route path="my-waste" element={<MyLisiting />} />
+          {/* <Route path="my-waste" element={<Mylisting />} /> */}
           <Route path="wallet&rewards" element={<WalletAndRewards />} />
           <Route path="notifications" element={<Notification />} />
           <Route path="profile" element={<MyProfile />} />

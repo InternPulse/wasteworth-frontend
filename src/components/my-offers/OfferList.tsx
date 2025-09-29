@@ -1,9 +1,9 @@
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import type { Tdata } from "../../../types";
+import type { Tdata } from "../../types";
 
 
-export default function RecentOffers() {
+export default function OfferList() {
   const data: Tdata[] = [
   {
     "id": "WW-001",
@@ -59,9 +59,8 @@ export default function RecentOffers() {
   return (
     <section className="bg-white py-5 px-2 rounded-md sm:px-5">
         <div className="space-y-7">
-            <div className="flex items-center justify-between">
-                <h2 className="font-semibold">Recent Offers</h2>
-                <Link to='/recycler/offers' className="border border-gray-300 rounded-md py-1 px-4">view all</Link>
+            <div className="flex items-center justify-left">
+                <h2 className="font-semibold">My Offers List</h2>
             </div>
             <div className="overflow-hidden rounded-lg border border-gray-300">
                 <table className="table-auto w-full border-collapse ">
@@ -98,7 +97,10 @@ export default function RecentOffers() {
                         </tr>
                         ))}
                     </tbody>
-                </table>
+                  </table>
+                  <div className="flex items-center justify-center py-3">
+                        <button className="border border-gray-300 rounded-md py-1 px-4">View More</button>
+                  </div>
             </div>
         </div>
     </section>

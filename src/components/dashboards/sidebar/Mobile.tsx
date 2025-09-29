@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import { FaGift, FaTimes } from "react-icons/fa";
+import { FaAngleDown, FaGift, FaTimes } from "react-icons/fa";
 import type { MobileProps } from "../../../types";
 import { assets } from "../../../assets/assets";
-import useStore from "../../../../store/store";
 
 export default function Mobile({
   links,
@@ -11,7 +10,7 @@ export default function Mobile({
   activeClass,
   inactiveClass,
 }: MobileProps) {
-  const {user} = useStore();
+  const { user } = useStore();
   return (
     <div className="fixed inset-0 z-999 min-h-screen backdrop-blur-md ">
       <div className="bg-[#FFFFFF] min-h-screen fixed px-4 w-64 border-r border-gray-300 z-50">
@@ -58,15 +57,18 @@ export default function Mobile({
               25 <span className="text-[#847E7E]">Points</span>
             </p>
           </div>
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2">
             <p className="text-xl border border-green-600 rounded-full px-2.5 bg-[#FFEFDA] text-black pb-1">
-              {user.name?.slice(0, 1)}
+              G
             </p>
-            <p className=" font-bold">{user.name}</p>
+            <p className=" font-bold">User name</p>
+            <Link to="my-profile">
+              <FaAngleDown />
+            </Link>
           </div>
         </div>
         <button className="text-red-600 font-semibold px-8 hover:cursor-pointer mt-5">
-          <Link to={"/"}>Logout</Link>
+          Logout
         </button>
       </div>
     </div>

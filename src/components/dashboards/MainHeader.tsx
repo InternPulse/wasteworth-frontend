@@ -1,4 +1,4 @@
-import { FaGift } from "react-icons/fa";
+import { FaAngleDown, FaGift } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 import type { MainHeaderProps } from "../../types";

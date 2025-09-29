@@ -1,17 +1,18 @@
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import type { Tdata } from "../../../types";
+import type { Tdata } from "../../types";
 
 
-export default function RecentOffers() {
-  const data: Tdata[] = [
+
+export default function WasteListing() {
+    const data: Tdata[] = [
   {
     "id": "WW-001",
     "quantity_kg": 150,
     "date": "2024-09-15",
     "location": "Lagos Island, Nigeria",
     "price": 25000,
-    "status": "Cancelled"
+    "status": "Accepted"
   },
   {
     "id": "WW-002",
@@ -19,7 +20,7 @@ export default function RecentOffers() {
     "date": "2024-09-16",
     "location": "Abuja FCT, Nigeria",
     "price": 8500,
-    "status": "Sent"
+    "status": "Pending"
   },
   {
     "id": "WW-003",
@@ -27,7 +28,7 @@ export default function RecentOffers() {
     "date": "2024-09-17",
     "location": "Port Harcourt, Nigeria",
     "price": 48000,
-    "status": "Cancelled"
+    "status": "Pending"
   },
   {
     "id": "WW-004",
@@ -35,7 +36,7 @@ export default function RecentOffers() {
     "date": "2024-09-18",
     "location": "Kano, Nigeria",
     "price": 1200,
-    "status": "Sent"
+    "status": "Accepted"
   },
   {
     "id": "WW-005",
@@ -43,7 +44,7 @@ export default function RecentOffers() {
     "date": "2024-09-19",
     "location": "Ibadan, Nigeria",
     "price": 14500,
-    "status": "Cancelled"
+    "status": "Completed"
   },
   {
     "id": "WW-006",
@@ -51,17 +52,28 @@ export default function RecentOffers() {
     "date": "2024-09-20",
     "location": "Enugu, Nigeria",
     "price": 65000,
-    "status": "Sent"
+    "status": "Completed"
   }
 ]
 
+    const getStatusClass = (status: string) => {
+        switch (status) {
+            case 'Completed':
+                return 'text-green-700';
+            case 'Accepted':
+                return 'text-blue-700';
+            case 'Pending':
+                return 'text-gray-500'
+            default:
+                return 'text-red-700'
+        }
+    }
     
   return (
     <section className="bg-white py-5 px-2 rounded-md sm:px-5">
         <div className="space-y-7">
-            <div className="flex items-center justify-between">
-                <h2 className="font-semibold">Recent Offers</h2>
-                <Link to='/recycler/offers' className="border border-gray-300 rounded-md py-1 px-4">view all</Link>
+            <div className="flex items-center justify-left">
+                <h2 className="font-semibold">Recent Waste Listing</h2>
             </div>
             <div className="overflow-hidden rounded-lg border border-gray-300">
                 <table className="table-auto w-full border-collapse ">
@@ -85,9 +97,7 @@ export default function RecentOffers() {
                             <td className="px-4 border border-gray-200 py-2">{item.price}</td>
                             <td className="px-4 border border-gray-200 py-2 flex items-center justify-between gap-2">
                                 <span className={` ${
-                                    item.status === 'Sent'
-                                        ? 'text-blue-700'
-                                        : 'text-red-700'
+                                    getStatusClass(item.status)
                                 }`}>
                                     {item.status}
                                 </span>
@@ -99,6 +109,9 @@ export default function RecentOffers() {
                         ))}
                     </tbody>
                 </table>
+                <div className="flex items-center justify-center py-3">
+                        <button className="border border-gray-300 rounded-md py-1 px-4">View More</button>
+                </div>
             </div>
         </div>
     </section>

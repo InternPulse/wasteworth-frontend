@@ -1,10 +1,15 @@
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import type { Tdata } from "../../../types";
+import { useState } from 'react'
+import Modal from "./Modal";
+import PostForm from "./PostForm";
 
 
 
 export default function RecentPost() {
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
     const data: Tdata[] = [
   {
     "id": "WW-001",
@@ -69,12 +74,25 @@ export default function RecentPost() {
         }
     }
     
+  const toggleModal=()=>{
+    setIsModalOpen(!isModalOpen)
+  }  
+
+    
   return (
     <section className="bg-white py-5 px-2 rounded-md sm:px-5">
         <div className="space-y-7">
             <div className="flex items-center justify-between">
                 <h2 className="font-semibold">Recent Posts</h2>
-                <button className="bg-[#3B9561] rounded-md py-2 px-5 text-white">Post Waste</button>
+                <button 
+                    onClick={() => toggleModal()}
+                    className="bg-[#3B9561] rounded-md py-2 px-5 text-white hover:cursor-pointer"
+                >
+                    Post Waste
+                </button>
+                <Modal isOpen={isModalOpen} onClose={toggleModal}>
+                      <PostForm />
+                </Modal>
             </div>
             <div className="overflow-hidden rounded-lg border border-gray-300">
                 <table className="table-auto w-full border-collapse ">
