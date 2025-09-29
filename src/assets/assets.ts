@@ -9,6 +9,7 @@ import collect4 from "./collect4.png";
 import collect5 from "./collect5.png";
 import collect6 from "./collect6.png";
 import dispose from "./dispose.png";
+import disposeImg from "./disposeImg.jpg";
 export const assets = {
   hero,
   uba,
@@ -21,4 +22,5 @@ export const assets = {
   collect5,
   collect6,
   dispose,
+  disposeImg,
 };

@@ -14,7 +14,7 @@ import DashboardLayout from "./layout/DashboardLayout";
 import useStore from "../store/store";
 
 function App() {
-  const {isLoggedIn} = useStore();
+  const { isLoggedIn } = useStore();
   return (
     <>
       <Routes>

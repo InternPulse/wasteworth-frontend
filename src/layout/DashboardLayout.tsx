@@ -5,7 +5,7 @@ import { MdClose } from "react-icons/md";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import MarketPlace from "../pages/marketPlace/MarketPlace";
 import Notification from "../pages/notifications/Notification";
-import MyProfile from "../pages/collectorProfile/CollectorProfile";
+import MyProfile from "../pages/disposerProfile/MyProfile";
 import MyLisiting from "../pages/myListing/MyLisiting";
 import WalletAndRewards from "../pages/wallet&reward/WalletAndRewards";
 import CollectorProfile from "../pages/collectorProfile/CollectorProfile";
@@ -13,6 +13,8 @@ import CollectorProfile from "../pages/collectorProfile/CollectorProfile";
 const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean | null>(false);
   const [activeTab, setActiveTab] = useState("dashboard");
+  console.log(activeTab);
+
   return (
     <div className="h-screen overflow-hidden">
       {/* NavBar */}
