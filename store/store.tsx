@@ -29,11 +29,11 @@ const useStore = create<Store>((set) => ({
   setEmail: (email) => set({ email }),
 
   /* Authentication status */
-  isLoggedIn: false,
+  isLoggedIn: true,
   setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
 
   /* Data */
-  user: JSON.parse(localStorage.getItem("userData") || "").user || '',
+  user: JSON.parse(localStorage.getItem("userData") || "{}").user || "",
   setUser: (user) => set({ user }),
 
   /* Authentication requirements */

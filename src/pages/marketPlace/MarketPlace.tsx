@@ -4,6 +4,7 @@ import MainCard from "@/components/dashboards/recycler/MainCard";
 import { FaGift } from "react-icons/fa";
 import type { CardProps } from "../dashboard/Recycler";
 import Referral from "@/components/dashboards/recycler/Referral";
+import { Link } from "react-router-dom";
 
 interface Listing {
   id: string;
@@ -82,11 +83,6 @@ const MarketplaceDashboard: React.FC = () => {
   const handleCloseModal = () => {
     setActiveModal(null);
     setSelectedListing(null);
-  };
-
-  const handleMakePayment = () => {
-    console.log("Making payment...");
-    // Handle payment logic
   };
 
   const handleBackToMarketplace = () => {
@@ -177,7 +173,10 @@ const MarketplaceDashboard: React.FC = () => {
             style={{ scrollbarWidth: "none" }}
           >
             <div className="flex items-center mb-4">
-              <button onClick={handleCloseModal} className="mr-1">
+              <button
+                onClick={handleCloseModal}
+                className="mr-1.5 cursor-pointer"
+              >
                 <ChevronLeft className="size-4" />
               </button>
               <h2 className="text-sm font-semibold">Listing Details</h2>
@@ -300,12 +299,12 @@ const MarketplaceDashboard: React.FC = () => {
               >
                 Back to Market Place
               </button>
-              <button
-                onClick={handleMakePayment}
-                className="flex-1 bg-[#006837] text-white py-2 px-1 rounded-md text-xs sm:text-sm font-medium hover:bg-green-900 cursor-pointer"
+              <Link
+                to={"/user/payment"}
+                className="flex-1 bg-[#006837] text-white text-center py-2 px-1 rounded-md text-xs sm:text-sm font-medium hover:bg-green-900 cursor-pointer"
               >
                 Make Payment
-              </button>
+              </Link>
             </div>
           </div>
         </div>

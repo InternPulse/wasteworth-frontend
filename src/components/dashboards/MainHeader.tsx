@@ -9,14 +9,13 @@ export default function MainHeader({
   points,
   initial,
   user,
-  role,
 }: MainHeaderProps) {
   const activeClass = "text-green-700";
   const inActiveClass = "text-gray-500";
 
   return (
-    <nav className="px-10 py-2 bg-white fixed min-h-15 w-full">
-      <div className="self-center flex items-center space-x-[40%]">
+    <nav className="px-5 py-2 bg-white absolute min-h-15 w-full">
+      <div className="self-center flex items-center justify-between">
         <div>
           <h3 className="font-bold text-sm sm:text-base">
             Welcome back {firstName} 👋
@@ -39,7 +38,7 @@ export default function MainHeader({
             <p className=" font-bold">{user}</p>
           </div>
           <Link
-            to={`/${role}/notifications`}
+            to={`/user/notifications`}
             className={`active ? ${activeClass} : ${inActiveClass}`}
           >
             <IoMdNotificationsOutline size={25} />
