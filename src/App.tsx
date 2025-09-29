@@ -15,6 +15,7 @@ import DashboardLayout from "./layout/DashboardLayout";
 import useStore from "../store/store";
 import TermsAndConditions from "./components/landing/TermsAndConditions";
 import Privacy from "./components/landing/Privacy";
+import PaymentLayout from "./layout/PaymentLayout";
 
 function App() {
   const { isLoggedIn } = useStore();
@@ -48,6 +49,12 @@ function App() {
             </Private>
           }
         ></Route>
+        
+        <Route path="/payment" element={
+        <Private isAuthenticated={true}>
+          <PaymentLayout />
+        </Private>}>
+        </Route>
 
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>
