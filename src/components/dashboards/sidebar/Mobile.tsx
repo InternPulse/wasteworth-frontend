@@ -1,10 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaAngleDown, FaGift, FaTimes } from "react-icons/fa";
 import type { MobileProps } from "../../../types";
 import { assets } from "../../../assets/assets";
 import useStore from "../../../../store/store";
-import axios from "axios";
-import { useState } from "react";
+import useLogout from "../../../hooks/useLogout";
 
 export default function Mobile({
   links,
@@ -13,24 +12,9 @@ export default function Mobile({
   activeClass,
   inactiveClass,
 }: MobileProps) {
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-  const { tokens, user } = useStore();
+  const { logout, isLoggingOut } = useLogout();
+  const { user } = useStore();
 
-  const handleLogout = async () => {
-    setLoading(true);
-    try {
-      await axios.post(
-        "https://wasteworth-backend-django.onrender.com/api/v1/users/logout/",
-        { refresh_token: tokens.refresh_token }
-      );
-
-      navigate("/login");
-    } catch {
-      console.log("error");
-    }
-    setLoading(false);
-  };
   return (
     <div className="lg:hidden fixed inset-0 z-999 min-h-screen bg-black/70 backdrop-blur-[1px]">
       <div className="bg-[#FFFFFF] min-h-screen fixed px-4 w-64 border-r border-gray-300 z-50">
@@ -99,10 +83,10 @@ export default function Mobile({
               </Link>
             </div>
             <button
-              onClick={() => handleLogout()}
+              onClick={logout}
               className="text-[#FF0000] font-medium px-4 hover:cursor-pointer"
             >
-              {!loading ? "Logout" : "Logging out..."}
+              {!isLoggingOut ? "Logout" : "Logging out..."}
             </button>
           </div>
         </div>
