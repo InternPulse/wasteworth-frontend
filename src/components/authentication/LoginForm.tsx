@@ -36,6 +36,7 @@ const Form = () => {
 
         if (response.data.user) {
           localStorage.setItem("userData", JSON.stringify(response.data));
+          localStorage.setItem("tokens", JSON.stringify(response.data.tokens));
           setUser(response.data.user);
           setTokens(response.data.tokens);
           navigate(`/user`);
