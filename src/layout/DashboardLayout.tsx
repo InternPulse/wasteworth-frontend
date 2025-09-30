@@ -13,7 +13,7 @@ import MyProfile from "@/pages/disposerProfile/MyProfile";
 import MyOffers from "@/pages/my-offers/My-Offers";
 
 export default function DashboardLayout() {
-  const { user } = useStore();
+  const { user, notificationOpen } = useStore();
 
   setTimeout(() => {
     localStorage.setItem("loggedIn", "false");
@@ -39,6 +39,7 @@ export default function DashboardLayout() {
           <Route index element={<Disposer />} />
           <Route path="my-waste" element={<MyWaste />} />
           <Route path="wallet&rewards" element={<WalletAndRewards />} />
+          <Route path="profile" element={<MyProfile />} />
           <Route path="notifications" element={<Notification />} />
           <Route path="payment" element={<PaymentLayout />} />
         </Routes>
@@ -58,8 +59,9 @@ export default function DashboardLayout() {
           initial={user?.name?.slice(0, 1) ?? ""}
           user={user?.name ?? ""}
         />
-        <div className="min-h-screen w-19/20 mx-auto sm:w-full p-2 sm:p-4 pb-10">
+        <div className="min-h-screen w-19/20 mx-auto sm:w-full pt-4 p-2 sm:p-4 pb-10">
           {renderDashboardContent()}
+          {notificationOpen && <Notification />}
         </div>
       </div>
     </div>
