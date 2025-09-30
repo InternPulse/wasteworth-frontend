@@ -2,6 +2,7 @@ import { FaAngleDown, FaGift } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 import type { MainHeaderProps } from "../../types";
+import useStore from "../../../store/store";
 
 export default function MainHeader({
   firstName,
@@ -10,6 +11,7 @@ export default function MainHeader({
   initial,
   user,
 }: MainHeaderProps) {
+  const { toggleNotificationOpen, notificationOpen } = useStore();
   const activeClass = "text-green-700";
   const inActiveClass = "text-gray-500";
 
@@ -44,12 +46,15 @@ export default function MainHeader({
               </p>
             </Link>
           </div>
-          <Link
-            to={`/user/notifications`}
-            className={`active ? ${activeClass} : ${inActiveClass}`}
+          <button
+            onClick={() => {
+              toggleNotificationOpen();
+              console.log(notificationOpen);
+            }}
+            className={` cursor-pointer`}
           >
             <IoMdNotificationsOutline size={25} />
-          </Link>
+          </button>
         </div>
       </div>
     </nav>

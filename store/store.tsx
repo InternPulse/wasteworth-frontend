@@ -23,7 +23,10 @@ interface Store {
     refresh: string;
   };
   setTokens: (tokens: { access: string; refresh: string }) => void;
+  notificationOpen: boolean;
+  toggleNotificationOpen: () => void;
 }
+
 const useStore = create<Store>((set) => ({
   email: "",
   setEmail: (email) => set({ email }),
@@ -42,6 +45,9 @@ const useStore = create<Store>((set) => ({
     refresh: "",
   },
   setTokens: (tokens) => set({ tokens }),
+  notificationOpen: false,
+  toggleNotificationOpen: () =>
+    set((state) => ({ notificationOpen: !state.notificationOpen })),
 }));
 
 export default useStore;
