@@ -9,7 +9,7 @@ export default function Desktop({
   inactiveClass,
 }: DesktopProps) {
   return (
-    <div className="hidden lg:block bg-[#FFFFFF] min-h-screen fixed w-60 space-y-20">
+    <div className="hidden lg:flex bg-[#FFFFFF] min-h-screen fixed w-60 flex-col justify-between pb-5">
       <ul className="flex flex-col mt-5 text-[16px] px-4 space-y-3 font-semibold">
         <img
           src={assets.greenLogo}
@@ -34,9 +34,18 @@ export default function Desktop({
           );
         })}
       </ul>
-      <button className="text-red-600 font-semibold px-8 hover:cursor-pointer">
-        <Link to={"/"}>Logout</Link>
-      </button>
+      <div className="w-8/10 mx-auto space-y-5">
+        <div>
+          <Link to={"/verify-email"}>
+            <button className="border block text-white rounded-full py-2 px-2 w-full main-bg text-sm font-semibold cursor-pointer">
+              Verify email
+            </button>{" "}
+          </Link>
+        </div>
+        <button className="text-[#FF0000] font-medium px-4 hover:cursor-pointer">
+          <Link to={"/"}>Logout</Link>
+        </button>
+      </div>
     </div>
   );
 }

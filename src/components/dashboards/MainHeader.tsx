@@ -14,7 +14,7 @@ export default function MainHeader({
   const inActiveClass = "text-gray-500";
 
   return (
-    <nav className="px-5 py-2 bg-white absolute min-h-15 w-full">
+    <nav className="px-10 py-2 bg-white sticky top-0 shadow shadow-[#0000000e] min-h-15 w-full z-2">
       <div className="self-center flex items-center justify-between">
         <div>
           <h3 className="font-bold text-sm sm:text-base">
@@ -31,11 +31,18 @@ export default function MainHeader({
               {points} <span className="text-[#847E7E]">Points</span>
             </p>
           </div>
-          <div className="flex items-center space-x-3">
-            <p className="text-xl border border-green-600 rounded-full px-2.5 bg-[#FFEFDA] text-black pb-1">
-              {initial}
-            </p>
-            <p className=" font-bold">{user}</p>
+          <div>
+            <Link to={"/user/profile"} className="flex items-center space-x-2">
+              <p className="text-xl border border-green-600 rounded-full px-2.5 bg-[#FFEFDA] text-black pb-1">
+                {initial}
+              </p>
+              <p className="flex items-center gap-1">
+                {user}{" "}
+                <span className="text-gray-600">
+                  <FaAngleDown />
+                </span>
+              </p>
+            </Link>
           </div>
           <Link
             to={`/user/notifications`}

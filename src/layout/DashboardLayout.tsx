@@ -8,7 +8,9 @@ import MainHeader from "@/components/dashboards/MainHeader";
 import MarketplaceDashboard from "../pages/marketPlace/MarketPlace";
 import useStore from "../../store/store";
 import PaymentLayout from "./PaymentLayout";
+import MyWaste from "@/pages/myWaste/MyWaste";
 import MyProfile from "@/pages/disposerProfile/MyProfile";
+import MyOffers from "@/pages/my-offers/My-Offers";
 
 export default function DashboardLayout() {
   const { user } = useStore();
@@ -23,20 +25,21 @@ export default function DashboardLayout() {
         <Routes>
           <Route index element={<Recycler />} />
           <Route path="marketplace" element={<MarketplaceDashboard />} />
-          <Route path="offers" element={<Notification />} />
+          <Route path="offers" element={<MyOffers />} />
           <Route path="wallet&rewards" element={<WalletAndRewards />} />
+          <Route path="profile" element={<MyProfile />} />
           <Route path="notifications" element={<Notification />} />
           <Route path="payment" element={<PaymentLayout />} />
+          {/* <Route path="my-waste" element={<Mylisting />} /> */}
         </Routes>
       );
     } else if (user.role === "disposer") {
       return (
         <Routes>
           <Route index element={<Disposer />} />
-          {/* <Route path="my-waste" element={<Mylisting />} /> */}
+          <Route path="my-waste" element={<MyWaste />} />
           <Route path="wallet&rewards" element={<WalletAndRewards />} />
           <Route path="notifications" element={<Notification />} />
-          <Route path="profile" element={<MyProfile />} />
           <Route path="payment" element={<PaymentLayout />} />
         </Routes>
       );
@@ -55,7 +58,9 @@ export default function DashboardLayout() {
           initial={user?.name?.slice(0, 1) ?? ""}
           user={user?.name ?? ""}
         />
-        <div className="mt-17">{renderDashboardContent()}</div>
+        <div className="min-h-screen w-19/20 mx-auto sm:w-full p-2 sm:p-4 pb-10">
+          {renderDashboardContent()}
+        </div>
       </div>
     </div>
   );

@@ -34,7 +34,7 @@ export default function Recycler() {
     },
   ];
   return (
-    <div className="min-h-screen space-y-5  w-19/20 mx-auto sm:w-full sm:p-4 pb-10">
+    <div className="min-h-screen space-y-5">
       <MainCard details={mainCard} />
       <Referral />
       <RecentListing />

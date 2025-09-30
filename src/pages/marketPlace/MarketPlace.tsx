@@ -121,18 +121,13 @@ const MarketplaceDashboard: React.FC = () => {
     },
   ];
   return (
-    <div className="min-h-screen bg-gray-100 flex overflow-y-auto">
-      <div className="flex-1">
-        <div className="sm:p-4 w-19/20 sm:w-full mx-auto space-y-10">
-          {/* Stats Cards */}
-          <MainCard details={mainCard} />
-
-          {/* Invite Banner */}
-          <Referral />
-        </div>
+    <div className="min-h-screen bg-gray-100 flex">
+      <div className="flex-1 space-y-5">
+        <MainCard details={mainCard} />
+        <Referral />
 
         {/* Listings Grid */}
-        <div className="grid md:grid-cols-3  lg:grid-cols-4  gap-4 w-19/20 mx-auto">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
           {mockListings.map((listing) => (
             <div
               key={listing.id}
