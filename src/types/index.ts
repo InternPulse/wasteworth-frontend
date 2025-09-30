@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { z } from 'zod'
 
 //sidebar linkType
@@ -52,8 +53,6 @@ export interface Tdata {
 }
 
 
-
-
 //valiadtion schema for recycler
 export const ProfileSchema = z.object({
     last_name: z.string().min(1, 'Last Name is Required'),
@@ -67,3 +66,24 @@ export const ProfileSchema = z.object({
 
 //inferring types form the above schema for type validation
 export type ProfileSchema = z.infer<typeof ProfileSchema>
+
+
+export interface ModalProps{
+    isOpen: boolean;
+    onClose: () => void;
+    children: ReactNode;
+}
+
+export const PostSchema = z.object({
+    title: z.string().min(1, "Post Title is required"),
+    waste_type: z.string().min(1, "Waste type is required"),
+    quantity: z.string().min(1, "Waste quantity is required"),
+    quantity_type: z.enum(['kg', 'k', 'count']),
+    price: z.string().min(1, "Price is required"),
+    photo: z.instanceof(File, { message: "Please select an image file." }),
+    location: z.string().min(1, "Location is required"),
+    preferred_contact: z.enum(["Call", "whatsapp"]),
+    contact: z.string().min(1, "Phone is required")
+})
+
+export type PostSchema = z.infer<typeof PostSchema>
