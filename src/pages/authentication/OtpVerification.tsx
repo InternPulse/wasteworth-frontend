@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import useStore from "../../../store/store";
 
 const OtpVerification = () => {
-  const { email } = useStore();
+  const { email, otp, setOtp } = useStore();
   const navigate = useNavigate();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate("/auth/login");
+    setOtp(otp);
+    navigate("/create-new-password");
   };
   return (
     <div className="my-auto w-9/10 h-75 max-w-sm bg-white px-4 rounded-2xl flex flex-col items-center justify-center">
@@ -29,6 +30,8 @@ const OtpVerification = () => {
             id="otp"
             type="number"
             placeholder="Enter OTP"
+            value={otp || ""}
+            onChange={(e) => setOtp(String(e.target.value))}
             required
           />
           <Link to={""} className="text-xs font-semibold mt-2 text-green-700">

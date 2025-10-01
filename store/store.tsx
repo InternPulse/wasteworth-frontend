@@ -4,6 +4,7 @@ export interface User {
   userId: string;
   name: string | null;
   email: string;
+
   phone: string | null;
   role: string;
   location: string | null;
@@ -14,6 +15,8 @@ export interface User {
 interface Store {
   email: string;
   setEmail: (email: string) => void;
+  otp: string | null;
+  setOtp: (v: string | null) => void;
   isLoggedIn: boolean;
   setIsLoggedIn: (isLoggedIn: boolean) => void;
   user: User;
@@ -30,6 +33,8 @@ interface Store {
 const useStore = create<Store>((set) => ({
   email: "",
   setEmail: (email) => set({ email }),
+  otp: null,
+  setOtp: (otp) => set({ otp }),
 
   /* Authentication status */
   isLoggedIn: true,

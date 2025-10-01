@@ -2,32 +2,19 @@ import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
 //import { useNavigate } from "react-router-dom";
 import useStore from "../../../store/store";
-import axios from "axios";
+import Loader from "@/utils/Loader";
+import useForgotPassword from "@/components/authentication/useForgotPassword";
 
 const ForgotPassword = () => {
+   const { email, setEmail } = useStore();
+ const { handleForgotPassword, loading } = useForgotPassword();
+
   const submitEmail = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Posting...");
-
-    try {
-      const res = await axios.post(
-        "https://wasteworth-backend-django.onrender.com/api/v1/users/forgotPassword/",
-        { email: email }
-      );
-      console.log(res);
-      
-    } catch (error) {
-      console.log(error);
-      
-    }
+    await handleForgotPassword({ email });
   };
 
-  const { email, setEmail } = useStore();
-  //const navigate = useNavigate();
-  /* const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    navigate("/auth/otp-verification");
-  }; */
   return (
     <div className="my-auto h-80 w-9/10 max-w-sm bg-white px-4 py-15 rounded-2xl flex flex-col items-center justify-center">
       <h2 className="font-semibold text-2xl text-gray-800 mb-1">
@@ -57,7 +44,7 @@ const ForgotPassword = () => {
           type="submit"
           className="mt-4 w-full py-3 text-xs rounded-full  font-semibold text-white bg-green-800 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative"
         >
-          Submit
+          {loading ? <Loader /> : "Submit"}
         </button>
       </form>
       <div className="flex w-full text-sm px-1 py-5 justify-between items-center">
