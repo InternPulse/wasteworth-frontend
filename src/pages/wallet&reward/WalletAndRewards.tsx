@@ -39,23 +39,11 @@ const WalletAndRewards = () => {
     },
   ];
   return (
-    <div className="w-19/20 mx-auto sm:p-4 sm:w-full overflow-hidden">
-      {/* Top Cards */}
-      <div className="">
-        <MainCard details={mainCard} />
-      </div>
-      {/* Invite Card */}
-      <div className="py-4">
-        <Referral />
-      </div>
-      {/* Quick Actions */}
-      <div>
-        <QuickActions />
-      </div>
-      {/* Recent Transactions */}
-      <div className="py-4">
-        <RecentTransactions />
-      </div>
+    <div className="space-y-5">
+      <MainCard details={mainCard} />
+      <Referral />
+      <QuickActions />
+      <RecentTransactions />
     </div>
   );
 };

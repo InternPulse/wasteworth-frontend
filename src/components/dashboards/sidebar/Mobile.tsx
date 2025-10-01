@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FaAngleDown, FaGift, FaTimes } from "react-icons/fa";
 import type { MobileProps } from "../../../types";
 import { assets } from "../../../assets/assets";
+import useStore from "../../../../store/store";
 
 export default function Mobile({
   links,
@@ -12,7 +13,7 @@ export default function Mobile({
 }: MobileProps) {
   const { user } = useStore();
   return (
-    <div className="fixed inset-0 z-999 min-h-screen backdrop-blur-md ">
+    <div className="lg:hidden fixed inset-0 z-999 min-h-screen bg-black/70 backdrop-blur-[1px]">
       <div className="bg-[#FFFFFF] min-h-screen fixed px-4 w-64 border-r border-gray-300 z-50">
         {/* Close button */}
         <div className="flex justify-end px-4 pt-1">
@@ -57,19 +58,28 @@ export default function Mobile({
               25 <span className="text-[#847E7E]">Points</span>
             </p>
           </div>
-          <div className="flex items-center space-x-2">
-            <p className="text-xl border border-green-600 rounded-full px-2.5 bg-[#FFEFDA] text-black pb-1">
-              G
-            </p>
-            <p className=" font-bold">User name</p>
-            <Link to="my-profile">
+          <div>
+            <Link to={"/user/profile"} className="flex items-center space-x-1">
+              <p className="text-xl border border-green-600 rounded-full px-2.5 bg-[#FFEFDA] text-black pb-1 font-semibold">
+                {user.name?.slice(0, 1)}
+              </p>
+              <p className="text-sm font-bold">{user.name}</p>
               <FaAngleDown />
             </Link>
           </div>
+          <div className="w-full mx-auto space-y-2">
+            <div>
+              <Link to={"/verify-email"}>
+                <button className="border block text-white rounded-full py-2 px-2 w-full main-bg text-xs font-semibold cursor-pointer">
+                  Verify email
+                </button>{" "}
+              </Link>
+            </div>
+            <button className="text-[#FF0000] font-medium px-4 hover:cursor-pointer">
+              <Link to={"/"}>Logout</Link>
+            </button>
+          </div>
         </div>
-        <button className="text-red-600 font-semibold px-8 hover:cursor-pointer mt-5">
-          Logout
-        </button>
       </div>
     </div>
   );
