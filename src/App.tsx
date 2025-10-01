@@ -11,14 +11,12 @@ import OtpVerification from "./pages/authentication/OtpVerification";
 import AuthLayout from "./layout/AuthLayout";
 import Private from "./routes/Private";
 import DashboardLayout from "./layout/DashboardLayout";
-import useStore from "../store/store";
 import TermsAndConditions from "./components/landing/TermsAndConditions";
 import Privacy from "./components/landing/Privacy";
 import VerifyEmail from "./pages/authentication/VerifyEmail";
 import FAQs from "./components/landing/FAQs";
 
 function App() {
-  const { isLoggedIn } = useStore();
   return (
     <>
       <Routes>
@@ -43,15 +41,13 @@ function App() {
         </Route>
 
         <Route
-          path="/:userRole/*"
+          path="/user/*"
           element={
-            <Private isAuthenticated={true}>
+            <Private isAuthenticated={localStorage.getItem("loggedIn")}>
               <DashboardLayout />
             </Private>
           }
-        >
-
-        </Route>
+        ></Route>
 
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>

@@ -11,7 +11,7 @@ export default function Referral() {
                   <h3>Invite friends. Earn rewards.</h3>
                   <p className="text-gray-400 text-sm md:text-md">Get up to 150 Points + Cash Bonuses when your friends join and recycle.</p>
               </div>
-              <button className="flex items-center justify-center gap-2 bg-[#F5F5F5] rounded-md p-2 text-[#006837] font-bold">
+              <button className="flex items-center justify-center gap-2 bg-[#F5F5F5] rounded-md p-2 text-[#006837] font-bold cursor-pointer">
                   Invite & Earn 
                   <FaArrowRight size={18}/>
               </button>

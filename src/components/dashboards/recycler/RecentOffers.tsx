@@ -61,7 +61,7 @@ export default function RecentOffers() {
         <div className="space-y-7">
             <div className="flex items-center justify-between">
                 <h2 className="font-semibold">Recent Offers</h2>
-                <button className="border border-gray-300 rounded-md py-1 px-4">view all</button>
+                <Link to='/recycler/offers' className="border border-gray-300 rounded-md py-1 px-4">view all</Link>
             </div>
             <div className="overflow-hidden rounded-lg border border-gray-300">
                 <table className="table-auto w-full border-collapse ">
