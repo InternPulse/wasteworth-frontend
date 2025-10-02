@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { DesktopProps } from "../../../types";
 import { assets } from "../../../assets/assets";
+import useLogout from "../../../hooks/useLogout";
 
 export default function Desktop({
   links,
@@ -8,6 +9,8 @@ export default function Desktop({
   activeClass,
   inactiveClass,
 }: DesktopProps) {
+  const { logout, isLoggingOut } = useLogout();
+
   return (
     <div className="hidden lg:flex bg-[#FFFFFF] min-h-screen fixed w-60 flex-col justify-between pb-5">
       <ul className="flex flex-col mt-5 text-[16px] px-4 space-y-3 font-semibold">
@@ -42,8 +45,11 @@ export default function Desktop({
             </button>{" "}
           </Link>
         </div>
-        <button className="text-[#FF0000] font-medium px-4 hover:cursor-pointer">
-          <Link to={"/"}>Logout</Link>
+        <button
+          onClick={logout}
+          className="text-[#FF0000] font-medium px-4 hover:cursor-pointer"
+        >
+          {!isLoggingOut ? "Logout" : "Logging out..."}
         </button>
       </div>
     </div>

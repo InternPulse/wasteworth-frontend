@@ -3,6 +3,7 @@ import { FaAngleDown, FaGift, FaTimes } from "react-icons/fa";
 import type { MobileProps } from "../../../types";
 import { assets } from "../../../assets/assets";
 import useStore from "../../../../store/store";
+import useLogout from "../../../hooks/useLogout";
 
 export default function Mobile({
   links,
@@ -11,7 +12,9 @@ export default function Mobile({
   activeClass,
   inactiveClass,
 }: MobileProps) {
+  const { logout, isLoggingOut } = useLogout();
   const { user } = useStore();
+
   return (
     <div className="lg:hidden fixed inset-0 z-999 min-h-screen bg-black/70 backdrop-blur-[1px]">
       <div className="bg-[#FFFFFF] min-h-screen fixed px-4 w-64 border-r border-gray-300 z-50">
@@ -59,7 +62,11 @@ export default function Mobile({
             </p>
           </div>
           <div>
-            <Link to={"/user/profile"} className="flex items-center space-x-1">
+            <Link
+              onClick={() => setShowMobileMenu(false)}
+              to={"/user/profile"}
+              className="flex items-center space-x-1"
+            >
               <p className="text-xl border border-green-600 rounded-full px-2.5 bg-[#FFEFDA] text-black pb-1 font-semibold">
                 {user.name?.slice(0, 1)}
               </p>
@@ -75,8 +82,11 @@ export default function Mobile({
                 </button>{" "}
               </Link>
             </div>
-            <button className="text-[#FF0000] font-medium px-4 hover:cursor-pointer">
-              <Link to={"/"}>Logout</Link>
+            <button
+              onClick={logout}
+              className="text-[#FF0000] font-medium px-4 hover:cursor-pointer"
+            >
+              {!isLoggingOut ? "Logout" : "Logging out..."}
             </button>
           </div>
         </div>

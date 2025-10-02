@@ -22,10 +22,10 @@ interface Store {
   user: User;
   setUser: (user: User) => void;
   tokens: {
-    access: string;
-    refresh: string;
+    access_token: string;
+    refresh_token: string;
   };
-  setTokens: (tokens: { access: string; refresh: string }) => void;
+  setTokens: (tokens: { access_token: string; refresh_token: string }) => void;
   notificationOpen: boolean;
   toggleNotificationOpen: () => void;
 }
@@ -45,10 +45,7 @@ const useStore = create<Store>((set) => ({
   setUser: (user) => set({ user }),
 
   /* Authentication requirements */
-  tokens: {
-    access: "",
-    refresh: "",
-  },
+  tokens: JSON.parse(localStorage.getItem("tokens") || "{}").user || "",
   setTokens: (tokens) => set({ tokens }),
   notificationOpen: false,
   toggleNotificationOpen: () =>
