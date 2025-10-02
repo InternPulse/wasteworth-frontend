@@ -15,6 +15,7 @@ import TermsAndConditions from "./components/landing/TermsAndConditions";
 import Privacy from "./components/landing/Privacy";
 import VerifyEmail from "./pages/authentication/VerifyEmail";
 import FAQs from "./components/landing/FAQs";
+import CreateNewPassword from "./pages/authentication/CreateNewPassword";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="otp-verification" element={<OtpVerification />} />
+          <Route path="create-new-password" element={<CreateNewPassword />} />
           <Route path="*" element={<ComingSoon />} />
         </Route>
 
