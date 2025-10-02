@@ -3,7 +3,7 @@ import useStore from "../../store/store";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export const handleLogout = () => {
+const useLogout = () => {
   const [isLoggingOut, setLoading] = useState(false);
   const { tokens } = useStore();
   const navigate = useNavigate();
@@ -28,4 +28,4 @@ export const handleLogout = () => {
   };
   return { logout, isLoggingOut };
 };
-export default handleLogout;
+export default useLogout;
