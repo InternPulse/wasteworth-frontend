@@ -28,6 +28,4 @@ const useLogout = () => {
   };
   return { logout, isLoggingOut };
 };
-
-
 export default useLogout;
