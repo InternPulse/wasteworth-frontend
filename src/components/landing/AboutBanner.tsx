@@ -3,41 +3,40 @@ import { assets } from "../../assets/assets";
 
 const AboutBanner = () => {
   return (
-    <div className="bg-[#2E7D32] h-[calc(100vh-60px)] md:py-8 lg:py-15  flex items-center justify-center relative top-2">
-      <div className="rounded-lg grid md:grid-cols-2 w-9/10">
-        {/* text */}
-        <div className="flex-1 z-1 md:z-0">
-          <div className="flex items-center justify-center px-5 py-8 md:p-10 xl:p-20 md:bg-white md:rounded-l-lg h-full w-full">
-            <div className="space-y-1 lg:space-y-3">
-              <p className="text-yellow-500 md:text-yellow-600 font-semibold text-xs md:text-sm lg:text-base">
-                OVER 10,000 PLASTICS RECYCLED
-              </p>
-              <h2 className="font-bold text-2xl sm:text-3xl lg:text-2xl xl:text-3xl text-white md:text-gray-800 lg:leading-[2.5rem] mb-3 lg:mb-5 text-center sm:text-left">
-                Connecting Communities to <br className="hidden sm:block" />{" "}
-                responsible waste <br className="hidden sm:block" /> management
-              </h2>
-              <p className="text-gray-300 text-center sm:text-left md:text-gray-600 mb-8 sm:mb-5 lg:mb-8 text-sm lg:text-base max-w-lg">
-                WasteWorth is a waste recycling application that simplifies
-                collections of plastic waste, enables tracking and adds
-                gamification incentives.
-              </p>
-              <div className="w-full flex justify-center sm:justify-start">
-                <Link to={"/login"}>
-                  <button className="bg-green-700 text-white px-6 xl:px-8 py-2 xl:py-3 rounded-lg font-semibold cursor-pointer">
-                    Get Started
-                  </button>
-                </Link>
+    <div
+      className={`min-h-[500px] min-h-[calc(100vh-70px)] bg-[#2E7D32] flex items-center justify-center mt-3 sm:mt-0 py-2 md:py-8 lg:py-15`}
+    >
+      <div className="grid md:grid-cols-2 grid-rows-2 sm:grid-rows-1 rounded sm:rounded-lg items-center w-11/12 max-w-7xl h-full py-4 overflow-hidden">
+        <div className="md:rounded-l-lg self-start w-full h-full border flex sm:items-center justify-center order-2 md:order-1">
+          <div className="flex items-center w-full md:h-full p-3 sm:p-8 bg-white rounded-b">
+            <div className="space-y-5">
+              <div className="">
+                <h3 className="text-[14px] sm:text-base text-[#B48F00] font-bold mb-1 sm:mb-2">
+                  OVER 10,000 PLASTICS RECYCLED
+                </h3>
+                <h2 className="font-bold  lg:text-3xl xl:text-3xl text-[#2a2a2a] lg:leading-[2.5rem] mb-3 lg:mb-5">
+                  Connecting Communities to <br className="hidden sm:block" />{" "}
+                  responsible waste management
+                </h2>
+                <p className="text-[#464545] mb-2 sm:mb-5 lg:mb-8 text-[16px] leading-[32px] sm:leading-base lg:text-base max-w-lg">
+                  With WasteWorth, every item you recycle is tracked, rewarded,
+                  and celebrated. Earn cash, unlock gamified incentives, and
+                  help protect the planet
+                </p>
               </div>
+              <Link to={"/login"} className="w-full flex justify-start">
+                <button className="min-w-[173px] bg-green-700 text-white px-6 xl:px-8 py-2 xl:py-3 rounded-[6px] sm:rounded-lg font-semibold">
+                  Get Started
+                </button>
+              </Link>
             </div>
           </div>
         </div>
-        <div className="flex-1 brightness-50 md:brightness-100 absolute h-full w-full top-0 left-0 md:static ">
-          <img
-            src={assets.about}
-            alt=""
-            className="w-full h-full object-cover self-stretch-none md:rounded-r-lg aspect-[4/3]"
-          />
-        </div>
+
+        <img
+          src={assets.about}
+          className="h-full w-full object-cover rounded-t md:rounded-lg md:rounded-l-none order-1"
+        />
       </div>
     </div>
   );

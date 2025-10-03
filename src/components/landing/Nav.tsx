@@ -1,6 +1,6 @@
-import { FaBars } from "react-icons/fa";
 import { assets } from "../../assets/assets";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { IoMdMenu } from "react-icons/io";
 
 const Nav = ({
   setSidebarOpen,
@@ -9,14 +9,23 @@ const Nav = ({
   setSidebarOpen: (value: boolean) => void;
   sidebarOpen: boolean;
 }) => {
+  const page = useLocation();
   return (
-    <nav className="max-w-[2000px] mx-auto h-15 lg:h-18 shadow-xl shadow-black/1 fixed top-0 left-0 right-0 flex items-center justify-between bg-white px-[1.5rem] sm:px-[2rem] md:px-[3rem]">
-      <div className="flex h-13 items-center justify-center ">
-        <img
-          src={assets.logo1}
-          alt=""
-          className="w-15 h-10 md:h-13 object-cover md:w-17"
-        />
+    <nav className="bg-white max-w-[2000px] mx-auto h-15 lg:h-18 shadow-xl shadow-black/1 fixed top-0 left-0 right-0 flex items-center justify-between bg-white px-[1.5rem] sm:px-[2rem] md:px-[3rem]">
+      <div className="flex h-13 items-center justify-center">
+        {page.pathname === "/" ? (
+          <h2 className="font-bold text-[#222222] text-lg">Home</h2>
+        ) : page.pathname === "/about" ? (
+          <h2 className="font-bold text-[#222222] text-lg">About Us</h2>
+        ) : page.pathname === "/contact" ? (
+          <h2 className="font-bold text-[#222222] text-lg">Contact Us</h2>
+        ) : (
+          <img
+            src={assets.logo1}
+            alt=""
+            className="w-15 h-10 md:h-13 object-cover md:w-17"
+          />
+        )}
       </div>
       <ul className="hidden sm:flex items-center gap-6 md:gap-10 justify-around">
         {[
@@ -45,13 +54,14 @@ const Nav = ({
       >
         Get Started
       </NavLink>
-      <div className="sm:hidden">
-        {sidebarOpen ? (
-          ""
-        ) : (
-          <FaBars onClick={() => setSidebarOpen(true)} size={20} />
-        )}
-      </div>
+
+      {sidebarOpen ? (
+        ""
+      ) : (
+        <div className="sm:hidden p-1.5 rounded text-gray-700 shadow bg-white">
+          <IoMdMenu onClick={() => setSidebarOpen(true)} size={20} />
+        </div>
+      )}
     </nav>
   );
 };
