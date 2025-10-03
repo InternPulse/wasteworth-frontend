@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 
 export const useFetch = (URL: string) => {
   const [data, setData] = useState();
-  console.log("fetching...");
 
   const fetch = async () => {
+    console.log("fetching...");
     try {
       const res = await axios.get(`${URL}`, {
         headers: {
