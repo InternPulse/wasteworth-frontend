@@ -13,16 +13,15 @@ const GetOTP = ({ purpose, onGet }: { purpose: string; onGet: () => void }) => {
   const sendOtp: SubmitHandler<{ email_or_phone: string }> = async (data: {
     email_or_phone: string;
   }) => {
-    console.log(data);
+    console.log("Sending OTP...");
     try {
-      const res = await axios.post(
+      await axios.post(
         "https://wasteworth-backend-django.onrender.com/api/v1/otp/send/",
         {
           ...data,
           purpose,
         }
       );
-      console.log(res);
       onGet();
     } catch (err) {
       console.log(err);

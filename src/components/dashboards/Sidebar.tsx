@@ -16,7 +16,7 @@ interface LinkType {
 
 export default function Sidebar() {
   const location = useLocation();
-  const {user} = useStore();
+  const { user } = useStore();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const isActive = (path: string) => {

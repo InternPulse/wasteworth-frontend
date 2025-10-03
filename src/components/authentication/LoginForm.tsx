@@ -30,17 +30,17 @@ const Form = () => {
       .then((response) => {
         console.log("Form submitted successfully:", response);
 
-        if (response.data.success) {
-          localStorage.setItem("loggedIn", "true");
-        }
-
         if (response.data.user) {
           localStorage.setItem("userData", JSON.stringify(response.data));
+          localStorage.setItem("tokens", JSON.stringify(response.data.tokens));
           setUser(response.data.user);
           setTokens(response.data.tokens);
-          navigate(`/user`);
         } else {
-          console.warn("Login successful but no user data received.");
+          console.error("Login successful but no user data received.");
+        }
+        if (response.data.success) {
+          localStorage.setItem("loggedIn", "true");
+          navigate(`/user`);
         }
       })
       .catch((error) => {
