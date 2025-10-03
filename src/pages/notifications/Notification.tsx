@@ -1,9 +1,16 @@
 import { FaCheck } from "react-icons/fa";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import useStore from "../../../store/store";
+import { useFetch } from "@/hooks/useFetch";
 
 const Notification = () => {
   const { toggleNotificationOpen } = useStore();
+  const { data } = useFetch(
+    "https://wasteworth-backend-express.onrender.com/api/v1/notifications"
+  );
+  //const { id, userId, type, message, is_read, createdAt, user } = data;
+
+  console.log(data);
   return (
     <div className="inset-0 fixed top-0 left-0 z-9999 flex items-center justify-center bg-black/50">
       <div className="w-sm h-115 rounded-lg bg-white flex flex-col">
@@ -20,7 +27,7 @@ const Notification = () => {
           className="flex flex-col p-5 gap-5 overflow-y-scroll"
           style={{ scrollbarWidth: "thin" }}
         >
-          {data.map((notification, i) => (
+          {dataa.map((notification, i) => (
             <div key={i} className="flex items-center gap-5">
               <div className="main-bg p-1 rounded-full">
                 <FaCheck className="text-white size-1.5" />
@@ -39,7 +46,7 @@ const Notification = () => {
 
 export default Notification;
 
-const data = [
+const dataa = [
   {
     message: "Listing accepted",
     date: "18 September 2025",

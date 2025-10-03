@@ -12,6 +12,18 @@ export interface User {
   referralCode: string;
   createdAt: string;
 }
+interface NotificationType {
+  id: string;
+  userId: string;
+  type: string;
+  message: string;
+  is_read: false;
+  createdAt: string;
+  user: {
+    id: string;
+    name: string;
+  };
+}
 interface Store {
   email: string;
   setEmail: (email: string) => void;
@@ -28,6 +40,8 @@ interface Store {
   setTokens: (tokens: { access_token: string; refresh_token: string }) => void;
   notificationOpen: boolean;
   toggleNotificationOpen: () => void;
+  notifications: NotificationType[];
+  setNotifications: (notifications: NotificationType[]) => void;
 }
 
 const useStore = create<Store>((set) => ({
@@ -49,7 +63,10 @@ const useStore = create<Store>((set) => ({
   setTokens: (tokens) => set({ tokens }),
   notificationOpen: false,
   toggleNotificationOpen: () =>
-    set((state) => ({ notificationOpen: !state.notificationOpen })),
+    set((state) => ({ ...state, notificationOpen: !state.notificationOpen })),
+  notifications: [],
+  setNotifications: (notifications: NotificationType[]) =>
+    set({ notifications }),
 }));
 
 export default useStore;
