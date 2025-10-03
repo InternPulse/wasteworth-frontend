@@ -5,6 +5,7 @@ const Private: FC<{
   children: ReactNode;
   isAuthenticated: string | null;
 }> = ({ children, isAuthenticated }) => {
+  
   if (typeof isAuthenticated === "string" && isAuthenticated !== "") {
     try {
       if (JSON.parse(isAuthenticated) !== true) {
