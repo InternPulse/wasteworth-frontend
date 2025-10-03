@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 import useStore from "../../../store/store";
 import { PacmanLoader } from "react-spinners";
 
-
-const BASE_URL: string = import.meta.env.VITE_BASE_URL1
+const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
+console.log(BASE_URL);
 
 const Form = () => {
   const { setUser, setTokens } = useStore();
@@ -26,10 +26,7 @@ const Form = () => {
 
     setIsLoading(true);
     axios
-      .post(
-        `${BASE_URL}/api/v1/users/login/`,
-        data
-      )
+      .post(`${BASE_URL}/api/v1/users/login/`, data)
       .then((response) => {
         console.log("Form submitted successfully:", response);
 
