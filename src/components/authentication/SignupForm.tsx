@@ -10,6 +10,9 @@ interface FormData {
   confirm_password: string;
 }
 
+
+const BASE_URL: string = import.meta.env.VITE_BASE_URL1
+
 const Form = () => {
   const { setEmail } = useStore();
   const {
@@ -27,7 +30,7 @@ const Form = () => {
 
     try {
       const response = await axios.post(
-        "https://wasteworth-backend-django.onrender.com/api/v1/users/signup/",
+        `${BASE_URL}/api/v1/users/signup/`,
         { ...data, role }
       );
       console.log("Form submitted successfully:", response.data);

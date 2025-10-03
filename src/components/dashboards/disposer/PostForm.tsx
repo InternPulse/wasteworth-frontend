@@ -8,10 +8,10 @@ import { PostSchema } from '../../../types'
 export default function PostForm() {
 
       const {
-                register,
-                reset, 
-                handleSubmit, 
-                formState: { errors, isSubmitting }
+            register,
+            reset, 
+            handleSubmit, 
+            formState: { errors, isSubmitting }
         } = useForm({
             resolver: zodResolver(PostSchema)
         })

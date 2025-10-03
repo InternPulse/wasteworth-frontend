@@ -12,8 +12,7 @@ export default function MainHeader({
   user,
 }: MainHeaderProps) {
   const { toggleNotificationOpen, notificationOpen } = useStore();
-  const activeClass = "text-green-700";
-  const inActiveClass = "text-gray-500";
+  
 
   return (
     <nav className="px-10 py-2 bg-white sticky top-0 shadow shadow-[#0000000e] min-h-15 w-full z-2">

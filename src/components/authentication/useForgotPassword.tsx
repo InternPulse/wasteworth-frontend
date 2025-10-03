@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 type ForgotPasswordForm = { email: string }
 type ResetPasswordForm = { email: string, otp: string, newPassword: string, confirmPassword: string }
 
+const BASE_URL: string = import.meta.env.VITE_BASE_URL1
 const useForgotPassword = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -16,7 +17,7 @@ const useForgotPassword = () => {
         setLoading(true);
         setError(null);
         try {
-           const response = await axios.post("https://wasteworth-backend-django.onrender.com/api/v1/users/forgotPassword/", {
+           const response = await axios.post(`${BASE_URL}/api/v1/users/forgotPassword/`, {
                 email
             });
             console.log("OTP sent successfully:", response.data);

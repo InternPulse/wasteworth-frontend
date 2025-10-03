@@ -3,7 +3,7 @@ import { FaAngleDown, FaGift, FaTimes } from "react-icons/fa";
 import type { MobileProps } from "../../../types";
 import { assets } from "../../../assets/assets";
 import useStore from "../../../../store/store";
-import useLogout from "../../../hooks/useLogout";
+import { useLogout } from "../../../mutationOptions/useLogout";
 
 export default function Mobile({
   links,
@@ -12,7 +12,7 @@ export default function Mobile({
   activeClass,
   inactiveClass,
 }: MobileProps) {
-  const { logout, isLoggingOut } = useLogout();
+  const { logout, isPending } = useLogout()
   const { user } = useStore();
 
   return (
@@ -83,10 +83,11 @@ export default function Mobile({
               </Link>
             </div>
             <button
-              onClick={logout}
+              onClick={() => logout()}
+              disabled={isPending}
               className="text-[#FF0000] font-medium px-4 hover:cursor-pointer"
             >
-              {!isLoggingOut ? "Logout" : "Logging out..."}
+              {!isPending ? "Logout" : "Logging out..."}
             </button>
           </div>
         </div>
