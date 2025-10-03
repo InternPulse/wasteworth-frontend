@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import useStore from "../../../store/store";
 import { PacmanLoader } from "react-spinners";
 
+
+const BASE_URL: string = import.meta.env.VITE_BASE_URL1
+
 const Form = () => {
   const { setUser, setTokens } = useStore();
   const [email, setEmail] = useState("");
@@ -24,7 +27,7 @@ const Form = () => {
     setIsLoading(true);
     axios
       .post(
-        "https://wasteworth-backend-django.onrender.com/api/v1/users/login/",
+        `${BASE_URL}/api/v1/users/login/`,
         data
       )
       .then((response) => {

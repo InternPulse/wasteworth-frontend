@@ -4,13 +4,14 @@ import RecentPost from "../../components/dashboards/disposer/RecentPost";
 import Referral from "../../components/dashboards/disposer/Referral";
 import axios from "axios";
 
+const BASE_URL: string = import.meta.env.VITE_BASE_URL1
 export default function Disposer() {
   const [_, setData] = useState([]);
   const fetch = async () => {
     console.log("fetching...");
     try {
       const res = await axios.get(
-        "https://wasteworth-backend-django.onrender.com/api/v1/users/user-dashboard/",
+        `${BASE_URL}/api/v1/users/user-dashboard/`,
         {
           headers: {
             Authorization: `Bearer ${
