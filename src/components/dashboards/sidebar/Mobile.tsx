@@ -3,7 +3,7 @@ import { FaAngleDown, FaGift, FaTimes } from "react-icons/fa";
 import type { MobileProps } from "../../../types";
 import { assets } from "../../../assets/assets";
 import useStore from "../../../../store/store";
-import { useLogout } from "../../../mutationOptions/UseLogout";
+import { useLogout } from "../../../mutationOptions/useLogout";
 
 export default function Mobile({
   links,

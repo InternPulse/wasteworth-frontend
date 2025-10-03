@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import type { DesktopProps } from "../../../types";
 import { assets } from "../../../assets/assets";
-import { useLogout } from "../../../mutationOptions/UseLogout";
+import { useLogout } from "../../../mutationOptions/useLogout";
+
 
 export default function Desktop({
   links,
