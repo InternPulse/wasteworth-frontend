@@ -1,4 +1,5 @@
-import { MdClose } from "react-icons/md";
+import { assets } from "@/assets/assets";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 const SideBar = ({
   setSidebarOpen,
@@ -9,15 +10,25 @@ const SideBar = ({
 }) => {
   return (
     <div
-      onClick={() => setSidebarOpen(false)}
-      className={`z-100 inset-0 bg-black/50 ${sidebarOpen ? "fixed" : "hidden"} `}
+      className={`z-100 inset-0 bg-black/50 ${
+        sidebarOpen ? "fixed" : "hidden"
+      }`}
     >
-      <div className="w-64 h-full relative pt-8 px-3 bg-white font-semibold">
-        <MdClose
-          size={25}
-          className="absolute right-5 top-4 cursor-pointer "
-        />
-        <ul className="flex flex-col gap-3 mt-5">
+      <div className="w-64 h-full relative bg-white font-semibold flex flex-col">
+        <div className="flex items-center justify-between h-15 px-4 py-2 border-b border-[#F6F5F5]">
+          <img
+            src={assets.logo1}
+            alt=""
+            className="size-13 object-cover md:w-17"
+          />
+          <div className="p-1.5 rounded text-gray-600 shadow shadow-[#eee] bg-white">
+            <IoMdCloseCircleOutline
+              onClick={() => setSidebarOpen(false)}
+              size={16}
+            />
+          </div>
+        </div>
+        <ul className="flex flex-col gap-2 mt-5 w-9/10 mx-auto">
           {[
             ["Home", "/"],
             ["About Us", "about"],
@@ -28,14 +39,15 @@ const SideBar = ({
               <NavLink
                 to={tab[1]}
                 key={tab[0]}
+                onClick={() => setSidebarOpen(false)}
                 className={({ isActive }) =>
                   `
                 ${
                   isActive
-                    ? "text-white cursor-pointer bg-green-700"
+                    ? "text-[#006837] cursor-pointer border border-[#3B9561] bg-[#f5f5f5] rounded-[6px]"
                     : "cursor-pointer"
                 }
-              text-2xl rounded-lg p-2 text-center bg-gray-100/50 shadow
+              text-[16px] text-[#847C7C] font-normal py-2 h-10 flex items-center px-4
               `
                 }
               >

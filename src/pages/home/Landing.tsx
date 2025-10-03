@@ -9,8 +9,8 @@ import Slider from "../../components/landing/HearUsers";
 const Landing = () => {
   return (
     <>
-      <Hero />
-      <div className="bg-gray-100">
+      <div className="bg-[#f5f5f5]">
+        <Hero />
         <Partners />
         <CoreFeatures />
         <ForWhom />
