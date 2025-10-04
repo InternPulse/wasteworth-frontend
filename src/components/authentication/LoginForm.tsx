@@ -7,7 +7,6 @@ import { PacmanLoader } from "react-spinners";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
-console.log(BASE_URL);
 
 const Form = () => {
   const { setUser, setTokens } = useStore();

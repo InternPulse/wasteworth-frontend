@@ -5,7 +5,7 @@ import { useState } from "react";
 import Modal from "./Modal";
 import PostForm from "./PostForm";
 
-export default function RecentPost({ posts }: { posts: Tdata[] }) {
+export default function RecentPost({ posts }: { posts: Tdata[] | undefined }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   /* let post: Tdata[] = [
