@@ -117,9 +117,10 @@ export default function RecentPost() {
                 </th>
               </tr>
             </thead>
-            {data && data.length > 0 ? (
-              <tbody>
-                {data.map((item: Tdata) => (
+            <tbody>
+              {(data &&
+                data.length > 0 &&
+                data.map((item: Tdata) => (
                   <tr key={item.id} className="text-[14px]">
                     <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell ">
                       {item.id}
@@ -145,10 +146,7 @@ export default function RecentPost() {
                       </Link>
                     </td>
                   </tr>
-                ))}
-              </tbody>
-            ) : (
-              <tbody>
+                ))) || (
                 <tr>
                   <td colSpan={3} height={120}>
                     <h3 className="text-xl font-bold text-center">
@@ -156,8 +154,8 @@ export default function RecentPost() {
                     </h3>
                   </td>
                 </tr>
-              </tbody>
-            )}
+              )}
+            </tbody>
           </table>
         </div>
       </div>

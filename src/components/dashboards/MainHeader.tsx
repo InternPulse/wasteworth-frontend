@@ -12,11 +12,11 @@ export default function MainHeader({
   user,
 }: MainHeaderProps) {
   const page = useLocation();
-  const { toggleNotificationOpen, notificationOpen } = useStore();
+  const { toggleNotificationOpen } = useStore();
 
   return (
     <nav className="px-4 sm:px-10 py-2 bg-white sticky top-0 shadow shadow-[#0000000e] min-h-15 w-full z-2 flex items-center">
-      <div className="self-center flex items-center justify-between">
+      <div className="w-full self-center flex items-center justify-between">
         {page.pathname === "/user" ? (
           <div>
             <h3 className="font-bold text-sm sm:text-base">
@@ -25,9 +25,13 @@ export default function MainHeader({
             <p className="text-xs sm:text-base hidden md:block">{question}</p>
           </div>
         ) : page.pathname === "/user/my-waste" ? (
-          <h3 className="font-bold text-sm sm:text-base">My Waste</h3>
+          <h3 className="font-bold">My Waste</h3>
+        ) : page.pathname === "/user/marketplace" ? (
+          <h3 className="font-bold">Market Place</h3>
+        ) : page.pathname === "/user/offers" ? (
+          <h3 className="font-bold text-base">Offers</h3>
         ) : page.pathname === "/user/wallet&rewards" ? (
-          <h3 className="font-bold text-sm sm:text-base">Wallet & Rewards</h3>
+          <h3 className="font-bold">Wallet & Rewards</h3>
         ) : (
           ""
         )}
@@ -56,11 +60,13 @@ export default function MainHeader({
           <button
             onClick={() => {
               toggleNotificationOpen();
-              console.log(notificationOpen);
             }}
-            className={` cursor-pointer`}
+            className={` cursor-pointer relative`}
           >
-            <IoMdNotificationsOutline size={25} />
+            <IoMdNotificationsOutline className="text-gray-600 size-7" />
+            <p className="absolute bg-red-700 text-white top-0 right-0 text-[0.53rem] h-3 w-3 flex items-center justify-center font-semi-bold rounded-full">
+              0
+            </p>
           </button>
         </div>
       </div>

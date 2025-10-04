@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import useStore from "../../../store/store";
 import { PacmanLoader } from "react-spinners";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
 console.log(BASE_URL);
@@ -14,6 +15,7 @@ const Form = () => {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errorOutput, setErrorOutput] = useState("");
+  const [inputType, setInputType] = useState("password");
   const navigate = useNavigate();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -58,6 +60,9 @@ const Form = () => {
       });
   };
 
+  const switchInputType = () =>
+    inputType === "password" ? setInputType("text") : setInputType("password");
+
   return (
     <form onSubmit={handleSubmit} className={"mt-2 w-full flex flex-col gap-2"}>
       <div className="flex flex-col gap-1">
@@ -84,15 +89,30 @@ const Form = () => {
         >
           Password
         </label>
-        <input
-          className={inputStyle}
-          id="password"
-          type="password"
-          placeholder="Enter your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div className="relative w-full flex flex-col">
+          <input
+            className={inputStyle}
+            id="password"
+            type={inputType}
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          {inputType === "password" ? (
+            <FaEyeSlash
+              onClick={switchInputType}
+              className="absolute top-1/3 right-4 text-gray-700"
+            />
+          ) : (
+            inputType === "text" && (
+              <FaEye
+                onClick={switchInputType}
+                className="absolute top-1/3 right-4 text-gray-700"
+              />
+            )
+          )}
+        </div>
       </div>
       <div className="flex items-center justify-between gap-2 text-xs my-1 px-1">
         <Link

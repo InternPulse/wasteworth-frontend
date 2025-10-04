@@ -58,7 +58,7 @@ export default function Mobile({
               <FaGift size={15} className="text-[#FB8C00]" />
             </span>
             <p className="text-black">
-              25 <span className="text-[#847E7E]">Points</span>
+              0 <span className="text-[#847E7E]">Points</span>
             </p>
           </div>
           <div>

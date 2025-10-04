@@ -99,7 +99,7 @@ const MarketplaceDashboard: React.FC = () => {
           alt="number of listings icon"
         />
       ),
-      kilo: 1000,
+      kilo: 0,
     },
     {
       bgColor: "blue",
@@ -111,13 +111,13 @@ const MarketplaceDashboard: React.FC = () => {
           alt="total offers icon"
         />
       ),
-      kilo: 250,
+      kilo: 0,
     },
     {
       bgColor: "red",
       title: "Total Kilograms Collected",
       icon: <FaGift size={15} className="text-[#FB8C00]" />,
-      kilo: 5000,
+      kilo: 0,
     },
   ];
   return (

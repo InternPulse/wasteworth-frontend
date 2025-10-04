@@ -18,19 +18,19 @@ export default function Recycler() {
       bgColor: "blue",
       title: "Active Listings Near You",
       icon: <FaLocationDot size={15} className="text-[#5094F0]" />,
-      kilo: 200,
+      kilo: 0,
     },
     {
       bgColor: "blue",
       title: "Total Waste Collected",
       icon: <FaShoppingCart size={15} className="text-[#00A256]" />,
-      kilo: 200,
+      kilo: 0,
     },
     {
       bgColor: "red",
       title: "Total Points Earned",
       icon: <FaGift size={15} className="text-[#FB8C00]" />,
-      kilo: 200,
+      kilo: 0,
     },
   ];
   return (

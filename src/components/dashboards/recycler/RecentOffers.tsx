@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import type { Tdata } from "../../../types";
 
 export default function RecentOffers() {
-  const data: Tdata[] = [
+  let data: Tdata[] = [];
+  /* data = [
     {
       id: "WW-001",
       quantity_kg: 150,
@@ -52,7 +53,7 @@ export default function RecentOffers() {
       price: 65000,
       status: "Sent",
     },
-  ];
+  ]; */
 
   return (
     <section className="bg-white py-5 px-2 rounded-md sm:px-5">
@@ -91,39 +92,49 @@ export default function RecentOffers() {
               </tr>
             </thead>
             <tbody>
-              {data.map((item: Tdata) => (
-                <tr key={item.id} className="text-[14px]">
-                  <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell ">
-                    {item.id}
-                  </td>
-                  <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell">
-                    {item.quantity_kg} kg
-                  </td>
-                  <td className="px-4 border border-gray-200 py-2">
-                    {item.date}
-                  </td>
-                  <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
-                    {item.location}
-                  </td>
-                  <td className="px-4 border border-gray-200 py-2">
-                    {item.price}
-                  </td>
-                  <td className="px-4 border border-gray-200 py-2 flex items-center justify-between gap-2">
-                    <span
-                      className={` ${
-                        item.status === "Sent"
-                          ? "text-blue-700"
-                          : "text-red-700"
-                      }`}
-                    >
-                      {item.status}
-                    </span>
-                    <Link to="#">
-                      <FaArrowRight className="text-gray-400" />
-                    </Link>
+              {(data &&
+                data.length > 0 &&
+                data.map((item: Tdata) => (
+                  <tr key={item.id} className="text-[14px]">
+                    <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell ">
+                      {item.id}
+                    </td>
+                    <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell">
+                      {item.quantity_kg} kg
+                    </td>
+                    <td className="px-4 border border-gray-200 py-2">
+                      {item.date}
+                    </td>
+                    <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
+                      {item.location}
+                    </td>
+                    <td className="px-4 border border-gray-200 py-2">
+                      {item.price}
+                    </td>
+                    <td className="px-4 border border-gray-200 py-2 flex items-center justify-between gap-2">
+                      <span
+                        className={` ${
+                          item.status === "Sent"
+                            ? "text-blue-700"
+                            : "text-red-700"
+                        }`}
+                      >
+                        {item.status}
+                      </span>
+                      <Link to="#">
+                        <FaArrowRight className="text-gray-400" />
+                      </Link>
+                    </td>
+                  </tr>
+                ))) || (
+                <tr>
+                  <td colSpan={3} height={120}>
+                    <h3 className="text-xl font-bold text-center">
+                      No data here yet.
+                    </h3>
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>

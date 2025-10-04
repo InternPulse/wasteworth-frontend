@@ -27,17 +27,23 @@ const Notification = () => {
           className="flex flex-col p-5 gap-5 overflow-y-scroll"
           style={{ scrollbarWidth: "thin" }}
         >
-          {dataa.map((notification, i) => (
-            <div key={i} className="flex items-center gap-5">
-              <div className="main-bg p-1 rounded-full">
-                <FaCheck className="text-white size-1.5" />
+          {(dataa &&
+            dataa.length > 0 &&
+            dataa.map((notification, i) => (
+              <div key={i} className="flex items-center gap-5">
+                <div className="main-bg p-1 rounded-full">
+                  <FaCheck className="text-white size-1.5" />
+                </div>
+                <div className="">
+                  <h4 className="font-semibold">{notification.message}</h4>
+                  <p className="text-gray-500 text-sm">{notification.date}</p>
+                </div>
               </div>
-              <div className="">
-                <h4 className="font-semibold">{notification.message}</h4>
-                <p className="text-gray-500 text-sm">{notification.date}</p>
-              </div>
+            ))) || (
+            <div className="flex items-center justify-center p-10">
+              <h3>No data here yet</h3>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>
@@ -46,7 +52,8 @@ const Notification = () => {
 
 export default Notification;
 
-const dataa = [
+let dataa: { message: string; date: string }[] = [];
+/* dataa = [
   {
     message: "Listing accepted",
     date: "18 September 2025",
@@ -75,4 +82,4 @@ const dataa = [
     message: "Listing accepted",
     date: "18 September 2025",
   },
-];
+]; */

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { assets } from "../../../assets/assets";
-import { FaCheck } from "react-icons/fa";
+import { FaCheck, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const Step3 = ({
   passwordProp,
@@ -18,7 +19,6 @@ const Step3 = ({
   submit: () => void;
   error: { [key: string]: string };
 }) => {
-
   const {
     register,
     watch,
@@ -28,6 +28,16 @@ const Step3 = ({
   const passwordValue = watch("password");
   const { password, setPassword } = passwordProp;
   const { confirm_password, setConfirmPassword } = confirmProp;
+  const [passwordType, setPasswordType] = useState("password");
+  const [confirmPasswordType, setConfirmPasswordType] = useState("password");
+  const switchPasswordType = () =>
+    passwordType === "password"
+      ? setPasswordType("text")
+      : setPasswordType("password");
+  const switchConfirmPasswordType = () =>
+    confirmPasswordType === "password"
+      ? setConfirmPasswordType("text")
+      : setConfirmPasswordType("password");
   return (
     <div className="w-full h-full sm:grid grid-cols-[39%_58%] m:grid-cols-[28%_70%] items-center justify-between gap-4">
       <div className="hidden sm:flex items-center justify-center h-full w-full sm:rounded-lg overflow-hidden flex">
@@ -62,32 +72,47 @@ const Step3 = ({
                 >
                   Password
                 </label>
-                <input
-                  className={inputStyle}
-                  id="password"
-                  type="password"
-                  {...register("password", {
-                    required: "Password is required",
-                    minLength: {
-                      value: 6,
-                      message: "Password must be at least 6 characters",
-                    },
-                    validate: {
-                      hasNumber: (value) =>
-                        /[0-9]/.test(value) ||
-                        "Password must contain at least one number",
-                      hasSpecialChar: (value) =>
-                        /[!@#$%^&*(),.?":{}|<>]/.test(value) ||
-                        "Password must contain at least one special character",
-                      hasUpperCase: (value) =>
-                        /[A-Z]/.test(value) ||
-                        "Password must contain at least one uppercase letter",
-                    },
-                  })}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter your password"
-                />
+                <div className="relative w-full flex flex-col">
+                  <input
+                    className={inputStyle}
+                    id="password"
+                    type={passwordType}
+                    placeholder="Enter your password"
+                    value={password}
+                    {...register("password", {
+                      required: "Password is required",
+                      minLength: {
+                        value: 6,
+                        message: "Password must be at least 6 characters",
+                      },
+                      validate: {
+                        hasNumber: (value) =>
+                          /[0-9]/.test(value) ||
+                          "Password must contain at least one number",
+                        hasSpecialChar: (value) =>
+                          /[!@#$%^&*(),.?":{}|<>]/.test(value) ||
+                          "Password must contain at least one special character",
+                        hasUpperCase: (value) =>
+                          /[A-Z]/.test(value) ||
+                          "Password must contain at least one uppercase letter",
+                      },
+                    })}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  {passwordType === "password" ? (
+                    <FaEyeSlash
+                      onClick={switchPasswordType}
+                      className="absolute top-1/3 right-4 text-gray-700"
+                    />
+                  ) : (
+                    passwordType === "text" && (
+                      <FaEye
+                        onClick={switchPasswordType}
+                        className="absolute top-1/3 right-4 text-gray-700"
+                      />
+                    )
+                  )}
+                </div>
                 {errors.password && (
                   <p className="text-red-500 text-xs mt-1">
                     {errors.password.message as string}
@@ -101,19 +126,34 @@ const Step3 = ({
                 >
                   Confirm passowrd
                 </label>
-                <input
-                  className={inputStyle}
-                  id="confirm_password"
-                  type="password"
-                  {...register("confirm_password", {
-                    required: "Please confirm your password",
-                    validate: (value) =>
-                      value === passwordValue || "Passwords do not match",
-                  })}
-                  value={confirm_password}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder="Confirm your password"
-                />
+                <div className="relative w-full flex flex-col">
+                  <input
+                    className={inputStyle}
+                    id="confirm_password"
+                    type={confirmPasswordType}
+                    placeholder="Confirm your password"
+                    value={confirm_password}
+                    {...register("confirm_password", {
+                      required: "Please confirm your password",
+                      validate: (value) =>
+                        value === passwordValue || "Passwords do not match",
+                    })}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                  {confirmPasswordType === "password" ? (
+                    <FaEyeSlash
+                      onClick={switchConfirmPasswordType}
+                      className="absolute top-1/3 right-4 text-gray-700"
+                    />
+                  ) : (
+                    passwordType === "text" && (
+                      <FaEye
+                        onClick={switchConfirmPasswordType}
+                        className="absolute top-1/3 right-4 text-gray-700"
+                      />
+                    )
+                  )}
+                </div>
                 {errors.confirm_password && (
                   <p className="text-red-500 text-xs mt-1">
                     {errors.confirm_password.message as string}

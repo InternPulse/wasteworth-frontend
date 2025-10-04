@@ -17,7 +17,7 @@ const WalletAndRewards = () => {
           alt="number of listings icon"
         />
       ),
-      kilo: 400,
+      kilo: 0,
     },
     {
       bgColor: "blue",
@@ -29,7 +29,7 @@ const WalletAndRewards = () => {
           alt="total offers icon"
         />
       ),
-      kilo: 6,
+      kilo: 0,
     },
     {
       bgColor: "red",

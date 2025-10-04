@@ -30,7 +30,6 @@ export default function DashboardLayout() {
           <Route path="profile" element={<MyProfile />} />
           <Route path="notifications" element={<Notification />} />
           <Route path="payment" element={<PaymentLayout />} />
-          {/* <Route path="my-waste" element={<Mylisting />} /> */}
         </Routes>
       );
     } else if (user.role === "disposer") {
@@ -55,7 +54,7 @@ export default function DashboardLayout() {
         <MainHeader
           firstName={user?.name?.split(" ")[0] ?? ""}
           question="ready to recycle today?"
-          points={25}
+          points={0}
           initial={user?.name?.slice(0, 1) ?? ""}
           user={user?.name ?? ""}
         />
