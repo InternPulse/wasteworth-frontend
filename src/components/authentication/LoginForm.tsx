@@ -42,7 +42,7 @@ const Form = () => {
         }
         if (response.data.success) {
           localStorage.setItem("loggedIn", "true");
-          navigate(`/user`);
+          setTimeout(() => navigate("/user"), 200);
         }
       })
       .catch((error) => {

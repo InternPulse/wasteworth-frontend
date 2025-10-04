@@ -43,7 +43,7 @@ function App() {
         <Route
           path="/user/*"
           element={
-            <Private isAuthenticated={localStorage.getItem("loggedIn")}>
+            <Private>
               <DashboardLayout />
             </Private>
           }

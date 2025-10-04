@@ -1,25 +1,17 @@
-import type { FC, ReactNode } from "react";
+import { type FC, type ReactNode, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 
-const Private: FC<{
-  children: ReactNode;
-  isAuthenticated: string | null;
-}> = ({ children, isAuthenticated }) => {
-  
-  if (typeof isAuthenticated === "string" && isAuthenticated !== "") {
-    try {
-      if (JSON.parse(isAuthenticated) !== true) {
-        return <Navigate to={"/login"} />;
-      }
-    } catch (e) {
-      console.error("Failed to parse isAuthenticated as JSON:", e);
-      return <Navigate to={"/login"} />;
-    }
-  } else {
-    return <Navigate to={"/login"} />;
-  }
+const Private: FC<{ children: ReactNode }> = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
-  return <>{children}</>;
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("loggedIn") === "true";
+    setIsAuthenticated(loggedIn);
+  }, []);
+
+  if (isAuthenticated === null) return null; // Optionally show a spinner here
+
+  return isAuthenticated ? <>{children}</> : <Navigate to="/login" replace />;
 };
 
 export default Private;
