@@ -19,7 +19,6 @@ const Form = () => {
   const navigate = useNavigate();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // You can access form data using formData.get('inputName');
     const data = {
       email,
       password,

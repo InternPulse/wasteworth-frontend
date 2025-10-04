@@ -9,7 +9,7 @@ const Private: FC<{ children: ReactNode }> = ({ children }) => {
     setIsAuthenticated(loggedIn);
   }, []);
 
-  if (isAuthenticated === null) return null; // Optionally show a spinner here
+  if (isAuthenticated === null) return null;
 
   return isAuthenticated ? <>{children}</> : <Navigate to="/login" replace />;
 };

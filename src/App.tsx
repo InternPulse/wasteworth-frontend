@@ -49,7 +49,7 @@ function App() {
           }
         ></Route>
 
-        <Route path="*" element={<div>Not Found</div>} />
+        <Route path="*" element={<div>Page Not Found</div>} />
       </Routes>
     </>
   );
