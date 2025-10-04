@@ -5,6 +5,7 @@ import RecentOffers from "../../components/dashboards/recycler/RecentOffers";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaGift, FaShoppingCart } from "react-icons/fa";
 import type { ReactNode } from "react";
+import { useFetch } from "@/hooks/useFetch";
 
 export interface CardProps {
   bgColor: string;
@@ -12,6 +13,7 @@ export interface CardProps {
   icon: ReactNode;
   kilo: number | string;
 }
+const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
 export default function Recycler() {
   const mainCard: CardProps[] = [
     {
@@ -33,6 +35,8 @@ export default function Recycler() {
       kilo: 0,
     },
   ];
+  const { data } = useFetch(`${BASE_URL}/api/v1/users/user-dashboard/`);
+  console.log(data);
   return (
     <div className="min-h-screen space-y-5">
       <MainCard details={mainCard} />

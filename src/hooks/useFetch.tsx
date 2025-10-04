@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export const useFetch = (URL: string) => {
-  const [data, setData] = useState();
+  const [data, setData] = useState<any>();
 
   const fetch = async () => {
     console.log("fetching...");

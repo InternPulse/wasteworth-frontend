@@ -5,12 +5,10 @@ import { useState } from "react";
 import Modal from "./Modal";
 import PostForm from "./PostForm";
 
-export default function RecentPost() {
+export default function RecentPost({ posts }: { posts: Tdata[] }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  let data: Tdata[] = [];
-
-  /* const data: Tdata[] = [
+  /* let post: Tdata[] = [
     {
       id: "WW-001",
       quantity_kg: 150,
@@ -118,9 +116,9 @@ export default function RecentPost() {
               </tr>
             </thead>
             <tbody>
-              {(data &&
-                data.length > 0 &&
-                data.map((item: Tdata) => (
+              {(posts &&
+                posts.length > 0 &&
+                posts.map((item: Tdata) => (
                   <tr key={item.id} className="text-[14px]">
                     <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell ">
                       {item.id}

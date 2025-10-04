@@ -11,9 +11,11 @@ export default function Disposer() {
   return (
     <div className="w-full">
       <div className="space-y-5">
-        <MainCard />
+        <MainCard
+          details={{ a: data?.sold_listings, b: data?.total_listings }}
+        />
         <Referral />
-        <RecentPost />
+        <RecentPost posts={data?.recent_posts} />
       </div>
     </div>
   );

@@ -88,11 +88,13 @@ export default function WasteListing() {
               )}
             </tbody>
           </table>
-          <div className="flex items-center justify-center py-3">
-            <button className="border border-gray-300 rounded-md py-1 px-4">
-              View More
-            </button>{" "}
-          </div>
+          {data && data.length > 4 && (
+            <div className="flex items-center justify-center py-3">
+              <button className="border border-gray-300 rounded-md py-1 px-4">
+                View More
+              </button>{" "}
+            </div>
+          )}
         </div>
       </div>
     </section>
