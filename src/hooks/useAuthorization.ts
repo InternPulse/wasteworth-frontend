@@ -9,7 +9,7 @@ const useAuthorization = () => {
         "https://wasteworth-backend-django.onrender.com/api/v1/users/user-dashboard/",
         {
           headers: {
-            Authorization: `Bearer ${tokens.access_token}`,
+            Authorization: `Bearer ${tokens?.access}`,
           },
         }
       );

@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import useStore from "../../store/store";
 
 export function useFetch(url: string) {
   const [data, setData] = useState<any>(null);
   const [error, setError] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+
+  const { tokens } = useStore();
 
   useEffect(() => {
     let ignore = false;
@@ -12,9 +15,8 @@ export function useFetch(url: string) {
       try {
         const res = await fetch(url, {
           headers: {
-            Authorization: `Bearer ${
-              JSON.parse(localStorage.getItem("tokens") ?? "").access
-            }`,
+            Authorization: tokens?.access ? `Bearer ${tokens.access}` : "",
+            "Content-Type": "application/json",
           },
         });
 
@@ -37,7 +39,7 @@ export function useFetch(url: string) {
     return () => {
       ignore = true;
     };
-  }, [url]);
+  }, [url, tokens]);
 
   return { data, error, loading };
 }

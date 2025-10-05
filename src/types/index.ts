@@ -86,10 +86,9 @@ export const PostSchema = z.object({
 
 export type PostSchema = z.infer<typeof PostSchema>;
 
-
 export interface UserData {
   tokens: {
-    access_token: string;
+    access: string;
     refresh_token: string;
   };
 }

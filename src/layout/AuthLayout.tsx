@@ -10,7 +10,7 @@ const AuthLayout = () => {
         <img src={assets.logo} className="object-cover h-18" />
       </div>
       {/* Content */}
-      <div className="flex h-[calc(90%-60px)]s w-full justify-center sm:p-5 relative overflow-hidden">
+      <div className="flex h-[calc(90%-60px)] w-full justify-center sm:p-5 relative overflow-hidden">
         <button
           onClick={() => back(-1)}
           className="absolute left-4 sm:left-2 md:left-4 text-xs top-3 text-gray-500 flex items-center gap-1 z-2"

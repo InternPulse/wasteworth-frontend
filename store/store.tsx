@@ -1,17 +1,18 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 export interface User {
   userId: string;
   name: string | null;
   email: string;
-
   phone: string | null;
-  role: string;
+  role: "disposer" | "recycler" | "";
   location: string | null;
   walletBalance: string;
   referralCode: string;
   createdAt: string;
 }
+
 interface NotificationType {
   id: string;
   userId: string;
@@ -24,6 +25,7 @@ interface NotificationType {
     name: string;
   };
 }
+
 interface Store {
   email: string;
   setEmail: (email: string) => void;
@@ -31,42 +33,66 @@ interface Store {
   setOtp: (v: string | null) => void;
   isLoggedIn: boolean;
   setIsLoggedIn: (isLoggedIn: boolean) => void;
-  user: User;
-  setUser: (user: User) => void;
+  user: User | null;
+  setUser: (user: User | null) => void;
   tokens: {
-    access_token: string;
+    access: string;
     refresh_token: string;
-  };
-  setTokens: (tokens: { access_token: string; refresh_token: string }) => void;
+  } | null;
+  setTokens: (tokens: { access: string; refresh_token: string } | null) => void;
   notificationOpen: boolean;
   toggleNotificationOpen: () => void;
   notifications: NotificationType[];
   setNotifications: (notifications: NotificationType[]) => void;
 }
-
-const useStore = create<Store>((set) => ({
+const defaultUser: User = {
+  userId: "",
+  name: "",
   email: "",
-  setEmail: (email) => set({ email }),
-  otp: null,
-  setOtp: (otp) => set({ otp }),
+  phone: "",
+  role: "",
+  location: "",
+  walletBalance: "0",
+  referralCode: "",
+  createdAt: "",
+};
 
-  /* Authentication status */
-  isLoggedIn: true,
-  setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
+const useStore = create<Store>()(
+  persist(
+    (set) => ({
+      email: "",
+      setEmail: (email) => set({ email }),
 
-  /* Data */
-  user: JSON.parse(localStorage.getItem("userData") || "{}").user || "",
-  setUser: (user) => set({ user }),
+      otp: null,
+      setOtp: (otp) => set({ otp }),
 
-  /* Authentication requirements */
-  tokens: JSON.parse(localStorage.getItem("tokens") || "{}").user || "",
-  setTokens: (tokens) => set({ tokens }),
-  notificationOpen: false,
-  toggleNotificationOpen: () =>
-    set((state) => ({ ...state, notificationOpen: !state.notificationOpen })),
-  notifications: [],
-  setNotifications: (notifications: NotificationType[]) =>
-    set({ notifications }),
-}));
+      isLoggedIn: false,
+      setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
+
+      user: defaultUser,
+      setUser: (user) => set({ user }),
+
+      tokens: null,
+      setTokens: (tokens) => set({ tokens }),
+
+      notificationOpen: false,
+      toggleNotificationOpen: () =>
+        set((state) => ({ notificationOpen: !state.notificationOpen })),
+
+      notifications: [],
+      setNotifications: (notifications: NotificationType[]) =>
+        set({ notifications }),
+    }),
+    {
+      name: "user-store",
+      partialize: (state) => ({
+        email: state.email,
+        user: state.user,
+        tokens: state.tokens,
+        isLoggedIn: state.isLoggedIn,
+      }),
+    }
+  )
+);
 
 export default useStore;

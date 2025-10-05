@@ -7,7 +7,7 @@ import { useFetch } from "@/hooks/useFetch";
 
 const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
 
-export default function Disposer() {
+const Disposer = () => {
   const navigate = useNavigate();
   const { data, error } = useFetch(`${BASE_URL}/api/v1/users/user-dashboard/`);
 
@@ -38,4 +38,5 @@ export default function Disposer() {
       </div>
     </div>
   );
-}
+};
+export default Disposer;
