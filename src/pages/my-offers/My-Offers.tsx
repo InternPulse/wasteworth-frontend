@@ -5,7 +5,7 @@ import OfferList from "../../components/my-offers/OfferList";
 export default function MyOffers() {
   return (
     <div className="space-y-5">
-      <MainCard />
+      <MainCard details={{ a: 0, b: 0, c: 0 }} />
       <Referral />
       <OfferList />
     </div>

@@ -5,7 +5,7 @@ import WasteListing from "../../components/myWaste/WasteListing";
 export default function MyWaste() {
   return (
     <div className="space-y-5">
-      <MainCard />
+      <MainCard details={{ a: 0, b: 0, c: 0 }} />
       <Referral />
       <WasteListing />
     </div>

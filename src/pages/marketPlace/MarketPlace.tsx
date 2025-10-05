@@ -102,7 +102,7 @@ const MarketplaceDashboard: React.FC = () => {
       kilo: 0,
     },
     {
-      bgColor: "blue",
+      bgColor: "green",
       title: "Total Offers Submitted",
       icon: (
         <img

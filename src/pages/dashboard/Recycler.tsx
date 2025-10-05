@@ -23,7 +23,7 @@ export default function Recycler() {
       kilo: 0,
     },
     {
-      bgColor: "blue",
+      bgColor: "green",
       title: "Total Waste Collected",
       icon: <FaShoppingCart size={15} className="text-[#00A256]" />,
       kilo: 0,

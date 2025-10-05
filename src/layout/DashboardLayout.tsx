@@ -17,7 +17,7 @@ export default function DashboardLayout() {
 
   setTimeout(() => {
     localStorage.setItem("loggedIn", "false");
-  }, 36000000);
+  }, 72000000);
 
   const renderDashboardContent = () => {
     if (user.role === "recycler") {

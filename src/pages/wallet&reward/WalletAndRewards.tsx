@@ -8,7 +8,7 @@ import Referral from "@/components/dashboards/recycler/Referral";
 const WalletAndRewards = () => {
   const mainCard: CardProps[] = [
     {
-      bgColor: "red",
+      bgColor: "blue",
       title: "Eco points",
       icon: (
         <img
@@ -20,7 +20,7 @@ const WalletAndRewards = () => {
       kilo: 0,
     },
     {
-      bgColor: "blue",
+      bgColor: "green",
       title: "Airtime Tokens",
       icon: (
         <img

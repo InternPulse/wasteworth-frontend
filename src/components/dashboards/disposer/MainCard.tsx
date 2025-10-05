@@ -16,7 +16,7 @@ export default function MainCard({
         kilo={details.a ?? 0}
       />
       <Card
-        bgColor="blue"
+        bgColor="green"
         title="Total Completed Listing"
         icon={<FaShoppingCart size={15} className="text-[#00A256]" />}
         kilo={details.b ?? 0}
