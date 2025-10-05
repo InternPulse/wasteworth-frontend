@@ -28,7 +28,7 @@ export default function Sidebar() {
 
   // Get the specific links for the current user role
   const currentLinks: LinkType[] =
-    sidebarData[user.role as keyof typeof sidebarData] || [];
+    sidebarData[user?.role as keyof typeof sidebarData] || [];
 
   return (
     <div className="lg:min-h-screen" style={{ zIndex: 999 }}>

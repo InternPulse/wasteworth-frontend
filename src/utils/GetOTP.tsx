@@ -35,7 +35,7 @@ const GetOTP = ({ purpose, onGet }: { purpose: string; onGet: () => void }) => {
       <p className="text-xs text-gray-600 text-center">
         <span>
           Click Send to get a 6-digit code to{" "}
-          <span className="font-semibold">{user.email}</span>.
+          <span className="font-semibold">{user?.email}</span>.
         </span>
       </p>
       <form
@@ -47,7 +47,7 @@ const GetOTP = ({ purpose, onGet }: { purpose: string; onGet: () => void }) => {
             className={
               "border border-gray-200 text-sm rounded-lg p-2 text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500  transition-all duration-200"
             }
-            value={user.email}
+            value={user?.email}
             {...register("email_or_phone")}
             type="email"
             readOnly
