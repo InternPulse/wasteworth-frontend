@@ -1,4 +1,7 @@
+import useStore from "../../../store/store";
+
 const ProfileForm = () => {
+  const { user } = useStore();
   return (
     <form action="">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[50px] gap-y-[24px] mt-6">
@@ -14,6 +17,7 @@ const ProfileForm = () => {
             type="text"
             name="lastName"
             id="lastName"
+            value={user?.name?.split(" ")[0]}
             placeholder="OLOWU"
             className="w-full p-4 border-[1px] border-[#DFE1E0] rounded-[6px] mt-2"
           />
@@ -30,6 +34,7 @@ const ProfileForm = () => {
             type="text"
             name="firstName"
             id="firstName"
+            value={user?.name?.split(" ")[1]}
             placeholder="AANUOLUWAPO"
             className="w-full p-4 border-[1px] border-[#DFE1E0] rounded-[6px] mt-2"
           />
@@ -46,6 +51,7 @@ const ProfileForm = () => {
             type="email"
             name="email"
             id="email"
+            value={user?.email}
             placeholder="rachaelaanuoluwapo@gmail.com"
             className="w-full p-4 border-[1px] border-[#DFE1E0] rounded-[6px] mt-2"
           />
@@ -62,6 +68,7 @@ const ProfileForm = () => {
             type="phone"
             name="phone"
             id="phone"
+            value={user?.phone?.toString()}
             placeholder="+234 7064000000"
             className="w-full p-4 border-[1px] border-[#DFE1E0] rounded-[6px] mt-2"
           />
@@ -117,6 +124,7 @@ const ProfileForm = () => {
           type="address"
           name="address"
           id="address"
+          value={user?.location?.toString()}
           placeholder="Ikeja, Lagos"
           className="w-full p-4 border-[1px] border-[#DFE1E0] rounded-[6px] mt-2 mb-6"
         />
