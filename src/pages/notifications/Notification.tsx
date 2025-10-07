@@ -13,7 +13,7 @@ const Notification = () => {
   console.log(data);
   return (
     <div className="inset-0 fixed top-0 left-0 z-9999 flex items-center justify-center bg-black/50">
-      <div className="w-sm h-115 rounded-lg bg-white flex flex-col">
+      <div className="w-sm h-115 rounded-lg overflow-hidden py-2 bg-white flex flex-col">
         {/* Head */}
         <div className="flex justify-between items-center p-3 border-b-3 border-gray-200">
           <p className="font-bold text-gray-800">Notifications</p>
@@ -24,7 +24,7 @@ const Notification = () => {
         </div>
         {/* Data */}
         <div
-          className="flex flex-col py-5 px-3 gap-2 overflow-y-scroll"
+          className="flex flex-col p-3 gap-2 overflow-y-scroll"
           style={{ scrollbarWidth: "thin" }}
         >
           {(data?.notifications &&
