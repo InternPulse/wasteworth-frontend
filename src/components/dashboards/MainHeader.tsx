@@ -32,6 +32,8 @@ export default function MainHeader({
           <h3 className="font-bold text-base">Offers</h3>
         ) : page.pathname === "/user/wallet&rewards" ? (
           <h3 className="font-bold">Wallet & Rewards</h3>
+        ) : page.pathname === "/user/profile" ? (
+          <h3 className="font-bold">My Profile</h3>
         ) : (
           ""
         )}

@@ -47,7 +47,6 @@ export default function DashboardLayout() {
           <Route path="wallet&rewards" element={<WalletAndRewards />} />
           <Route path="profile" element={<MyProfile />} />
           <Route path="notifications" element={<Notification />} />
-          <Route path="payment" element={<PaymentLayout />} />
         </Routes>
       );
     }
