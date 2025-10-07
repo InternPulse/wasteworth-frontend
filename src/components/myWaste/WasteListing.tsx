@@ -2,8 +2,9 @@ import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import type { Tdata } from "../../types";
 
-export default function WasteListing() {
-  let data: Tdata[] = [];
+export default function WasteListing({ data }: { data: any }) {
+  //let data: Tdata[] = [];
+  //console.log(data);
 
   const getStatusClass = (status: string) => {
     switch (status) {
@@ -53,20 +54,20 @@ export default function WasteListing() {
                 data.length > 0 &&
                 data.map((item: Tdata) => (
                   <tr key={item.id} className="text-[14px]">
-                    <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell ">
+                    <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell">
                       {item.id}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell">
-                      {item.quantity_kg} kg
+                      {item.quantity}
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
-                      {item.date}
+                      {item.created_at}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
-                      {item.location}
+                      {item.pickup_location}
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
-                      {item.price}
+                      {item.reward_estimate}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 flex items-center justify-between gap-2">
                       <span className={` ${getStatusClass(item.status)}`}>

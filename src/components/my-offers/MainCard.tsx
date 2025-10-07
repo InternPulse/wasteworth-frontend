@@ -10,7 +10,7 @@ export default function MainCard({
     <div className="grid grid-cols-1 gap-3 bg-white rounded-md p-5 md:grid-cols-2 lg:grid-cols-3">
       <Card
         bgColor="blue"
-        title="Total Accepted Offers"
+        title="Total Pending Offers"
         icon={<FaLocationDot size={15} className="text-[#5094F0]" />}
         kilo={details.a ?? 0}
       />
