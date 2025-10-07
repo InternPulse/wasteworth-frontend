@@ -2,6 +2,13 @@ import useStore from "../../../store/store";
 
 const ProfileForm = () => {
   const { user } = useStore();
+  /* {
+    "name": "Updated Name",
+    "address_location": { 
+        "lat": 40.7128,
+        "lng": -74.0060
+    }
+} */
   return (
     <form action="">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[50px] gap-y-[24px] mt-6">

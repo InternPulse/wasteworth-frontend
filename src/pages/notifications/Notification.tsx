@@ -24,19 +24,28 @@ const Notification = () => {
         </div>
         {/* Data */}
         <div
-          className="flex flex-col p-5 gap-5 overflow-y-scroll"
+          className="flex flex-col py-5 px-3 gap-2 overflow-y-scroll"
           style={{ scrollbarWidth: "thin" }}
         >
-          {(dataa &&
-            dataa.length > 0 &&
-            dataa.map((notification, i) => (
-              <div key={i} className="flex items-center gap-5">
+          {(data?.notifications &&
+            data?.notifications.length > 0 &&
+            data?.notifications.map((notification: any, i: number) => (
+              <div
+                key={i}
+                className={`flex items-center gap-5 ${
+                  !notification.is_read && notification.type === "marketplace"
+                    ? "bg-green-100/70"
+                    : ""
+                }  px-4 py-2 rounded`}
+              >
                 <div className="main-bg p-1 rounded-full">
                   <FaCheck className="text-white size-1.5" />
                 </div>
                 <div className="">
                   <h4 className="font-semibold">{notification.message}</h4>
-                  <p className="text-gray-500 text-sm">{notification.date}</p>
+                  <p className="text-gray-500 text-xs">
+                    {notification.createdAt}
+                  </p>
                 </div>
               </div>
             ))) || (
@@ -51,35 +60,3 @@ const Notification = () => {
 };
 
 export default Notification;
-
-let dataa: { message: string; date: string }[] = [];
-/* dataa = [
-  {
-    message: "Listing accepted",
-    date: "18 September 2025",
-  },
-  {
-    message: "Waste posted",
-    date: "18 September 2025",
-  },
-  {
-    message: "Listing Completed",
-    date: "18 September 2025",
-  },
-  {
-    message: "Listing accepted",
-    date: "18 September 2025",
-  },
-  {
-    message: "Listing accepted",
-    date: "18 September 2025",
-  },
-  {
-    message: "Listing accepted",
-    date: "18 September 2025",
-  },
-  {
-    message: "Listing accepted",
-    date: "18 September 2025",
-  },
-]; */

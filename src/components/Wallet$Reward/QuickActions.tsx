@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import { assets } from "@/assets/assets";
 
 const QuickActions = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="border rounded-md p-4 bg-white">
@@ -10,6 +12,7 @@ const QuickActions = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 text-[#3D3A3A]">
           <Button
+            onClick={() => navigate("/user/my-waste")}
             variant="secondary"
             className="py-5 text-xs md:text-sm hover:shadow transition-shadow duration-200"
           >
