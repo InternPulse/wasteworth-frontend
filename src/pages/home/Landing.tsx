@@ -9,7 +9,7 @@ import Slider from "../../components/landing/HearUsers";
 const Landing = () => {
   return (
     <>
-      <div className="bg-[#f5f5f5]">
+      <main className="bg-[#f5f5f5]">
         <Hero />
         <Partners />
         <CoreFeatures />
@@ -17,7 +17,7 @@ const Landing = () => {
         <Slider />
         <Collectibles />
         <Insight />
-      </div>
+      </main>
     </>
   );
 };

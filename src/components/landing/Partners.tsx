@@ -2,8 +2,8 @@ import { assets } from "../../assets/assets";
 
 const Partners = () => {
   return (
-    <div className="py-2 md:py-5 px-5 md:px-10 flex flex-col items-center justify-center gap-3">
-      <h2 className="text-green-600 text-xl md:text-2xl text-center font-semibold">
+    <section className="py-2 md:py-5 px-5 md:px-10 flex flex-col items-center justify-center gap-3 mt-10">
+      <h2 className="text-green-600 text-xl md:text-2xl text-center font-semibold mb-5">
         Our Partners
       </h2>
       <div className="w-full overflow-x-hidden">
@@ -30,7 +30,7 @@ const Partners = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

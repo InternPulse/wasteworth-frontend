@@ -3,10 +3,10 @@ import { assets } from "../../assets/assets";
 
 const Hero = () => {
   return (
-    <div
-      className={`min-h-[500px] min-h-[calc(100vh-70px)] bg-[#2E7D32] flex items-center justify-center mt-3 sm:mt-0 md:py-8 lg:py-15`}
+    <section
+      className={` min-h-[calc(100vh-70px)] bg-[#2E7D32] flex items-center justify-center md:py-8 lg:py-15`}
     >
-      <div className="grid md:grid-cols-2 grid-rows-2 sm:grid-rows-1 rounded sm:rounded-lg items-center w-11/12 max-w-7xl h-full py-4 overflow-hidden">
+      <div className="grid md:grid-cols-2 grid-rows-2 sm:grid-rows-1 rounded sm:rounded-lg items-center w-11/12 max-w-7xl h-full py- overflow-hidden">
         <div className="md:rounded-l-lg self-start w-full h-full  flex sm:items-center justify-center order-2 md:order-1">
           <div className="flex items-center w-full md:h-full p-3 sm:p-8 bg-white rounded-b">
             <div className="space-y-5">
@@ -38,7 +38,7 @@ const Hero = () => {
           className="h-full w-full object-cover rounded-t md:rounded-lg md:rounded-l-none order-1"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

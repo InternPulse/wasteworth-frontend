@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 const ForWhom = () => {
   return (
-    <div className="p-3 sm:p-5 my-2">
-      <h2 className="text-green-600 font-semibold sm:text-lg md:text-2xl text-center mb-2 sm:mb-5 md:mb-10">
+    <section className="p-3 sm:p-5 my-10">
+      <h2 className="text-green-600 font-semibold sm:text-lg md:text-2xl text-center mb-5 md:mb-10">
         Who We Help
       </h2>
-      <div className="grid grid-cols-2 gap-2 sm:gap-5 md:gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 gap-5 max-w-5xl mx-auto md:grid-cols-2">
         {[
           [
             assets.clearSpace,
@@ -24,11 +24,11 @@ const ForWhom = () => {
             "recycler",
           ],
         ].map((feature, idx) => (
-          <div key={`core-feature-${idx}`} className="grid text-center">
+          <div key={`core-feature-${idx}`} className="text-center shadow-xl w-[100%]">
             <div className="rounded-t-md flex items-center justify-center overflow-hidden">
-              <img src={feature[0]} className="w-full rounded-t-lg" />
+              <img src={feature[0]} className="rounded-t-lg" />
             </div>
-            <div className="flex flex-col items-center p-2 md:p-5 gap-1 md:gap-4 bg-white rounded-b-lg sm:rounded-b-xl">
+            <div className="flex flex-col items-center py-8 px-5 gap-1 md:gap-4 bg-white rounded-b-lg sm:rounded-b-xl">
               <h2 className="text-[#222222] font-semibold text-[0.7rem] sm:text-base md:text-2xl">
                 {feature[1]}
               </h2>
@@ -37,7 +37,7 @@ const ForWhom = () => {
               </p>
               <Link
                 to={`/auth/:${feature[4] as string}`}
-                className={`mt-auto bg-gray-100/80 border border-green-700 flex justify-center items-center px-2 md:px-5 py-1 md:py-2 text-xs sm:text-sm md:text-base text-green-700 font-semibold rounded-md cursor-pointer `}
+                className={` bg-gray-100/80 border border-green-700 flex justify-center items-center px-2 md:px-5 py-1 md:py-2 text-xs sm:text-sm md:text-base text-green-700 font-semibold rounded-md cursor-pointer mt-5`}
               >
                 {feature[3]}
               </Link>
@@ -45,7 +45,7 @@ const ForWhom = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

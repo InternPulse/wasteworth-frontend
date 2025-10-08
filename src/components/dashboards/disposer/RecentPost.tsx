@@ -45,7 +45,7 @@ export default function RecentPost({
             Post Waste
           </button>
           <Modal isOpen={isModalOpen} onClose={toggleModal}>
-            <PostForm />
+            <PostForm onClose={toggleModal} />
           </Modal>
         </div>
         <div className="overflow-hidden rounded-lg border border-gray-300">

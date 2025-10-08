@@ -1,6 +1,8 @@
 import { assets } from "@/assets/assets";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+
+
 const SideBar = ({
   setSidebarOpen,
   sidebarOpen,
@@ -16,11 +18,13 @@ const SideBar = ({
     >
       <div className="w-64 h-full relative bg-white font-semibold flex flex-col">
         <div className="flex items-center justify-between h-15 px-4 py-2 border-b border-[#F6F5F5]">
-          <img
-            src={assets.logo1}
-            alt=""
-            className="size-13 object-cover md:w-17"
-          />
+          <Link to="/" className="flex h-13 items-center justify-center">
+            <img
+              src={assets.logo1}
+              alt=""
+              className="w-15 h-10 md:h-13 object-cover md:w-17"
+            />
+          </Link>
           <div className="p-1.5 rounded text-gray-600 shadow shadow-[#eee] bg-white">
             <IoMdCloseCircleOutline
               onClick={() => setSidebarOpen(false)}
@@ -30,7 +34,6 @@ const SideBar = ({
         </div>
         <ul className="flex flex-col gap-2 mt-5 w-9/10 mx-auto">
           {[
-            ["Home", "/"],
             ["About Us", "about"],
             ["Contact", "contact"],
             ["FAQs", "faqs"],
