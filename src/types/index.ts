@@ -92,3 +92,21 @@ export interface UserData {
     refresh_token: string;
   };
 }
+
+//Waste data
+export interface Waste {
+  collector_id_id: string;
+  created_at: string;
+  final_reward: string;
+  id: string;
+  image_url: string;
+  phone: string;
+  pickup_location: string;
+  quantity: number;
+  reward_estimate: string;
+  status: string;
+  title: string;
+  updated_at: string;
+  user_id_id: string;
+  waste_type: string;
+}
