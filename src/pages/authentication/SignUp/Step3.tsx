@@ -39,9 +39,9 @@ const Step3 = ({
       ? setConfirmPasswordType("text")
       : setConfirmPasswordType("password");
   return (
-    <div className="w-full h-full sm:grid grid-cols-[39%_58%] m:grid-cols-[28%_70%] items-center justify-between gap-4">
+    <div className="w-full sm:mt-10 h-full sm:grid grid-cols-[39%_58%] m:grid-cols-[28%_70%] items-center justify-between gap-4">
       <div className="hidden sm:flex items-center justify-center h-full w-full sm:rounded-lg overflow-hidden flex">
-        <img src={assets.step3} className="h-full object-fit w-full" />
+        <img src={assets.step3} className="h-full object-cover w-full" />
       </div>
       <div className="flex items-center justify-center w-9/10 mx-auto sm:w-full h-full">
         <div className="flex flex-col gap-4 w-sm">
@@ -176,7 +176,7 @@ const Step3 = ({
 
           <p className="text-sm text-gray-600 text-center">
             Got an account?{" "}
-            <Link to={"/login"} className="text-green-800 font-medium">
+            <Link to={"/login"} className="text-green-600 font-medium">
               Sign in
             </Link>
           </p>

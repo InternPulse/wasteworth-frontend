@@ -22,7 +22,6 @@ const Signup = () => {
   const handleSubmit = async () => {
     const data = { name, email, password, confirm_password, phone, role };
 
-    console.log({ data });
     try {
       const res = await axios.post(
         "https://wasteworth-backend-django.onrender.com/api/v1/users/signup/",
@@ -30,7 +29,6 @@ const Signup = () => {
       );
       const resData = await res.data;
       resData.success && navigate("/login");
-      console.log({ resData });
     } catch (error) {
       if (axios.isAxiosError(error)) {
         setErrors(JSON.parse(error.request.response).error);

@@ -11,28 +11,18 @@ const Insight = () => {
         <div className="grid sm:grid-cols-2">
           <div className="flex flex-col p-2 justify-left gap-5 text-xl space-y-5 mb-3 md:mb-0 sm:px-5">
             <div className="space-y-1">
-              <h2 className="text-green-700 font-semibold">
-                1,200+
-              </h2>
-              <p className="text-xs">
-                Pickups Completed
-              </p>
+              <h2 className="text-green-600 font-semibold">1,200+</h2>
+              <p className="text-xs">Pickups Completed</p>
             </div>
             <div className=" space-y-1">
-              <h2 className="text-green-700  font-semibold">
-                50,000+ kg
-              </h2>
-              <p className="text-xs">
-                Plastics Recycled
-              </p>
+              <h2 className="text-green-600  font-semibold">50,000+ kg</h2>
+              <p className="text-xs">Plastics Recycled</p>
             </div>
             <div className=" space-y-1">
-              <h2 className="text-green-700 sm:text-left font-semibold">
+              <h2 className="text-green-600 sm:text-left font-semibold">
                 2,500+
               </h2>
-              <p className="text-xs  sm:text-left">
-                Households Engaged
-              </p>
+              <p className="text-xs  sm:text-left">Households Engaged</p>
             </div>
           </div>
           <div className="flex items-center justify-center">
@@ -55,7 +45,7 @@ const Insight = () => {
             </Link>
             <Link
               to={"/sign-up"}
-              className="border border-green-800 font-medium text-green-800 rounded-lg text-xs sm:text-sm md:text-base px-3 sm:px-5 md:px-6 py-2 cursor-pointer"
+              className="border border-green-600 font-medium text-green-600 rounded-lg text-xs sm:text-sm md:text-base px-3 sm:px-5 md:px-6 py-2 cursor-pointer"
             >
               Sign Up as Recycler
             </Link>

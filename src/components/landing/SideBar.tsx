@@ -2,7 +2,6 @@ import { assets } from "@/assets/assets";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { NavLink, Link } from "react-router-dom";
 
-
 const SideBar = ({
   setSidebarOpen,
   sidebarOpen,
@@ -34,6 +33,7 @@ const SideBar = ({
         </div>
         <ul className="flex flex-col gap-2 mt-5 w-9/10 mx-auto">
           {[
+            ["Home", "/"],
             ["About Us", "about"],
             ["Contact", "contact"],
             ["FAQs", "faqs"],

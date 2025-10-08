@@ -20,8 +20,6 @@ const VerifyEmail = () => {
     email_or_phone: string;
     otp: number;
   }> = (data: { email_or_phone: string; otp: number }) => {
-    console.log(data);
-
     return axios
       .post(
         "https://wasteworth-backend-django.onrender.com/api/v1/otp/verify/?action=signup",

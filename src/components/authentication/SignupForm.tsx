@@ -10,8 +10,7 @@ interface FormData {
   confirm_password: string;
 }
 
-
-const BASE_URL: string = import.meta.env.VITE_BASE_URL1
+const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
 
 const Form = () => {
   const { setEmail } = useStore();
@@ -26,13 +25,11 @@ const Form = () => {
   const role = useParams().role?.slice(1, 100);
   const navigate = useNavigate();
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    console.log({ ...data, role });
-
     try {
-      const response = await axios.post(
-        `${BASE_URL}/api/v1/users/signup/`,
-        { ...data, role }
-      );
+      const response = await axios.post(`${BASE_URL}/api/v1/users/signup/`, {
+        ...data,
+        role,
+      });
       console.log("Form submitted successfully:", response.data);
       setEmail(data.email);
       if (response.data.success) {

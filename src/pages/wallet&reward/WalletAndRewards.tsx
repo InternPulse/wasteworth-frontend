@@ -11,7 +11,6 @@ const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
 const WalletAndRewards = () => {
   const navigate = useNavigate();
   const { data, error } = useFetch(`${BASE_URL}/api/v1/wallet/balance/`);
-  console.log(data?.wallet);
 
   const mainCard: CardProps[] = [
     {

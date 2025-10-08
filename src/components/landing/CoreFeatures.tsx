@@ -14,22 +14,25 @@ const CoreFeatures = () => {
             <HiOutlineChartBar />,
             "Schedule Pickups",
             "Request and track waste collection easily.",
-            assets.schedulePickup
+            assets.schedulePickup,
           ],
           [
             <CiWallet />,
             "Earn Rewards",
             "Request and track waste collections easily",
-            assets.earnRewards
+            assets.earnRewards,
           ],
           [
             <CiDeliveryTruck />,
             "Impact Dashboard",
             "See your contribution to the environment",
-            assets.impactDashboard
+            assets.impactDashboard,
           ],
         ].map((feature, idx) => (
-          <div key={`core-feature-${idx}`} className="w-full mx-auto text-center shadow-xl">
+          <div
+            key={`core-feature-${idx}`}
+            className="w-19/20 md:w-full mx-auto text-center shadow-xl rounded-lg"
+          >
             <div className="rounded-md flex items-center justify-center">
               <img
                 src={feature[3] as string}

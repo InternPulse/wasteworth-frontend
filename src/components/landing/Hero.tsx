@@ -4,7 +4,8 @@ import { assets } from "../../assets/assets";
 const Hero = () => {
   return (
     <section
-      className={` min-h-[calc(100vh-70px)] bg-[#2E7D32] flex items-center justify-center md:py-8 lg:py-15`}
+      id="home"
+      className={` min-h-[calc(100vh-70px)] bg-[#2E7D32] flex items-center justify-center py-5 md:py-8 lg:py-15`}
     >
       <div className="grid md:grid-cols-2 grid-rows-2 sm:grid-rows-1 rounded sm:rounded-lg items-center w-11/12 max-w-7xl h-full py- overflow-hidden">
         <div className="md:rounded-l-lg self-start w-full h-full  flex sm:items-center justify-center order-2 md:order-1">

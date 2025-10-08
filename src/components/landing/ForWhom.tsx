@@ -24,20 +24,26 @@ const ForWhom = () => {
             "recycler",
           ],
         ].map((feature, idx) => (
-          <div key={`core-feature-${idx}`} className="text-center shadow-xl w-[100%]">
+          <div
+            key={`core-feature-${idx}`}
+            className="w-19/20 md:w-full mx-auto text-center shadow-xl rounded-lg"
+          >
             <div className="rounded-t-md flex items-center justify-center overflow-hidden">
-              <img src={feature[0]} className="rounded-t-lg" />
+              <img
+                src={feature[0]}
+                className="object-cover rounded-t-lg h-full w-full aspect-5/3 md:aspect-4/3"
+              />
             </div>
-            <div className="flex flex-col items-center py-8 px-5 gap-1 md:gap-4 bg-white rounded-b-lg sm:rounded-b-xl">
+            <div className="flex flex-col items-center py-2 sm: py-5 md:py-8 px-5 gap-1 md:gap-4 bg-white rounded-b-lg sm:rounded-b-xl">
               <h2 className="text-[#222222] font-semibold text-[0.7rem] sm:text-base md:text-2xl">
                 {feature[1]}
               </h2>
-              <p className="text-gray-700 text-[0.6rem] sm:text-sm md:text-base mb-2">
+              <p className="text-gray-700 text-[0.6rem] sm:text-sm md:text-base sm:mb-2">
                 {feature[2]}
               </p>
               <Link
                 to={`/auth/:${feature[4] as string}`}
-                className={` bg-gray-100/80 border border-green-700 flex justify-center items-center px-2 md:px-5 py-1 md:py-2 text-xs sm:text-sm md:text-base text-green-700 font-semibold rounded-md cursor-pointer mt-5`}
+                className={`border border-green-600 flex justify-center items-center px-3 md:px-5 py-2 text-xs sm:text-sm md:text-base text-green-600 font-semibold rounded-md cursor-pointer mt-2 sm:mt-5`}
               >
                 {feature[3]}
               </Link>

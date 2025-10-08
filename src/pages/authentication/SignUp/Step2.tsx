@@ -128,7 +128,7 @@ const Step2 = ({
 
           <p className="text-sm text-gray-600 text-center">
             Got an account?{" "}
-            <Link to={"/login"} className="text-green-800 font-medium">
+            <Link to={"/login"} className="text-green-600 font-medium">
               Sign in
             </Link>
           </p>

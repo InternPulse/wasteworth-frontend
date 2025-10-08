@@ -9,16 +9,15 @@ const Nav = ({
 }: {
   setSidebarOpen: (value: boolean) => void;
   sidebarOpen: boolean;
-  }) => {
-  
+}) => {
   return (
     <nav className="max-w-[2000px] mx-auto h-15 lg:h-18 shadow-xl shadow-black/1 fixed top-0 left-0 right-0 flex items-center justify-between bg-white px-[1.5rem] sm:px-[2rem] md:px-[3rem]">
       <Link to="/" className="flex h-13 items-center justify-center">
-          <img
-            src={assets.logo1}
-            alt=""
-            className="w-15 h-10 md:h-13 object-cover md:w-17"
-          />
+        <img
+          src={assets.logo1}
+          alt=""
+          className="w-15 h-10 md:h-13 object-cover md:w-17"
+        />
       </Link>
       <ul className="hidden sm:flex items-center gap-6 md:gap-10 justify-around">
         {[
@@ -31,7 +30,11 @@ const Nav = ({
               to={tab[1]}
               key={tab[1]}
               className={({ isActive }) => `
-                ${isActive ? "text-green-700 cursor-pointer font-bold" : "cursor-pointer"}
+                ${
+                  isActive
+                    ? "text-green-700 cursor-pointer font-bold"
+                    : "cursor-pointer"
+                }
               text-sm md:text-base text-gray-700
               `}
             >

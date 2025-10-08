@@ -13,10 +13,12 @@ const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
 
 const Disposer = () => {
   const navigate = useNavigate();
-  const { data, loading, error } = useFetch(
-    `${BASE_URL}/api/v1/users/user-dashboard/`
-  );
-
+  const {
+    data: res,
+    loading,
+    error,
+  } = useFetch(`${BASE_URL}/api/v1/users/user-dashboard/`);
+  const data = res?.stats;
   useEffect(() => {
     if (error?.status === 401 || error?.message?.includes("401")) {
       localStorage.removeItem("loggedIn");

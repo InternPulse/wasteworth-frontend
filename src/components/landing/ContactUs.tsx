@@ -4,8 +4,8 @@ const ContactUs = () => {
       <div className="w-9/10 mx-auto sm:w-full space-y-6 order-2 md:order-1 p-2">
         <h2 className="text-4xl font-semibold">Contact Us</h2>
         <p className="text-lg text-gray-600 max-w-xl">
-          Lorem ipsum donec arcu tincidunt varius scelerisque aliquam amet eu
-          fermentum tortor diam interdum morbi.
+          {/* Lorem ipsum donec arcu tincidunt varius scelerisque aliquam amet eu
+          fermentum tortor diam interdum morbi. */}
         </p>
         <div className="space-y-4">
           <div>
@@ -14,7 +14,7 @@ const ContactUs = () => {
           </div>
           <div>
             <h3 className="text-xl font-semibold">Customer Support</h3>
-            <p className="text-gray-600">Email, call or complete the</p>
+            <p className="text-gray-600">Email, call or complete the form</p>
           </div>
         </div>
       </div>

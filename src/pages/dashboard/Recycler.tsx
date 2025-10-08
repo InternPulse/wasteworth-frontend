@@ -1,4 +1,4 @@
-import MainCard from "../../components/dashboards/recycler/MainCard";
+import MainCard from "../../utils/MainCard";
 import Referral from "../../components/dashboards/recycler/Referral";
 import RecentListing from "../../components/dashboards/recycler/RecentListing";
 import RecentOffers from "../../components/dashboards/recycler/RecentOffers";
@@ -15,33 +15,31 @@ export interface CardProps {
 }
 const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
 export default function Recycler() {
-  const mainCard: CardProps[] = [
-    {
-      bgColor: "blue",
+  const { data, loading } = useFetch(
+    `${BASE_URL}/api/v1/users/recycler-dashboard/`
+  );
+  const mainCard = {
+    a: {
       title: "Active Listings Near You",
       icon: <FaLocationDot size={15} className="text-[#5094F0]" />,
       kilo: 0,
     },
-    {
-      bgColor: "green",
+    b: {
       title: "Total Waste Collected",
       icon: <FaShoppingCart size={15} className="text-[#00A256]" />,
-      kilo: 0,
+      kilo: data?.stats?.total_kg_collected,
     },
-    {
-      bgColor: "red",
+    c: {
       title: "Total Points Earned",
       icon: <FaGift size={15} className="text-[#FB8C00]" />,
-      kilo: 0,
+      kilo: data?.stats?.total_points,
     },
-  ];
-  const { data } = useFetch(`${BASE_URL}/api/v1/users/user-dashboard/`);
-  console.log(data);
+  };
   return (
     <div className="min-h-screen space-y-5">
-      <MainCard details={mainCard} />
+      <MainCard loading={loading} details={mainCard} />
       <Referral />
-      <RecentListing />
+      <RecentListing data={data?.stats?.recent_posts} />
       <RecentOffers />
     </div>
   );
