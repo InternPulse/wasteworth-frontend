@@ -18,7 +18,6 @@ const BASE_URL: string = import.meta.env.VITE_BASE_URL2;
 export default function DashboardLayout() {
   const {
     user,
-    notifications,
     notificationOpen,
     setNotifications,
     setNotificationsLoading,
