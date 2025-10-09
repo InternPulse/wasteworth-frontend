@@ -1,16 +1,21 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import MainCard from "../../components/dashboards/disposer/MainCard";
+import MainCard from "../../utils/MainCard";
 import RecentPost from "../../components/dashboards/disposer/RecentPost";
 import Referral from "../../components/dashboards/disposer/Referral";
 import { useFetch } from "@/hooks/useFetch";
 import { Link } from "react-router-dom";
+import { CiShop } from "react-icons/ci";
+import { FaShoppingCart } from "react-icons/fa";
+import { FaGift } from "react-icons/fa6";
 
 const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
 
 const Disposer = () => {
   const navigate = useNavigate();
-  const { data, error } = useFetch(`${BASE_URL}/api/v1/users/user-dashboard/`);
+  const { data, loading, error } = useFetch(
+    `${BASE_URL}/api/v1/users/user-dashboard/`
+  );
 
   useEffect(() => {
     if (error?.status === 401 || error?.message?.includes("401")) {
@@ -28,19 +33,29 @@ const Disposer = () => {
     </div>;
   }
 
-  if (!data)
-    return (
-      <div className="font-semibold text-lg w-full text-center">Loading...</div>
-    );
-
+  const cardDetails = {
+    a: {
+      title: "Total Waste Posted",
+      icon: <CiShop size={15} className="text-[#5094F0]" />,
+      kilo: data?.total_listings,
+    },
+    b: {
+      title: "Total Completed Listing",
+      icon: <FaShoppingCart size={15} className="text-[#5094F0]" />,
+      kilo: data?.sold_listings,
+    },
+    c: {
+      title: "Bagdes Earned",
+      icon: <FaGift size={15} className="text-[#5094F0]" />,
+      kilo: 0,
+    },
+  };
   return (
     <div className="w-full">
       <div className="space-y-5">
-        <MainCard
-          details={{ a: data?.total_listings, b: data?.sold_listings }}
-        />
+        <MainCard loading={loading} details={cardDetails} />
         <Referral />
-        <RecentPost posts={data?.recent_listings} />
+        <RecentPost loading={loading} posts={data?.recent_listings} />
       </div>
     </div>
   );

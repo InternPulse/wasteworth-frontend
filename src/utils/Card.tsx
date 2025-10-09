@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 interface cardType {
   bgColor: string;
   title: string;
-  kilo: number | string;
+  kilo: ReactNode | number | string;
   icon: ReactNode;
 }
 export default function Card({ bgColor, title, kilo, icon }: cardType) {

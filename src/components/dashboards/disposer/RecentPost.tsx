@@ -4,13 +4,18 @@ import type { Tdata } from "../../../types";
 import { useState } from "react";
 import Modal from "./Modal";
 import PostForm from "./PostForm";
+import EmptyTable from "@/utils/EmptyTable";
+import TableLoader from "@/utils/TableLoader";
 
-export default function RecentPost({ posts }: { posts: Tdata[] | undefined }) {
-  console.log(posts);
-
+export default function RecentPost({
+  loading,
+  posts,
+}: {
+  loading: boolean;
+  posts: Tdata[] | undefined;
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  
   const getStatusClass = (status: string) => {
     switch (status) {
       case "Completed":
@@ -40,7 +45,7 @@ export default function RecentPost({ posts }: { posts: Tdata[] | undefined }) {
             Post Waste
           </button>
           <Modal isOpen={isModalOpen} onClose={toggleModal}>
-            <PostForm onClose={toggleModal}/>
+            <PostForm onClose={toggleModal} />
           </Modal>
         </div>
         <div className="overflow-hidden rounded-lg border border-gray-300">
@@ -68,43 +73,36 @@ export default function RecentPost({ posts }: { posts: Tdata[] | undefined }) {
               </tr>
             </thead>
             <tbody>
-              {(posts &&
-                posts.length > 0 &&
-                posts.map((item: Tdata) => (
-                  <tr key={item.id} className="text-[14px]">
-                    <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell ">
-                      {item.id}
-                    </td>
-                    <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell">
-                      {item.quantity} kg
-                    </td>
-                    <td className="px-4 border border-gray-200 py-2">
-                      {item.created_at}
-                    </td>
-                    <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
-                      {item.pickup_location}
-                    </td>
-                    <td className="px-4 border border-gray-200 py-2">
-                      {item.reward_estimate}
-                    </td>
-                    <td className="px-4 border border-gray-200 py-2 flex items-center justify-between gap-2">
-                      <span className={` ${getStatusClass(item.status)}`}>
-                        {item.status}
-                      </span>
-                      <Link to="#">
-                        <FaArrowRight className="text-gray-400" />
-                      </Link>
-                    </td>
-                  </tr>
-                ))) || (
-                <tr>
-                  <td colSpan={3} height={120}>
-                    <h3 className="text-xl font-bold text-center">
-                      No data here yet.
-                    </h3>
-                  </td>
-                </tr>
-              )}
+              {(loading && <TableLoader />) ||
+                (posts &&
+                  posts.length > 0 &&
+                  posts.map((item: Tdata) => (
+                    <tr key={item.id} className="text-[14px]">
+                      <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell ">
+                        {item.id}
+                      </td>
+                      <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell">
+                        {item.quantity} kg
+                      </td>
+                      <td className="px-4 border border-gray-200 py-2">
+                        {item.created_at}
+                      </td>
+                      <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
+                        {item.pickup_location}
+                      </td>
+                      <td className="px-4 border border-gray-200 py-2">
+                        {item.reward_estimate}
+                      </td>
+                      <td className="px-4 border border-gray-200 py-2 flex items-center justify-between gap-2">
+                        <span className={` ${getStatusClass(item.status)}`}>
+                          {item.status}
+                        </span>
+                        <Link to="#">
+                          <FaArrowRight className="text-gray-400" />
+                        </Link>
+                      </td>
+                    </tr>
+                  ))) || <EmptyTable />}
             </tbody>
           </table>
         </div>
