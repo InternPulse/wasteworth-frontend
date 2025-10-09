@@ -13,16 +13,30 @@ export interface User {
   createdAt: string;
 }
 
-interface NotificationType {
-  id: string;
-  userId: string;
-  type: string;
-  message: string;
-  is_read: false;
+export interface NotificationItem {
   createdAt: string;
+  id: string;
+  is_read: boolean;
+  message: string;
+  type: string;
   user: {
     id: string;
     name: string;
+  };
+  userId: string;
+}
+
+export interface NotificationType {
+  notifications: NotificationItem[];
+  length: number;
+  status: string;
+  pagination: {
+    currentPage: number;
+    hasNextPage: boolean;
+    hasPrevPage: boolean;
+    limit: number;
+    totalCount: number;
+    totalPages: number;
   };
 }
 
@@ -42,8 +56,11 @@ interface Store {
   setTokens: (tokens: { access: string; refresh_token: string } | null) => void;
   notificationOpen: boolean;
   toggleNotificationOpen: () => void;
-  notifications: NotificationType[];
-  setNotifications: (notifications: NotificationType[]) => void;
+  notifications: NotificationType | null;
+  setNotifications: (notifications: NotificationType) => void;
+
+  notificationsLoading: boolean | null;
+  setNotificationsLoading: (notificationsLoading: boolean) => void;
 }
 const defaultUser: User = {
   userId: "",
@@ -79,9 +96,12 @@ const useStore = create<Store>()(
       toggleNotificationOpen: () =>
         set((state) => ({ notificationOpen: !state.notificationOpen })),
 
-      notifications: [],
-      setNotifications: (notifications: NotificationType[]) =>
-        set({ notifications }),
+      notifications: null,
+      setNotifications: (notifications) => set({ notifications }),
+
+      notificationsLoading: null,
+      setNotificationsLoading: (notificationsLoading: boolean) =>
+        set({ notificationsLoading: notificationsLoading }),
     }),
     {
       name: "user-store",
