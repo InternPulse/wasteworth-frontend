@@ -40,8 +40,11 @@ const WasteTable = ({ item }: { item: Tdata }) => {
         {item.quantity}
       </td>
       <td className="px-4 border border-gray-200 py-2 text-center">
-        {" "}
-        {item.created_at.slice(0, 10)}
+        {new Date(item.created_at).toLocaleDateString("en-GB", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        })}
       </td>
       <td className="px-4 border border-gray-200 py-2 hidden md:table-cell text-center">
         {locationToDisplay}

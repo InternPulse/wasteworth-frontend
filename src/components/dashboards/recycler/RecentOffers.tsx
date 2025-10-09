@@ -103,7 +103,11 @@ export default function RecentOffers() {
                       {item.quantity} kg
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
-                      {item.created_at}
+                      {new Date(item.created_at).toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "long",
+                        year: "numeric",
+                      })}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
                       {item.waste_type}

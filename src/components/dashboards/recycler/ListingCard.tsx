@@ -66,7 +66,11 @@ export default function ListingCard({
                 </div>
                 <div className="flex items-center gap-1 text-sm">
                   <p className="text-xs text-gray-700">
-                    {item.created_at.slice(0, 10)}
+                    {new Date(item.created_at).toLocaleDateString("en-GB", {
+                      day: "2-digit",
+                      month: "long",
+                      year: "numeric",
+                    })}
                   </p>
                   <LuDot className="text-gray-500 font-bold" />
                   <p className="text-gray-700 text-xs">
