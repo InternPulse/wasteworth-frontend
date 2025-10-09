@@ -57,7 +57,8 @@ export default function PostForm({ onClose }: PostFormProps) {
                     },
                 }
             );
-            toast.success("Listing Created successfully")
+            const successMsg = res.data.message
+            toast.success(successMsg)
 
             onClose();
 
