@@ -7,7 +7,7 @@ export const sidebarData = {
   recycler: [
     { to: "/user", label: "Dashboard", icon: MdDashboard },
     { to: "/user/marketplace", label: "Marketplace", icon: CiShop },
-    { to: "/user/offers", label: "Offers", icon: FaShoppingCart },
+    /* { to: "/user/offers", label: "Offers", icon: FaShoppingCart }, */
     {
       to: "/user/wallet&rewards",
       label: "Wallet & Rewards",

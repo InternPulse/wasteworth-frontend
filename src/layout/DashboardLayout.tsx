@@ -10,7 +10,7 @@ import useStore from "../../store/store";
 import PaymentLayout from "./PaymentLayout";
 import MyWaste from "@/pages/myWaste/MyWaste";
 import MyProfile from "@/pages/disposerProfile/MyProfile";
-import MyOffers from "@/pages/my-offers/My-Offers";
+//import MyOffers from "@/pages/my-offers/My-Offers";
 import { useEffect } from "react";
 import { useFetch } from "@/hooks/useFetch";
 const BASE_URL: string = import.meta.env.VITE_BASE_URL2;
@@ -49,7 +49,7 @@ export default function DashboardLayout() {
         <Routes>
           <Route index element={<Recycler />} />
           <Route path="marketplace" element={<MarketplaceDashboard />} />
-          <Route path="offers" element={<MyOffers />} />
+          {/* <Route path="offers" element={<MyOffers />} /> */}
           <Route path="wallet&rewards" element={<WalletAndRewards />} />
           <Route path="profile" element={<MyProfile />} />
           <Route path="notifications" element={<Notification />} />
