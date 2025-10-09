@@ -1,15 +1,19 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import Loader from '../../../utils/Loader';
-import { PostSchema, type UserData } from '../../../types';
+import { PostSchema } from '../../../types';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import useStore from '../../../../store/store';
 
 interface PostFormProps {
   onClose: () => void;
 }
 
 export default function PostForm({ onClose }: PostFormProps) {
+    const { tokens } = useStore()
+    const accessToken = tokens?.access
+
     const {
         register,
         reset,
@@ -22,12 +26,6 @@ export default function PostForm({ onClose }: PostFormProps) {
 
         
     const submit = async (data: PostSchema) => {
-      
-    const userDataString = localStorage.getItem("userData");
-      if (!userDataString) {
-        toast.error("Your session has expired, please login again");
-        return; 
-      }
         const formData = new FormData();
 
         // Append all fields, explicitly handling the file
@@ -45,45 +43,30 @@ export default function PostForm({ onClose }: PostFormProps) {
         });
 
 
-        // --- Logging data to confirm the formData actually captures the data needed || development only---
-        console.log("--- START FormData Logging (Data BEFORE sending) ---");
-        for (const [key, value] of formData.entries()) {
-            if (value instanceof File) {
-                console.log(`${key}: File | Name: ${value.name} | Type: ${value.type} | Size: ${value.size} bytes`);
-            } else {
-                console.log(`${key}: ${value}`);
-            }
-        }
-
         try {
-            const userData: UserData = JSON.parse(userDataString);
-            const accessToken = userData.tokens?.access;
-
+             if (!accessToken) {
+                 toast.error("Session expired. Please login again.");
+                 return;
+            }
             const res = await axios.post(
                 'https://wasteworth-backend-express.onrender.com/api/v1/listings',
                 formData, 
                 {
                     headers: {
-                        'Authorization': `Bearer ${accessToken}`,
-                        'Content-Type': 'multipart/form-data',
+                        Authorization: `Bearer ${accessToken}`,
                     },
                 }
             );
             toast.success("Listing Created successfully")
+
             onClose();
-            const serverRes = res.data;
-            console.log("SUCCESS! Submitted Data:", data);
-            console.log("SUCCESS! Server Response:", serverRes);
+
             reset();
             
         } catch (error) {
-            // destructed errors to actually see the problem
             if (axios.isAxiosError(error) && error.response && error.response.data) {
-                // logged the actual error response from the server 
-                console.error("Error Sending Data (Axios Response):", error.response.data);
-                toast.error("Error creating Listing")
+                toast.error(error.response.data.message)
             } else {
-                console.error("Error Sending Data:", error);
                 toast.error("Error creating Listing")
             }
         }
