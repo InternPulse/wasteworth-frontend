@@ -12,9 +12,26 @@ import MyWaste from "@/pages/myWaste/MyWaste";
 import MyProfile from "@/pages/disposerProfile/MyProfile";
 import MyOffers from "@/pages/my-offers/My-Offers";
 import { useEffect } from "react";
+import { useFetch } from "@/hooks/useFetch";
+const BASE_URL: string = import.meta.env.VITE_BASE_URL2;
 
 export default function DashboardLayout() {
-  const { user, notificationOpen, setIsLoggedIn } = useStore();
+  const {
+    user,
+    notificationOpen,
+    setNotifications,
+    setNotificationsLoading,
+    setIsLoggedIn,
+  } = useStore();
+
+  const { data, loading } = useFetch(`${BASE_URL}/api/v1/notifications`);
+
+  useEffect(() => {
+    if (data) {
+      setNotifications(data);
+    }
+    setNotificationsLoading(loading);
+  }, [data, loading, setNotifications, setNotificationsLoading]);
 
   // Automatically log out after 20 hours (72,000,000 ms)
   useEffect(() => {

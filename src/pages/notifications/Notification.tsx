@@ -8,15 +8,22 @@ const BASE_URL: string = import.meta.env.VITE_BASE_URL2;
 
 const Notification = () => {
   const { toggleNotificationOpen } = useStore();
-  const { data, loading } = useFetch(`${BASE_URL}/api/v1/notifications`);
+  const { data, loading, refetch } = useFetch(
+    `${BASE_URL}/api/v1/notifications`,
+    { auto: false } // prevent auto fetch
+  );
 
   const [notifications, setNotifications] = useState<any[]>([]);
 
   useEffect(() => {
-    if (data?.notifications) {
-      setNotifications(data.notifications);
-    }
+    if (data?.notifications) setNotifications(data.notifications);
   }, [data]);
+
+  // Close
+  const handleClose = () => {
+    toggleNotificationOpen();
+    refetch(); // call the API when closing
+  };
 
   return (
     <div className="inset-0 fixed top-0 left-0 z-9999 flex items-center justify-center bg-black/50">
@@ -25,7 +32,7 @@ const Notification = () => {
         <div className="flex justify-between items-center p-3 border-b-3 border-gray-200">
           <p className="font-bold text-gray-800">Notifications</p>
           <IoMdCloseCircleOutline
-            onClick={toggleNotificationOpen}
+            onClick={handleClose}
             className="size-5 text-gray-600 cursor-pointer"
           />
         </div>

@@ -29,9 +29,9 @@ export default function WasteListing({
                   data.length > 0 &&
                   data
                     .slice(0, view)
-                    .map((item: Tdata) => <WasteTable item={item} />)) || (
-                  <EmptyTable />
-                )}
+                    .map((item: Tdata, i: number) => (
+                      <WasteTable key={i} item={item} />
+                    ))) || <EmptyTable />}
             </tbody>
           </table>
           {data && data.length > 4 && (

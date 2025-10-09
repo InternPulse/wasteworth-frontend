@@ -16,7 +16,7 @@ interface LinkType {
 
 export default function Sidebar() {
   const location = useLocation();
-  const { user, toggleNotificationOpen } = useStore();
+  const { user, notifications, toggleNotificationOpen } = useStore();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const isActive = (path: string) => {
@@ -42,7 +42,7 @@ export default function Sidebar() {
         >
           <IoMdNotificationsOutline className="text-gray-600 size-6" />
           <p className="absolute bg-red-700 text-white top-0 right-0 text-[0.53rem] h-3 w-3 flex items-center justify-center font-semi-bold rounded-full">
-            0
+            {notifications?.notifications.filter((n) => !n.is_read).length ?? 0}
           </p>
         </button>
         <div className="p-1.5 rounded text-gray-600 shadow shadow-[#eee] bg-white">

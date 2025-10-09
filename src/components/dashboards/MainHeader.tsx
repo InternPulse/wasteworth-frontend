@@ -12,7 +12,8 @@ export default function MainHeader({
   user,
 }: MainHeaderProps) {
   const page = useLocation();
-  const { toggleNotificationOpen } = useStore();
+  const { notifications, toggleNotificationOpen } = useStore();
+  console.log(notifications?.notifications.filter((n) => !n.is_read).length);
 
   return (
     <nav className="px-4 sm:px-10 py-2 bg-white sticky top-0 shadow shadow-[#0000000e] min-h-15 w-full z-2 flex items-center">
@@ -66,8 +67,9 @@ export default function MainHeader({
             className={` cursor-pointer relative`}
           >
             <IoMdNotificationsOutline className="text-gray-600 size-7" />
-            <p className="absolute bg-red-700 text-white top-0 right-0 text-[0.53rem] h-3 w-3 flex items-center justify-center font-semi-bold rounded-full">
-              0
+            <p className="absolute bg-red-700 text-white top-0 right-0 text-[0.53rem] h-3 w-3 flex items-center justify-center font-semibold rounded-full">
+              {notifications?.notifications.filter((n) => !n.is_read).length ??
+                0}
             </p>
           </button>
         </div>
