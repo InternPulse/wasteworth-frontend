@@ -39,7 +39,7 @@ const Signup = () => {
     }
   };
   return (
-    <div className="w-full h-screen bg-gray-100 flex items-center justify-center p-[1px]">
+    <div className="w-full h-full my-auto sm:h-9/10 bg-gray-100 flex items-center justify-center p-[1px]">
       {tab === "role" ? (
         <RoleSelection
           next={setTab}

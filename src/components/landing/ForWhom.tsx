@@ -14,14 +14,12 @@ const ForWhom = () => {
             "Clear your space, earn rewards.",
             "Easily post your waste and let recyclers come to you. No stress, no dumping.",
             "Join as Disposers",
-            "disposer",
           ],
           [
             assets.findVal,
             "Find valuable recyclables faster",
             "Browse waste listings nearby, contact disposers, and grow your recycling business",
             "Join as recycler",
-            "recycler",
           ],
         ].map((feature, idx) => (
           <div
@@ -42,7 +40,7 @@ const ForWhom = () => {
                 {feature[2]}
               </p>
               <Link
-                to={`/auth/:${feature[4] as string}`}
+                to={`/sign-up`}
                 className={`border border-green-600 flex justify-center items-center px-3 md:px-5 py-2 text-xs sm:text-sm md:text-base text-green-600 font-semibold rounded-md cursor-pointer mt-2 sm:mt-5`}
               >
                 {feature[3]}
