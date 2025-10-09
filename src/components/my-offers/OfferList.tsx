@@ -75,7 +75,7 @@ export default function OfferList() {
                   DATE
                 </th>
                 <th className="border border-gray-300 text-left px-4 py-2 hidden md:table-cell">
-                  LOCATION
+                  TYPE
                 </th>
                 <th className="border border-gray-300 text-left px-4 py-2">
                   ESTIMATED PRICE
@@ -100,7 +100,7 @@ export default function OfferList() {
                       {item.created_at}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
-                      {item.pickup_location}
+                      {item.waste_type}
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
                       {item.reward_estimate}
