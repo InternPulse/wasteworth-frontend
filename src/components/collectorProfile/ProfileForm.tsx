@@ -14,6 +14,8 @@ export default function ProfileForm() {
   });
 
   const submit = async (data: ProfileSchema) => {
+    console.log(data);
+
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
     reset();

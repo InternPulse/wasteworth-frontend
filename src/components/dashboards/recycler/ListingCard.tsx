@@ -13,6 +13,8 @@ interface TListing {
 }
 
 export default function ListingCard({ data }: { data: TListing[] }) {
+  console.log(data);
+
   const Listing: TListing[] = [
     {
       id: 1,
