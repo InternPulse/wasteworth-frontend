@@ -20,7 +20,7 @@ export default function MainHeader({
         {page.pathname === "/user" ? (
           <div>
             <h3 className="font-bold text-sm sm:text-base">
-              Welcome back {firstName} 👋
+              Hi {firstName} 👋
             </h3>
             <p className="text-xs sm:text-base hidden md:block">{question}</p>
           </div>

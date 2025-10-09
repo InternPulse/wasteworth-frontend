@@ -1,6 +1,7 @@
 import { assets } from "../../assets/assets";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Nav = ({
   setSidebarOpen,
@@ -8,28 +9,19 @@ const Nav = ({
 }: {
   setSidebarOpen: (value: boolean) => void;
   sidebarOpen: boolean;
-}) => {
-  const page = useLocation();
+  }) => {
+  
   return (
-    <nav className="bg-white max-w-[2000px] mx-auto h-15 lg:h-18 shadow-xl shadow-black/1 fixed top-0 left-0 right-0 flex items-center justify-between bg-white px-[1.5rem] sm:px-[2rem] md:px-[3rem]">
-      <div className="flex h-13 items-center justify-center">
-        {page.pathname === "/" ? (
-          <h2 className="font-bold text-[#222222] text-lg">Home</h2>
-        ) : page.pathname === "/about" ? (
-          <h2 className="font-bold text-[#222222] text-lg">About Us</h2>
-        ) : page.pathname === "/contact" ? (
-          <h2 className="font-bold text-[#222222] text-lg">Contact Us</h2>
-        ) : (
+    <nav className="max-w-[2000px] mx-auto h-15 lg:h-18 shadow-xl shadow-black/1 fixed top-0 left-0 right-0 flex items-center justify-between bg-white px-[1.5rem] sm:px-[2rem] md:px-[3rem]">
+      <Link to="/" className="flex h-13 items-center justify-center">
           <img
             src={assets.logo1}
             alt=""
             className="w-15 h-10 md:h-13 object-cover md:w-17"
           />
-        )}
-      </div>
+      </Link>
       <ul className="hidden sm:flex items-center gap-6 md:gap-10 justify-around">
         {[
-          ["Home", "/"],
           ["About Us", "about"],
           ["Contact", "contact"],
           ["FAQs", "faqs"],
@@ -39,7 +31,7 @@ const Nav = ({
               to={tab[1]}
               key={tab[1]}
               className={({ isActive }) => `
-                ${isActive ? "text-green-700 cursor-pointer" : "cursor-pointer"}
+                ${isActive ? "text-green-700 cursor-pointer font-bold" : "cursor-pointer"}
               text-sm md:text-base text-gray-700
               `}
             >

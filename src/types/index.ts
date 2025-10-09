@@ -72,16 +72,34 @@ export interface ModalProps {
   children: ReactNode;
 }
 
+const MAX_FILE_SIZE = 5000000; // 5MB
+const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
+
+const fileSchema = z
+  .instanceof(FileList, { message: "An image file is required." })
+  .refine(
+    (fileList) => fileList.length > 0, // Check for file existence on the list
+    "An image file is required."
+  )
+  .transform((fileList) => fileList[0]) // Transform to get the single File object
+  .refine(
+    (file) => file.size <= MAX_FILE_SIZE, // Refine the size of the single File
+    `Max image size is 5MB.`
+  )
+  .refine(
+    (file) => ACCEPTED_IMAGE_TYPES.includes(file.type), // Refine the type of the single File
+    "Only .jpg, .jpeg, and .png formats are supported."
+);
+
+  
 export const PostSchema = z.object({
   title: z.string().min(1, "Post Title is required"),
   waste_type: z.string().min(1, "Waste type is required"),
-  quantity: z.string().min(1, "Waste quantity is required"),
-  quantity_type: z.enum(["kg", "k", "count"]),
-  price: z.string().min(1, "Price is required"),
-  photo: z.instanceof(File, { message: "Please select an image file." }),
-  location: z.string().min(1, "Location is required"),
-  preferred_contact: z.enum(["Call", "whatsapp"]),
-  contact: z.string().min(1, "Phone is required"),
+  quantity: z.number().min(1, "Waste quantity is required"),
+  reward_estimate: z.string().min(1, "Price is required"),
+  image_url: fileSchema,
+  pickup_location: z.string().min(1, "Location is required"),
+  phone: z.string().min(1, "Phone is required"),
 });
 
 export type PostSchema = z.infer<typeof PostSchema>;
@@ -89,7 +107,7 @@ export type PostSchema = z.infer<typeof PostSchema>;
 
 export interface UserData {
   tokens: {
-    access_token: string;
+    access: string;
     refresh_token: string;
   };
 }

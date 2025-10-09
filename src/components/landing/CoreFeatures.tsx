@@ -4,16 +4,16 @@ import { HiOutlineChartBar } from "react-icons/hi";
 
 const CoreFeatures = () => {
   return (
-    <div className="p-2 sm:p-5 my-2">
-      <h2 className="text-green-600 font-semibold text-lg md:text-xl text-center mb-5 md:mb-5">
+    <section className="mt-10 px-3 md:px-10">
+      <h2 className="text-green-600 font-semibold text-lg md:text-xl text-center mb-5">
         Core Features
       </h2>
-      <div className="grid sm:grid-cols-3 gap-5 sm:gap-2 md:gap-5 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 gap-5 mx-auto md:grid-cols-2 lg:grid-cols-3">
         {[
           [
             <HiOutlineChartBar />,
             "Schedule Pickups",
-            "Request and track waste collections easily",
+            "Request and track waste collection easily.",
             assets.schedulePickup
           ],
           [
@@ -29,15 +29,15 @@ const CoreFeatures = () => {
             assets.impactDashboard
           ],
         ].map((feature, idx) => (
-          <div key={`core-feature-${idx}`} className="grid w-9/10 sm:w-full mx-auto text-center aspect-4/4 sm:aspect-none rounded-lg">
+          <div key={`core-feature-${idx}`} className="w-full mx-auto text-center shadow-xl">
             <div className="rounded-md flex items-center justify-center">
               <img
                 src={feature[3] as string}
                 className="object-cover rounded-t-lg h-full w-full"
               />
             </div>
-            <div className="flex flex-col items-center justify-center p-2 md:p-5 md:gap-4 bg-white rounded-b-lg sm:rounded-b-xl">
-              <span className="text-sm text-green-600">{feature[0]}</span>
+            <div className="flex flex-col items-center justify-center space-y-5 py-5 bg-white rounded-b-lg">
+              <span className="text-2xl text-green-600">{feature[0]}</span>
               <h2 className="text-md md:text-xl font-semibold text-[#222222]">
                 {feature[1]}
               </h2>
@@ -48,7 +48,7 @@ const CoreFeatures = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

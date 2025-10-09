@@ -16,7 +16,7 @@ const FAQs = () => {
         Below you'll find answers to the most common questions you may have on
         WasteWorth.
       </p>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         <div className="flex flex-col px-2 py-4 bg-white rounded">
           <h2 className="text-[#3B9561] font-semibold w-9/10 mx-auto">
             Disposers

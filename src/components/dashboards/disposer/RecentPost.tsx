@@ -8,57 +8,7 @@ import PostForm from "./PostForm";
 export default function RecentPost({ posts }: { posts: Tdata[] | undefined }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  /* let post: Tdata[] = [
-    {
-      id: "WW-001",
-      quantity_kg: 150,
-      date: "2024-09-15",
-      location: "Lagos Island, Nigeria",
-      price: 25000,
-      status: "Accepted",
-    },
-    {
-      id: "WW-002",
-      quantity_kg: 50,
-      date: "2024-09-16",
-      location: "Abuja FCT, Nigeria",
-      price: 8500,
-      status: "Pending",
-    },
-    {
-      id: "WW-003",
-      quantity_kg: 300,
-      date: "2024-09-17",
-      location: "Port Harcourt, Nigeria",
-      price: 48000,
-      status: "Pending",
-    },
-    {
-      id: "WW-004",
-      quantity_kg: 10,
-      date: "2024-09-18",
-      location: "Kano, Nigeria",
-      price: 1200,
-      status: "Accepted",
-    },
-    {
-      id: "WW-005",
-      quantity_kg: 85,
-      date: "2024-09-19",
-      location: "Ibadan, Nigeria",
-      price: 14500,
-      status: "Completed",
-    },
-    {
-      id: "WW-006",
-      quantity_kg: 420,
-      date: "2024-09-20",
-      location: "Enugu, Nigeria",
-      price: 65000,
-      status: "Completed",
-    },
-  ]; */
-
+  
   const getStatusClass = (status: string) => {
     switch (status) {
       case "Completed":
@@ -88,7 +38,7 @@ export default function RecentPost({ posts }: { posts: Tdata[] | undefined }) {
             Post Waste
           </button>
           <Modal isOpen={isModalOpen} onClose={toggleModal}>
-            <PostForm />
+            <PostForm onClose={toggleModal}/>
           </Modal>
         </div>
         <div className="overflow-hidden rounded-lg border border-gray-300">
