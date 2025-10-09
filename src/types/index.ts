@@ -72,6 +72,8 @@ export interface ModalProps {
   children: ReactNode;
 }
 
+
+//post form
 const MAX_FILE_SIZE = 5000000; // 5MB
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
 
@@ -109,4 +111,13 @@ export interface UserData {
     access: string;
     refresh_token: string;
   };
+}
+
+
+//contact cards
+export interface TContactDetails{
+    id: number;
+    icon: React.ReactNode;
+    name: string;
+    contact: string;
 }

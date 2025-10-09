@@ -1,83 +1,67 @@
+import { FaEnvelope, FaHeadset, FaPhone } from "react-icons/fa";
+import ContactForm from "./ContactForm";
+import { FaMessage } from "react-icons/fa6";
+import type { TContactDetails } from "@/types";
+
+
 const ContactUs = () => {
+
+  const contactDetails: TContactDetails[] = [
+      {
+        id: 1,
+        icon: <FaPhone />,
+        name: "Phone",
+        contact: "+2348135769899"
+      },
+      {
+        id: 2,
+        icon: <FaEnvelope />,
+        name: "Email",
+        contact: "info@wasteworth.com"
+      },
+      {
+        id: 3,
+        icon: <FaHeadset />,
+        name: "Live chat",
+        contact: "Our support team is available around the clock to address any concerns or queries you may have."
+      },
+      {
+        id: 4,
+        icon: <FaMessage />,
+        name: "Feedbacks",
+        contact: "Your feedback helps us improve and shape the future of WasteWorth."
+      }
+    ]
+
   return (
-    <div className="max-w-6xl mx-auto sm:p-15 grid md:grid-cols-2 gap-10 sm:gap-5 pt-5 sm:pt-8 pb-20">
-      <div className="w-9/10 mx-auto sm:w-full space-y-6 order-2 md:order-1 p-2">
-        <h2 className="text-4xl font-semibold">Contact Us</h2>
-        <p className="text-lg text-gray-600 max-w-xl">
-          Lorem ipsum donec arcu tincidunt varius scelerisque aliquam amet eu
-          fermentum tortor diam interdum morbi.
-        </p>
-        <div className="space-y-4">
-          <div>
-            <h3 className="text-xl font-semibold">info@wasteworth.com</h3>
-            <p className="text-gray-600">+2348135769899</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold">Customer Support</h3>
-            <p className="text-gray-600">Email, call or complete the</p>
-          </div>
+    <section className="bg-gray-100 gap-10 sm:gap-5 pt-5 sm:pt-8 pb-20 px-3 md:px-10">
+        <div>
+            <div>
+                <div className="bg-white py-5 text-center space-y-5 rounded-md px-7">
+                  <h2 className="text-green-700 text-lg md:text-2xl font-bold">Contact Us</h2> 
+                  <p className="font-semibold">Questions, ideas, or feedback? We’re here to help and listen.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className=" py-5 text-center space-y-5">
+                    {contactDetails.map((item) => (
+                      <ul key={item.id} className="bg-white gap-5 space-y-3 rounded-md text-center py-5 px-7 shadow-md">
+                        <li className="flex items-center justify-center text-green-700">{item.icon}</li>
+                        <li className="font-bold text-green-700">{item.name}</li>
+                        <li>{item.contact}</li>
+                      </ul>
+                    ))}
+                  </div>
+                  <ContactForm />
+                </div>
+            </div>
         </div>
-      </div>
-      <form className="w-9/10 max-w-md md:max-w-none mx-auto sm:w-full max-w-lg space-y-2 md:space-y-3 border border-gray-100 px-3 py-5 sm:px-5 rounded-md md:rounded-2xl order-1 md:order-2">
-        <h3 className="text-lg md:text-2xl font-bold">Get in touch</h3>
-        <p className="text-gray-600 text-sm sm:text-base md:text-lg">
-          Questions, fededback, or
-        </p>
-        <div className="flex flex-wrap -mx-3 mb-4 md:mb-6">
-          <div className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
-            <input
-              className="appearance-none block w-full text-sm sm:text-base text-gray-700 border border-gray-200 rounded py-2 sm:py-3 px-2 sm:px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="first-name"
-              type="text"
-              placeholder="First name"
-            />
-          </div>
-          <div className="w-full md:w-1/2 px-3">
-            <input
-              className="appearance-none block w-full text-sm sm:text-base text-gray-700 border border-gray-200 rounded py-2 sm:py-3 px-2 sm:px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="last-name"
-              type="text"
-              placeholder="Last name"
-            />
-          </div>
-        </div>
-        <div className="flex flex-wrap -mx-3 mb-4 md:mb-6">
-          <div className="w-full px-3">
-            <input
-              className="appearance-none block w-full text-sm sm:text-base text-gray-700 border border-gray-200 rounded py-2 sm:py-3 px-2 sm:px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="email"
-              placeholder="Email*"
-            />
-          </div>
-        </div>
-        <div className="flex flex-wrap -mx-3 mb-4 md:mb-6">
-          <div className="w-full px-3">
-            <textarea
-              className="appearance-none block w-full text-xs sm:text-sm text-gray-700 border border-gray-200 rounded py-3 px-2 sm:px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="message"
-              placeholder="Message*"
-            />
-          </div>
-        </div>
-        <div className="flex flex-wrap -mx-3 mb-4 md:mb-6">
-          <div className="w-full px-3">
-            <input
-              className="appearance-none block w-full text-xs sm:text-sm text-gray-700 border border-gray-200 rounded py-3 px-2 sm:px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="referral"
-              type="text"
-              placeholder="How did you hear about ?"
-            />
-          </div>
-        </div>
-        <button
-          className="bg-green-800 text-sm md:text-base text-white px-6 py-2 w-full rounded-lg hover:bg-green-700 transition duration-300"
-          type="submit"
-        >
-          Send message
-        </button>
-      </form>
-    </div>
+    </section>
   );
 };
 
 export default ContactUs;
+
+
+
+
+
