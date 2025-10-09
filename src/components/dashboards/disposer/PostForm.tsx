@@ -20,13 +20,14 @@ export default function PostForm({ onClose }: PostFormProps) {
     });
 
 
-    const userDataString = localStorage.getItem("userData");
-      if (!userDataString) {
-        console.warn("You are not authenticated");
-        return; 
-      }
         
     const submit = async (data: PostSchema) => {
+      
+    const userDataString = localStorage.getItem("userData");
+      if (!userDataString) {
+        toast.error("Your session has expired, please login again");
+        return; 
+      }
         const formData = new FormData();
 
         // Append all fields, explicitly handling the file
