@@ -13,7 +13,6 @@ export default function MainHeader({
 }: MainHeaderProps) {
   const page = useLocation();
   const { notifications, toggleNotificationOpen } = useStore();
-  console.log(notifications?.notifications.filter((n) => !n.is_read).length);
 
   return (
     <nav className="px-4 sm:px-10 py-2 bg-white sticky top-0 shadow shadow-[#0000000e] min-h-15 w-full z-2 flex items-center">

@@ -5,23 +5,30 @@ import { FaGift } from "react-icons/fa";
 import type { CardProps } from "../dashboard/Recycler";
 import Referral from "@/components/dashboards/recycler/Referral";
 import { Link } from "react-router-dom";
+import WasteCard from "@/utils/WasteCard";
+import { assets } from "@/assets/assets";
 
-interface Listing {
+export interface Listing {
+  created_at: string;
   id: string;
+  image_url: string | null;
+  pickup_location: { lat: string; lng: string } | string;
+  quantity: number;
+  reward_estimate: string;
+  status: string;
   title: string;
-  weight: string;
-  location: string;
-  postedTime: string;
-  image: string;
+  waste_type: string;
 }
 
 interface ListingDetails {
   id: string;
   title: string;
-  weight: string;
-  location: string;
+  status: string;
+  weight: string | number;
+  location: { lat: string; lng: string } | string;
   postedTime: string;
-  image: string;
+  image: string | null;
+  type: string;
   postedBy: string;
   listingPrice: string;
   contactDetails: string;
@@ -40,19 +47,24 @@ const MarketplaceDashboard: React.FC = () => {
 
   const mockListings: Listing[] = Array(12)
     .fill(null)
-    .map((_, index) => ({
-      id: `pet-sack-${index + 1}`,
-      title: "PET Sacks - 5Kg",
-      weight: "5Kg",
-      location: "Ikoyi",
-      postedTime: "Posted 3 hrs ago",
-      image: "/public/marketplace/images/recyclers-waste.jpg",
+    .map(() => ({
+      created_at: "2025-10-09T18:47:14.702000+00:00",
+      id: "7e45eaf8-6936-42e3-90e4-8e8a1cd70b09",
+      image_url: null,
+      pickup_location: "Lagos",
+      quantity: 200,
+      reward_estimate: "1000.00",
+      status: "pending",
+      title: "Pepsi",
+      waste_type: "plastic",
     }));
 
   const mockListingDetails: ListingDetails = {
     id: "pet-sack-1",
-    title: "PET Sacks - 5Kg",
+    title: "PET Sacks",
     weight: "5Kg",
+    status: "pending",
+    type: "plastic",
     location: "Ikoyi",
     postedTime: "Posted 3 hrs ago",
     image: "/public/marketplace/images/recyclers-waste.jpg",
@@ -69,9 +81,9 @@ const MarketplaceDashboard: React.FC = () => {
       ...mockListingDetails,
       id: listing.id,
       title: listing.title,
-      weight: listing.weight,
-      location: listing.location,
-      postedTime: listing.postedTime,
+      weight: listing.quantity,
+      location: listing.pickup_location,
+      postedTime: listing.created_at,
     });
     setActiveModal("details");
   };
@@ -128,34 +140,12 @@ const MarketplaceDashboard: React.FC = () => {
 
         {/* Listings Grid */}
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {mockListings.map((listing) => (
-            <div
-              key={listing.id}
-              className="bg-white p-4 rounded-lg overflow-hidden"
-            >
-              <img
-                src={listing.image}
-                alt={listing.title}
-                className="w-full h-32 object-cover rounded-lg"
-              />
-              <div className="p-4">
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  {listing.title}
-                </h3>
-                <div className="flex items-center space-x-2 text-sm text-gray-600 mb-3">
-                  <MapPin className="w-4 h-4" />
-                  <span>{listing.location}</span>
-                  <span>•</span>
-                  <span>{listing.postedTime}</span>
-                </div>
-                <button
-                  onClick={() => handleCheckDetails(listing)}
-                  className="w-full bg-[#006837] text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-green-900"
-                >
-                  Check Details
-                </button>
-              </div>
-            </div>
+          {mockListings.map((listing, i) => (
+            <WasteCard
+              key={listing.id ?? i}
+              checkDetails={handleCheckDetails}
+              item={listing}
+            />
           ))}
         </div>
       </div>
@@ -178,7 +168,7 @@ const MarketplaceDashboard: React.FC = () => {
             </div>
 
             <img
-              src={selectedListing.image}
+              src={selectedListing.image ?? assets.collect3}
               alt={selectedListing.title}
               className="w-full h-40 object-cover rounded-lg mb-2"
             />
@@ -187,7 +177,7 @@ const MarketplaceDashboard: React.FC = () => {
               <h3 className="font-semibold mb-1">{selectedListing.title}</h3>
               <div className="flex items-center space-x-2 text-xs text-gray-600">
                 <MapPin className="size-3" />
-                <span>{selectedListing.location}</span>
+                <span>{selectedListing.pickupPoint}</span>
                 <span>•</span>
                 <span>{selectedListing.postedTime}</span>
               </div>
