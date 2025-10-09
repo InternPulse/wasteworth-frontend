@@ -1,4 +1,3 @@
-// hooks/useFetch.ts
 import { useEffect, useState, useCallback } from "react";
 import useStore from "../../store/store";
 
