@@ -44,13 +44,21 @@ export interface SubHeaderProps {
 
 //Recycler Recent Offer Table data
 export interface Tdata {
-  id: string;
-  quantity: number;
-  created_at: string;
-  pickup_location: string;
-  reward_estimate: number;
-  status: string;
-}
+    _id: string; 
+    id: string; 
+    title: string | null;
+    waste_type: string;
+    quantity: number;
+    reward_estimate: string;
+    phone: string | null;
+    status: string; 
+    created_at: string; 
+    pickup_location: string | {
+        city: string;
+        state: string;
+        address: string;
+    }; 
+};
 
 //valiadtion schema for recycler
 export const ProfileSchema = z.object({

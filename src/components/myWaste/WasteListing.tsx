@@ -10,9 +10,10 @@ export default function WasteListing({
   data,
 }: {
   loading: boolean;
-  data: any;
+  data: Tdata[];
 }) {
   const [view, setView] = useState(5);
+  
 
   return (
     <section className="bg-white py-5 px-2 rounded-md sm:px-5">
