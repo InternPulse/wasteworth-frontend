@@ -1,7 +1,7 @@
 import MainCard from "../../utils/MainCard";
 import Referral from "../../components/dashboards/recycler/Referral";
 import RecentListing from "../../components/dashboards/recycler/RecentListing";
-import RecentOffers from "../../components/dashboards/recycler/RecentOffers";
+/* import RecentOffers from "../../components/dashboards/recycler/RecentOffers"; */
 import { FaLocationDot } from "react-icons/fa6";
 import { FaGift, FaShoppingCart } from "react-icons/fa";
 import type { ReactNode } from "react";
@@ -15,9 +15,20 @@ export interface CardProps {
 }
 const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
 export default function Recycler() {
-  const { data, loading } = useFetch(
+  const { data, loading, error} = useFetch(
     `${BASE_URL}/api/v1/users/recycler-dashboard/`
   );
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-red-500">
+          Error loading dashboard: {error.message || 'Something went wrong'}
+        </div>
+      </div>
+    );
+  }
+
   const mainCard = {
     a: {
       title: "Active Listings Near You",
@@ -40,7 +51,7 @@ export default function Recycler() {
       <MainCard loading={loading} details={mainCard} />
       <Referral />
       <RecentListing data={data?.stats?.recent_posts} />
-      <RecentOffers />
+      {/* <RecentOffers /> */}
     </div>
   );
 }
