@@ -1,59 +1,9 @@
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import type { Tdata } from "../../types";
+import useOffer from "../../hooks/useOffer";
 
 export default function OfferList() {
-  let data: Tdata[] = [];
-  /* data = [
-    {
-      id: "WW-001",
-      quantity_kg: 150,
-      date: "2024-09-15",
-      location: "Lagos Island, Nigeria",
-      price: 25000,
-      status: "Cancelled",
-    },
-    {
-      id: "WW-002",
-      quantity_kg: 50,
-      date: "2024-09-16",
-      location: "Abuja FCT, Nigeria",
-      price: 8500,
-      status: "Sent",
-    },
-    {
-      id: "WW-003",
-      quantity_kg: 300,
-      date: "2024-09-17",
-      location: "Port Harcourt, Nigeria",
-      price: 48000,
-      status: "Cancelled",
-    },
-    {
-      id: "WW-004",
-      quantity_kg: 10,
-      date: "2024-09-18",
-      location: "Kano, Nigeria",
-      price: 1200,
-      status: "Sent",
-    },
-    {
-      id: "WW-005",
-      quantity_kg: 85,
-      date: "2024-09-19",
-      location: "Ibadan, Nigeria",
-      price: 14500,
-      status: "Cancelled",
-    },
-    {
-      id: "WW-006",
-      quantity_kg: 420,
-      date: "2024-09-20",
-      location: "Enugu, Nigeria",
-      price: 65000,
-      status: "Sent",
-    },
-  ]; */
+  const { offers } = useOffer();
 
   return (
     <section className="bg-white py-5 px-2 rounded-md sm:px-5">
@@ -86,9 +36,9 @@ export default function OfferList() {
               </tr>
             </thead>
             <tbody>
-              {(data &&
-                data.length &&
-                data.map((item: Tdata) => (
+              {(offers &&
+                offers.length &&
+                offers.map((item) => (
                   <tr key={item.id} className="text-[14px]">
                     <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell ">
                       {item.id}
@@ -100,7 +50,7 @@ export default function OfferList() {
                       {item.created_at}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
-                      {item.waste_type}
+                      {item.pickup_location.city},{item.pickup_location.state}
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
                       {item.reward_estimate}
@@ -131,7 +81,7 @@ export default function OfferList() {
               )}
             </tbody>
           </table>
-          {data && data.length > 0 && (
+          {offers && offers.length > 0 && (
             <div className="flex items-center justify-center py-3">
               <button className="border border-gray-300 rounded-md py-1 px-4">
                 View More

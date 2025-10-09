@@ -16,6 +16,18 @@ export interface TListing {
   title: string;
   waste_type: string;
 }
+const getStatusClass = (status: string) => {
+  switch (status) {
+    case "completed":
+      return "text-green-700";
+    case "accepted":
+      return "text-blue-700";
+    case "pending":
+      return "text-gray-500";
+    default:
+      return "text-red-700";
+  }
+};
 
 export default function ListingCard({
   data,
@@ -47,8 +59,10 @@ export default function ListingCard({
                   <p>
                     {item.pickup_location?.toString() ?? item.pickup_location}
                   </p>
-                  <LuDot className="text-gray-500" />
-                  <p className="font-semibold">{item.status}</p>
+                  -
+                  <p className={`font-semibold ${getStatusClass(item.status)}`}>
+                    {item.status}
+                  </p>
                 </div>
                 <div className="flex items-center gap-1 text-sm">
                   <p className="text-xs text-gray-700">
