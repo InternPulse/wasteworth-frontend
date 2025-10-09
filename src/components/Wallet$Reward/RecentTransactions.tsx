@@ -8,7 +8,6 @@ const RecentTransactions = ({ loading }: { loading: boolean }) => {
     date: string;
     price: string;
   }
-  console.log(loading);
 
   let data: dataType[] = [];
   return (

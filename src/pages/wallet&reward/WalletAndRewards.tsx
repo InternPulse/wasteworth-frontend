@@ -46,7 +46,6 @@ const WalletAndRewards = () => {
       kilo: data?.wallet?.balance,
     },
   };
-  console.log(loading);
 
   return (
     <div className="space-y-5">
