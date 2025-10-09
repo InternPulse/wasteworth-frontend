@@ -1,4 +1,5 @@
 import { FaDiagramSuccessor, FaLocationDot } from "react-icons/fa6";
+import { TbWorldCancel } from "react-icons/tb";
 import Referral from "../../components/dashboards/disposer/Referral";
 import MainCard from "../../utils/MainCard";
 import WasteListing from "../../components/myWaste/WasteListing";
@@ -37,7 +38,7 @@ export default function MyWaste() {
     },
     c: {
       title: "Total Cancelled Offers",
-      icon: <FaDiagramSuccessor size={15} className="text-[#5094F0]" />,
+      icon: <TbWorldCancel size={15} className="text-[#5094F0]" />,
       kilo: c,
     },
   };
