@@ -48,8 +48,8 @@ const VerifyEmail = () => {
       <p className="text-xs text-gray-600 text-center">
         <span>
           We've sent a 6-digit code to{" "}
-          <span className="font-semibold">{user.email}</span>. Enter it below to
-          verify your account
+          <span className="font-semibold">{user?.email}</span>. Enter it below
+          to verify your account
         </span>
       </p>
 
@@ -61,7 +61,7 @@ const VerifyEmail = () => {
           <input
             type="text"
             {...register("email_or_phone")}
-            value={user.email}
+            value={user?.email}
             className="hidden"
             readOnly
           />

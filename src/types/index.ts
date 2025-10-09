@@ -45,10 +45,10 @@ export interface SubHeaderProps {
 //Recycler Recent Offer Table data
 export interface Tdata {
   id: string;
-  quantity_kg: number;
-  date: string;
-  location: string;
-  price: number;
+  quantity: number;
+  created_at: string;
+  pickup_location: string;
+  reward_estimate: number;
   status: string;
 }
 
@@ -103,7 +103,6 @@ export const PostSchema = z.object({
 });
 
 export type PostSchema = z.infer<typeof PostSchema>;
-
 
 export interface UserData {
   tokens: {

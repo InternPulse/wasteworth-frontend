@@ -1,10 +1,9 @@
-import disposeImg from "../../assets/disposeImg.jpg";
 import { CiCamera } from "react-icons/ci";
 import { useState } from "react";
 
 const ProfileAvatar = () => {
   const [selectedFile, setSelectedFile] = useState<string | undefined>(
-    disposeImg
+    undefined
   );
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +19,7 @@ const ProfileAvatar = () => {
     <div className="flex items-center md:gap-10 justify-between ">
       <div className="relative inline-block  rounded-full w-[120.75px] h-[120.75px]">
         {/* Disposer profile Avatar */}
-        {selectedFile === undefined ? (
+        {selectedFile === undefined || "" ? (
           <div className="border h-full w-full rounded-full bg-gray-400 animate-pulse"></div>
         ) : (
           <img

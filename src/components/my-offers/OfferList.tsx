@@ -94,16 +94,16 @@ export default function OfferList() {
                       {item.id}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell">
-                      {item.quantity_kg} kg
+                      {item.quantity} kg
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
-                      {item.date}
+                      {item.created_at}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
-                      {item.location}
+                      {item.pickup_location}
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
-                      {item.price}
+                      {item.reward_estimate}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 flex items-center justify-between gap-2">
                       <span

@@ -68,9 +68,9 @@ export default function Mobile({
               className="flex items-center space-x-1"
             >
               <p className="text-xl border border-green-600 rounded-full px-2.5 bg-[#FFEFDA] text-black pb-1 font-semibold">
-                {user.name?.slice(0, 1)}
+                {user?.name?.slice(0, 1)}
               </p>
-              <p className="text-sm font-bold">{user.name}</p>
+              <p className="text-sm font-bold">{user?.name}</p>
               <FaAngleDown />
             </Link>
           </div>
