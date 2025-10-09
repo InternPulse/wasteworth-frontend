@@ -38,7 +38,7 @@ const ContactUs = () => {
       <div>
         <div>
           <div className="bg-white py-5 text-center space-y-5 rounded-md px-7">
-            <h2 className="text-green-700 text-lg md:text-2xl font-bold">
+            <h2 className="text-green-600 text-lg md:text-2xl font-bold">
               Contact Us
             </h2>
             <p className="font-semibold">
@@ -52,10 +52,10 @@ const ContactUs = () => {
                   key={item.id}
                   className="bg-white gap-5 space-y-3 rounded-md text-center py-5 px-7 shadow-md"
                 >
-                  <li className="flex items-center justify-center text-green-700">
+                  <li className="flex items-center justify-center text-green-600">
                     {item.icon}
                   </li>
-                  <li className="font-bold text-green-700">{item.name}</li>
+                  <li className="font-bold text-green-600">{item.name}</li>
                   <li>{item.contact}</li>
                 </ul>
               ))}

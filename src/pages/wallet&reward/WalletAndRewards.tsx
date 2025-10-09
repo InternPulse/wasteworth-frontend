@@ -1,49 +1,19 @@
 import QuickActions from "@/components/Wallet$Reward/QuickActions";
 import RecentTransactions from "@/components/Wallet$Reward/RecentTransactions";
-import { FaGift } from "react-icons/fa";
-import type { CardProps } from "../dashboard/Recycler";
-import MainCard from "@/components/dashboards/recycler/MainCard";
+import { FaCoins, FaWallet } from "react-icons/fa";
+import MainCard from "@/utils/MainCard";
 import Referral from "@/components/dashboards/recycler/Referral";
 import { useFetch } from "@/hooks/useFetch";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { GiToken } from "react-icons/gi";
 const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
 const WalletAndRewards = () => {
   const navigate = useNavigate();
-  const { data, error } = useFetch(`${BASE_URL}/api/v1/wallet/balance/`);
+  const { data, loading, error } = useFetch(
+    `${BASE_URL}/api/v1/wallet/balance/`
+  );
 
-  const mainCard: CardProps[] = [
-    {
-      bgColor: "blue",
-      title: "Eco points",
-      icon: (
-        <img
-          className="w-3 h-3"
-          src="/public/marketplace/images/number-of-listings.png"
-          alt="number of listings icon"
-        />
-      ),
-      kilo: data?.wallet?.points,
-    },
-    {
-      bgColor: "green",
-      title: "Airtime Tokens",
-      icon: (
-        <img
-          className="w-3 h-3"
-          src="/public/marketplace/images/total-offers.png"
-          alt="total offers icon"
-        />
-      ),
-      kilo: 0,
-    },
-    {
-      bgColor: "red",
-      title: "Wallet Balance",
-      icon: <FaGift size={15} className="text-[#FB8C00]" />,
-      kilo: data?.wallet?.balance,
-    },
-  ];
   useEffect(() => {
     if (error?.status === 401 || error?.message?.includes("401")) {
       localStorage.removeItem("loggedIn");
@@ -59,17 +29,31 @@ const WalletAndRewards = () => {
       </Link>
     </div>;
   }
+  const cardDetails = {
+    a: {
+      title: "Eco Points",
+      icon: <GiToken size={15} className="text-[#5094F0]" />,
+      kilo: data?.wallet?.points,
+    },
+    b: {
+      title: "Airtime Tokens",
+      icon: <FaCoins size={15} className="text-[#5094F0]" />,
+      kilo: 0,
+    },
+    c: {
+      title: "Wallet Balance",
+      icon: <FaWallet size={15} className="text-[#5094F0]" />,
+      kilo: data?.wallet?.balance,
+    },
+  };
+  console.log(loading);
 
-  if (!data)
-    return (
-      <div className="font-semibold text-lg w-full text-center">Loading...</div>
-    );
   return (
     <div className="space-y-5">
-      <MainCard details={mainCard} />
+      <MainCard loading={loading} details={cardDetails} />
       <Referral />
       <QuickActions />
-      <RecentTransactions />
+      <RecentTransactions loading={loading} />
     </div>
   );
 };

@@ -31,12 +31,12 @@ export default function MyWaste() {
       kilo: a,
     },
     b: {
-      title: "Total Pending Offers",
+      title: "Total Completed Offers",
       icon: <FaDiagramSuccessor size={15} className="text-[#5094F0]" />,
       kilo: b,
     },
     c: {
-      title: "Total Pending Offers",
+      title: "Total Cancelled Offers",
       icon: <FaDiagramSuccessor size={15} className="text-[#5094F0]" />,
       kilo: c,
     },
