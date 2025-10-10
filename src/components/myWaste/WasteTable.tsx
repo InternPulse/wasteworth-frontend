@@ -36,9 +36,9 @@ const WasteTable = ({ item }: { item: Tdata }) => {
 
   
   return (
-    <tr key={item._id} className="text-[14px]">
+    <tr className="text-[14px]">
       <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell">
-        {item._id}
+        {item.id}
       </td>
       <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell">
         {item.quantity}

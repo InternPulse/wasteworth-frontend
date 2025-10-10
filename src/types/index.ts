@@ -57,7 +57,7 @@ export interface Tdata {
         city: string;
         state: string;
         address: string;
-    }; 
+    } | null; 
 };
 
 //valiadtion schema for recycler

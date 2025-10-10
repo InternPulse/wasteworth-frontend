@@ -1,17 +1,20 @@
 import axios  from 'axios'
 import { queryOptions } from '@tanstack/react-query'
 
+const BASE_URL: string = import.meta.env.VITE_BASE_URL2;
+
+
 
 //sample setup
-const getItem = async () => {
-    const res = await axios.get('url')
+const getListing = async () => {
+    const res = await axios.get(`${BASE_URL}/api/v1/listings`)
     return res.data
 }
 
-export const createTodoQueryOptions = () => {
+export const createListingQueryOptions = () => {
     return queryOptions({
         queryKey: ['list'],        
-        queryFn: getItem,
+        queryFn: getListing,
         enabled: true,
         staleTime: 1000 * 60 * 5, // 5 minute
         gcTime: 1000 * 60 * 30, // 30 minutes

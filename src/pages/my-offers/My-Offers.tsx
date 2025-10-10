@@ -1,6 +1,6 @@
 import Referral from "../../components/dashboards/recycler/Referral";
 import MainCard from "../../utils/MainCard";
-import OfferList from "../../components/my-offers/OfferList";
+// import OfferList from "../../components/my-offers/OfferList";
 import { CiShop } from "react-icons/ci";
 import { FaGift, FaShoppingCart } from "react-icons/fa";
 
@@ -26,7 +26,7 @@ export default function MyOffers() {
     <div className="space-y-5">
       <MainCard loading details={cardDetails} />
       <Referral />
-      <OfferList />
+      {/* <OfferList /> */}
     </div>
   );
 }

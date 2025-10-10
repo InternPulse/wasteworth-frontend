@@ -57,7 +57,7 @@ const Disposer = () => {
       <div className="space-y-5">
         <MainCard loading={loading} details={cardDetails} />
         <Referral />
-        <RecentPost loading={loading} posts={data?.recent_listings} />
+        <RecentPost />
       </div>
     </div>
   );

@@ -12,8 +12,8 @@ interface TListing {
   timePosted: string;
 }
 
-export default function ListingCard({ data }: { data: TListing[] }) {
-  console.log(data);
+export default function ListingCard() {
+
 
   const Listing: TListing[] = [
     {

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import ListingCard from "./ListingCard";
 
-export default function RecentListing({ data }: { data: any }) {
+export default function RecentListing() {
+
   return (
     <section className="bg-white py-5 px-5 rounded-md">
       <div className="space-y-7">
@@ -12,7 +13,7 @@ export default function RecentListing({ data }: { data: any }) {
           </button>
         </div>
         <div className="">
-          <ListingCard data={data} />
+          <ListingCard />
         </div>
       </div>
     </section>

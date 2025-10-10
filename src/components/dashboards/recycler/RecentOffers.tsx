@@ -1,59 +1,27 @@
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import type { Tdata } from "../../../types";
+import { useMemo } from "react";
+import { useFetch } from "@/hooks/useFetch";
+import Loader from "@/utils/Loader";
 
+const BASE_URL: string = import.meta.env.VITE_BASE_URL2;
 export default function RecentOffers() {
-  let data: Tdata[] = [];
-  /* data = [
-    {
-      id: "WW-001",
-      quantity_kg: 150,
-      date: "2024-09-15",
-      location: "Lagos Island, Nigeria",
-      price: 25000,
-      status: "Cancelled",
-    },
-    {
-      id: "WW-002",
-      quantity_kg: 50,
-      date: "2024-09-16",
-      location: "Abuja FCT, Nigeria",
-      price: 8500,
-      status: "Sent",
-    },
-    {
-      id: "WW-003",
-      quantity_kg: 300,
-      date: "2024-09-17",
-      location: "Port Harcourt, Nigeria",
-      price: 48000,
-      status: "Cancelled",
-    },
-    {
-      id: "WW-004",
-      quantity_kg: 10,
-      date: "2024-09-18",
-      location: "Kano, Nigeria",
-      price: 1200,
-      status: "Sent",
-    },
-    {
-      id: "WW-005",
-      quantity_kg: 85,
-      date: "2024-09-19",
-      location: "Ibadan, Nigeria",
-      price: 14500,
-      status: "Cancelled",
-    },
-    {
-      id: "WW-006",
-      quantity_kg: 420,
-      date: "2024-09-20",
-      location: "Enugu, Nigeria",
-      price: 65000,
-      status: "Sent",
-    },
-  ]; */
+    const { data, loading } = useFetch(`${BASE_URL}/api/v1/listings`);
+  
+    const locationToDisplay = useMemo(() => {
+            const location = data.pickup_location;
+            if (typeof location === 'string') {
+                return location;
+            }
+            if (location && typeof location === 'object' && location.address) {
+                return location.address;
+            }
+            if (location && typeof location === 'object' && location.city) {
+                return location.city;
+            }
+            return 'N/A';
+        }, [data.pickup_location]);
 
   return (
     <section className="bg-white py-5 px-2 rounded-md sm:px-5">
@@ -92,7 +60,8 @@ export default function RecentOffers() {
               </tr>
             </thead>
             <tbody>
-              {(data &&
+              {(loading && <Loader />) ||
+                (data &&
                 data.length > 0 &&
                 data.map((item: Tdata) => (
                   <tr key={item.id} className="text-[14px]">
@@ -106,7 +75,7 @@ export default function RecentOffers() {
                       {item.created_at}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
-                      {item.pickup_location}
+                      {locationToDisplay}
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
                       {item.reward_estimate}
