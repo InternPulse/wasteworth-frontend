@@ -8,6 +8,38 @@ export interface LinkType {
   icon: IconType;
 }
 
+// types/transaction.ts
+
+export interface Transaction {
+  transaction_id: string
+  wallet_id: string
+  user_name: string
+  user_email: string
+  transaction_type: string
+  transaction_type_display: string
+  amount: number | null
+  points: number
+  currency: string
+  description: string
+  reference: string
+  payment_method: string
+  payment_method_display: string
+  status: string
+  status_display: string
+  metadata: Record<string, any> | null
+  created_at: string
+}
+
+export interface TransactionResponse {
+  success: boolean
+  message: string
+  count: number
+  next: string | null
+  previous: string | null
+  results: Transaction[]
+}
+
+
 //mobile sidebar
 export interface MobileProps {
   links: LinkType[];
@@ -50,6 +82,33 @@ export interface Tdata {
   pickup_location: string;
   reward_estimate: number;
   status: string;
+}
+
+//myOffers table data
+export interface MyOffersData {
+  status: string;
+  results: number;
+  data: Array<{
+    id: string;
+    waste_type: string;
+    quantity: number;
+    status: 'pending' | 'accepted' | 'rejected' | string;
+    reward_estimate: string;
+    final_reward: string | null;
+    collector_id_id: string | null;
+    user_id_id: string;
+    pickup_location: {
+      city: string;
+      state: string;
+      address: string;
+      coordinates: {
+        latitude: number;
+        longitude: number;
+      };
+    };
+    created_at: string;
+    updated_at: string;
+  }>;
 }
 
 //valiadtion schema for recycler

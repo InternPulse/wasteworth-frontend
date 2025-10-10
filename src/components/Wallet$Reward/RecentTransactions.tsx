@@ -1,12 +1,12 @@
 import { FaCheck } from "react-icons/fa";
+import useWalletTransactions from "@/hooks/useWalletTransactions";
+
 
 const RecentTransactions = () => {
-  interface dataType {
-    title: string;
-    date: string;
-    price: string;
-  }
-  let data: dataType[] = [];
+  const { transactions } = useWalletTransactions();
+
+
+ 
   return (
     <div className="border rounded-lg bg-white p-2">
       <div>
@@ -15,9 +15,9 @@ const RecentTransactions = () => {
         </h3>
       </div>
       <div className="flex flex-col">
-        {(data &&
-          data.length > 0 &&
-          data.map((item, i) => (
+        {(transactions &&
+          transactions.length > 0 &&
+          transactions.map((item, i) => (
             <div
               key={i}
               className="grid grid-cols-1 md:grid-cols-2 gap-4  p-4 md:relative items-center"
@@ -30,13 +30,17 @@ const RecentTransactions = () => {
                 </span>
 
                 <div className="w-55 md:w-96">
-                  <h1 className="font-semibold">{item.title}</h1>
-                  <h2 className="text-[#989898] text-sm">{item.date}</h2>
+                  <h1 className="font-semibold">{item.transaction_type}</h1>
+                  {new Date(item.created_at).toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "long",
+                        year: "numeric",
+                      })}
                 </div>
               </div>
 
               <div className="md:absolute md:right-5 pl-8">
-                <h1 className="text-[#006837] font-semibold">{item.price}</h1>
+                <h1 className="text-[#006837] font-semibold">{item.amount} {item.currency}</h1>
               </div>
             </div>
           ))) || (

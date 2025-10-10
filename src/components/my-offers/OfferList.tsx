@@ -1,9 +1,15 @@
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import type { Tdata } from "../../types";
+import type { MyOffersData } from "../../types";
+import useOffer from "../../hooks/useOffer"
 
 export default function OfferList() {
-  let data: Tdata[] = [];
+
+  const { offers } = useOffer()
+
+ 
+
+  
   /* data = [
     {
       id: "WW-001",
@@ -86,9 +92,9 @@ export default function OfferList() {
               </tr>
             </thead>
             <tbody>
-              {(data &&
-                data.length &&
-                data.map((item: Tdata) => (
+              {(offers &&
+                offers.length &&
+                offers.map((item) => (
                   <tr key={item.id} className="text-[14px]">
                     <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell ">
                       {item.id}
@@ -100,7 +106,7 @@ export default function OfferList() {
                       {item.created_at}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
-                      {item.pickup_location}
+                      {item.pickup_location.city},{item.pickup_location.state}
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
                       {item.reward_estimate}
@@ -131,7 +137,7 @@ export default function OfferList() {
               )}
             </tbody>
           </table>
-          {data && data.length > 0 && (
+          {offers && offers.length > 0 && (
             <div className="flex items-center justify-center py-3">
               <button className="border border-gray-300 rounded-md py-1 px-4">
                 View More
