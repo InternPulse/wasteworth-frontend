@@ -25,6 +25,7 @@ const Disposer = () => {
       navigate("/login");
     }
   }, [error, navigate]);
+  console.log(data);
 
   if (error && error.status !== 401) {
     <div className="text-red-400 text-5xl font-bold">
@@ -57,7 +58,7 @@ const Disposer = () => {
       <div className="space-y-5">
         <MainCard loading={loading} details={cardDetails} />
         <Referral />
-        <RecentPost />
+        <RecentPost loading={loading} posts={data?.recent_posts} />
       </div>
     </div>
   );

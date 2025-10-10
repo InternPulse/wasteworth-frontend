@@ -23,9 +23,12 @@ const Step2 = ({
   const { email, setEmail } = emailProp;
   const { phone, setPhone } = phoneProp;
   return (
-    <div className="w-full h-full sm:grid grid-cols-[39%_58%] m:grid-cols-[28%_70%] items-center justify-between gap-4">
-      <div className="hidden sm:flex items-center justify-center h-full w-full sm:rounded-lg overflow-hidden flex">
-        <img src={assets.step2} className="h-full object-fit w-full" />
+    <div className="w-full sm:mt-10 h-full sm:grid grid-cols-[39%_58%] md:flex items-center gap-4">
+      <div className="hidden sm:w-60 md:w-85 rounded-lg sm:flex items-center h-full overflow-hidden flex">
+        <img
+          src={assets.step2}
+          className="h-full w-full object-contain no-repeat rounded-lg"
+        />
       </div>
       <div className="flex items-center justify-center w-9/10 mx-auto sm:w-full h-full">
         <div className="flex flex-col gap-4 w-sm">

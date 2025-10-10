@@ -1,27 +1,10 @@
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import type { Tdata } from "../../types";
-import { useMemo } from "react";
+import useOffer from "../../hooks/useOffer";
 
 export default function OfferList() {
-  const data: Tdata = [];
-  
-  
-const locationToDisplay = useMemo(() => {
-        const location = data.pickup_location;
-        if (typeof location === 'string') {
-            return location;
-        }
-        if (location && typeof location === 'object' && location.address) {
-            return location.address;
-        }
-        if (location && typeof location === 'object' && location.city) {
-            return location.city;
-        }
-        return 'N/A';
-}, [data.pickup_location]);
-  
-  
+  const { offers } = useOffer();
+
   return (
     <section className="bg-white py-5 px-2 rounded-md sm:px-5">
       <div className="space-y-7">
@@ -42,7 +25,7 @@ const locationToDisplay = useMemo(() => {
                   DATE
                 </th>
                 <th className="border border-gray-300 text-left px-4 py-2 hidden md:table-cell">
-                  LOCATION
+                  TYPE
                 </th>
                 <th className="border border-gray-300 text-left px-4 py-2">
                   ESTIMATED PRICE
@@ -53,9 +36,9 @@ const locationToDisplay = useMemo(() => {
               </tr>
             </thead>
             <tbody>
-              {(data &&
-                data.length &&
-                data.map((item: Tdata) => (
+              {(offers &&
+                offers.length &&
+                offers.map((item) => (
                   <tr key={item.id} className="text-[14px]">
                     <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell ">
                       {item.id}
@@ -64,10 +47,14 @@ const locationToDisplay = useMemo(() => {
                       {item.quantity} kg
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
-                      {item.created_at}
+                      {new Date(item.created_at).toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "long",
+                        year: "numeric",
+                      })}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
-                      {locationToDisplay}
+                      {item.pickup_location.city},{item.pickup_location.state}
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
                       {item.reward_estimate}
@@ -98,7 +85,7 @@ const locationToDisplay = useMemo(() => {
               )}
             </tbody>
           </table>
-          {data && data.length > 0 && (
+          {offers && offers.length > 0 && (
             <div className="flex items-center justify-center py-3">
               <button className="border border-gray-300 rounded-md py-1 px-4">
                 View More

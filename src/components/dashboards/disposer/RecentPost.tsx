@@ -18,11 +18,11 @@ export default function RecentPost({
 
   const getStatusClass = (status: string) => {
     switch (status) {
-      case "Completed":
+      case "completed":
         return "text-green-700";
-      case "Accepted":
+      case "accepted":
         return "text-blue-700";
-      case "Pending":
+      case "pending":
         return "text-gray-500";
       default:
         return "text-red-700";
@@ -53,6 +53,9 @@ export default function RecentPost({
             <thead>
               <tr className="bg-[#FAFAFA] text-[14px]">
                 <th className="border border-gray-300 text-left px-4 py-2 hidden lg:table-cell">
+                  TITLE
+                </th>
+                <th className="border border-gray-300 text-left px-4 py-2 hidden lg:table-cell">
                   OFFER ID
                 </th>
                 <th className="border border-gray-300 text-left px-4 py-2 hidden lg:table-cell">
@@ -62,7 +65,7 @@ export default function RecentPost({
                   DATE
                 </th>
                 <th className="border border-gray-300 text-left px-4 py-2 hidden md:table-cell">
-                  LOCATION
+                  TYPE
                 </th>
                 <th className="border border-gray-300 text-left px-4 py-2">
                   ESTIMATED PRICE
@@ -78,19 +81,26 @@ export default function RecentPost({
                   posts.length > 0 &&
                   posts.map((item: Tdata) => (
                     <tr key={item.id} className="text-[14px]">
-                      <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell ">
-                        {item.id}
+                      <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell font-semibold">
+                        {item.title}
                       </td>
-                      <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell">
+                      <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell ">
+                        {item.id.slice(0, 5)}...
+                      </td>
+                      <td className="px-4 border border-gray-200 py-2 hidden lg:table-cell text-center">
                         {item.quantity} kg
                       </td>
-                      <td className="px-4 border border-gray-200 py-2">
-                        {item.created_at}
+                      <td className="px-4 border border-gray-200 py-2 text-center">
+                        {new Date(item.created_at).toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "long",
+                          year: "numeric",
+                        })}
                       </td>
-                      <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
-                        {item.pickup_location}
+                      <td className="px-4 border border-gray-200 py-2 hidden md:table-cell text-center">
+                        {item.waste_type}
                       </td>
-                      <td className="px-4 border border-gray-200 py-2">
+                      <td className="px-4 border border-gray-200 py-2 text-center">
                         {item.reward_estimate}
                       </td>
                       <td className="px-4 border border-gray-200 py-2 flex items-center justify-between gap-2">

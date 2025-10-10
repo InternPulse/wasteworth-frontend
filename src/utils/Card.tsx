@@ -9,7 +9,7 @@ interface cardType {
 export default function Card({ bgColor, title, kilo, icon }: cardType) {
   const bgClasses: { [key: string]: string } = {
     red: "bg-[#bb600030]",
-    blue: "bg-[#0000ff30]",
+    blue: "bg-[#0088ff30]",
     green: "bg-[#00bb0030]",
   };
 

@@ -1,7 +1,6 @@
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import type { Tdata } from "../../../types";
-import { useMemo } from "react";
 import { useFetch } from "@/hooks/useFetch";
 import Loader from "@/utils/Loader";
 
@@ -9,19 +8,6 @@ const BASE_URL: string = import.meta.env.VITE_BASE_URL2;
 export default function RecentOffers() {
     const { data, loading } = useFetch(`${BASE_URL}/api/v1/listings`);
   
-    const locationToDisplay = useMemo(() => {
-            const location = data.pickup_location;
-            if (typeof location === 'string') {
-                return location;
-            }
-            if (location && typeof location === 'object' && location.address) {
-                return location.address;
-            }
-            if (location && typeof location === 'object' && location.city) {
-                return location.city;
-            }
-            return 'N/A';
-        }, [data.pickup_location]);
 
   return (
     <section className="bg-white py-5 px-2 rounded-md sm:px-5">
@@ -49,7 +35,7 @@ export default function RecentOffers() {
                   DATE
                 </th>
                 <th className="border border-gray-300 text-left px-4 py-2 hidden md:table-cell">
-                  LOCATION
+                  TYPE
                 </th>
                 <th className="border border-gray-300 text-left px-4 py-2">
                   ESTIMATED PRICE
@@ -72,10 +58,14 @@ export default function RecentOffers() {
                       {item.quantity} kg
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
-                      {item.created_at}
+                      {new Date(item.created_at).toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "long",
+                        year: "numeric",
+                      })}
                     </td>
                     <td className="px-4 border border-gray-200 py-2 hidden md:table-cell">
-                      {locationToDisplay}
+                      {item.waste_type}
                     </td>
                     <td className="px-4 border border-gray-200 py-2">
                       {item.reward_estimate}
