@@ -21,14 +21,14 @@ const QuickActions = () => {
           </Button>
           <Button
             variant="secondary"
-            className="py-5 text-xs md:text-sm hover:shadow transition-shadow duration-200"
+            className="py-5 text-xs md:text-sm hover:shadow transition-shadow duration-200 opacity-50"
           >
             {" "}
             <img src={assets.award} alt="vector" /> Claim Badge
           </Button>
           <Button
             variant="secondary"
-            className="py-5 text-xs md:text-sm hover:shadow transition-shadow duration-200"
+            className="py-5 text-xs md:text-sm hover:shadow transition-shadow duration-200 opacity-50"
           >
             {" "}
             <img src={assets.crown} alt="Crown icon" /> Invite to Earn

@@ -13,7 +13,8 @@ import MyProfile from "@/pages/disposerProfile/MyProfile";
 //import MyOffers from "@/pages/my-offers/My-Offers";
 import { useEffect } from "react";
 import { useFetch } from "@/hooks/useFetch";
-const BASE_URL: string = import.meta.env.VITE_BASE_URL2;
+export const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
+export const BASE_URL2: string = import.meta.env.VITE_BASE_URL2;
 
 export default function DashboardLayout() {
   const {
