@@ -26,9 +26,10 @@ export default function ListingCard({
   return (
     <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {(loading && <DivLoader />) ||
-        (data && data.map((item: TListing) => <WasteCard item={item} />)) || (
-          <EmptyDiv />
-        )}
+        (data &&
+          data.map((item: TListing) => (
+            <WasteCard key={item.created_at} item={item} />
+          ))) || <EmptyDiv />}
     </div>
   );
 }

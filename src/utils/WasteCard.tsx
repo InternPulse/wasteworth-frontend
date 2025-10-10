@@ -1,6 +1,5 @@
 import { assets } from "@/assets/assets";
-import type { TListing } from "@/components/dashboards/recycler/ListingCard";
-import type { Listing } from "@/pages/marketPlace/MarketPlace";
+import type { Listing } from "@/types";
 import { MapPin } from "lucide-react";
 
 const getStatusClass = (status: string) => {
@@ -18,13 +17,11 @@ const getStatusClass = (status: string) => {
 
 const WasteCard = ({
   item,
-  checkDetails = () => {},
+  checkDetails,
 }: {
-  item: TListing;
-  checkDetails?: (listing: Listing) => void;
+  item: Listing;
+  checkDetails?: () => void;
 }) => {
-  console.log(checkDetails);
-
   return (
     <div
       key={item.id}
@@ -33,7 +30,7 @@ const WasteCard = ({
       <img
         src={item.image_url ?? assets.collect3}
         alt="waste"
-        className="w-full h-50 rounded-t-md"
+        className="w-full h-60 object-fit rounded-t-md"
       />
       <div className="p-4">
         <h3 className="font-semibold text-gray-900 mb-2">
@@ -62,7 +59,10 @@ const WasteCard = ({
           <span>•</span>
           <span>{item.waste_type}</span>
         </div>
-        <button className="w-full bg-[#006837] text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-green-900">
+        <button
+          onClick={checkDetails}
+          className="w-full bg-[#006837] text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-green-900"
+        >
           Check Details
         </button>
       </div>
