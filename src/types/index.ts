@@ -11,34 +11,33 @@ export interface LinkType {
 // types/transaction.ts
 
 export interface Transaction {
-  transaction_id: string
-  wallet_id: string
-  user_name: string
-  user_email: string
-  transaction_type: string
-  transaction_type_display: string
-  amount: number | null
-  points: number
-  currency: string
-  description: string
-  reference: string
-  payment_method: string
-  payment_method_display: string
-  status: string
-  status_display: string
-  metadata: Record<string, any> | null
-  created_at: string
+  transaction_id: string;
+  wallet_id: string;
+  user_name: string;
+  user_email: string;
+  transaction_type: string;
+  transaction_type_display: string;
+  amount: number | null;
+  points: number;
+  currency: string;
+  description: string;
+  reference: string;
+  payment_method: string;
+  payment_method_display: string;
+  status: string;
+  status_display: string;
+  metadata: Record<string, any> | null;
+  created_at: string;
 }
 
 export interface TransactionResponse {
-  success: boolean
-  message: string
-  count: number
-  next: string | null
-  previous: string | null
-  results: Transaction[]
+  success: boolean;
+  message: string;
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Transaction[];
 }
-
 
 //mobile sidebar
 export interface MobileProps {
@@ -76,21 +75,23 @@ export interface SubHeaderProps {
 
 //Recycler Recent Offer Table data
 export interface Tdata {
-    _id: string; 
-    id: string; 
-    title: string | null;
-    waste_type: string;
-    quantity: number;
-    reward_estimate: string;
-    phone: string | null;
-    status: string; 
-    created_at: string; 
-    pickup_location: string | {
+  _id: string;
+  id: string;
+  title: string | null;
+  waste_type: string;
+  quantity: number;
+  reward_estimate: string;
+  phone: string | null;
+  status: string;
+  created_at: string;
+  pickup_location:
+    | string
+    | {
         city: string;
         state: string;
         address: string;
-    } | null; 
-};
+      };
+}
 
 //myOffers table data
 export interface MyOffersData {
@@ -100,7 +101,7 @@ export interface MyOffersData {
     id: string;
     waste_type: string;
     quantity: number;
-    status: 'pending' | 'accepted' | 'rejected' | string;
+    status: "pending" | "accepted" | "rejected" | string;
     reward_estimate: string;
     final_reward: string | null;
     collector_id_id: string | null;
@@ -140,7 +141,6 @@ export interface ModalProps {
   children: ReactNode;
 }
 
-
 //post form
 const MAX_FILE_SIZE = 5000000; // 5MB
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
@@ -159,9 +159,8 @@ const fileSchema = z
   .refine(
     (file) => ACCEPTED_IMAGE_TYPES.includes(file.type), // Refine the type of the single File
     "Only .jpg, .jpeg, and .png formats are supported."
-);
+  );
 
-  
 export const PostSchema = z.object({
   title: z.string().min(1, "Post Title is required"),
   waste_type: z.string().min(1, "Waste type is required"),
@@ -181,13 +180,12 @@ export interface UserData {
   };
 }
 
-
 //contact cards
-export interface TContactDetails{
-    id: number;
-    icon: React.ReactNode;
-    name: string;
-    contact: string;
+export interface TContactDetails {
+  id: number;
+  icon: React.ReactNode;
+  name: string;
+  contact: string;
 }
 //Waste data
 export interface Waste {
@@ -219,4 +217,47 @@ export interface TListing {
   status: string;
   title: string;
   waste_type: string;
+}
+export interface Listing {
+  created_at: string;
+  id: string;
+  image_url: string | null;
+  pickup_location: { lat: string; lng: string } | string;
+  quantity: number;
+  reward_estimate: string;
+  status: string;
+  title: string;
+  waste_type: string;
+}
+export interface ListingArray {
+  confirmed_at: string | null;
+  created_at: string;
+  disposer_confirmed: boolean;
+  escrow_status: string;
+  id: string;
+  item_released_at: boolean | null;
+  listing: Listing;
+  listing_id_id: string;
+  payment_initiated_at: string | null;
+  payment_locked_at: string | null;
+  price: string;
+  recycler_confirmed: boolean;
+  recycler_id_id: string | null;
+  released_at: string | null;
+}
+export interface ListingDetails {
+  id: string;
+  title: string;
+  status: string;
+  weight: string | number;
+  location: { lat: string; lng: string } | string;
+  postedTime: string;
+  image: string | null;
+  type: string;
+  name: string;
+  listingPrice: string;
+  contactDetails: string;
+  preferredContact: string;
+  availability: string;
+  pickupPoint: string;
 }
