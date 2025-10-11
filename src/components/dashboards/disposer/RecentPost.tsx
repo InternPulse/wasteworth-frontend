@@ -44,7 +44,10 @@ export default function RecentPost({
           >
             Post Waste
           </button>
-          <Modal isOpen={isModalOpen} onClose={toggleModal}>
+          <Modal
+            title="Post Waste"
+            isOpen={isModalOpen}
+            onClose={toggleModal}>
             <PostForm onClose={toggleModal} />
           </Modal>
         </div>

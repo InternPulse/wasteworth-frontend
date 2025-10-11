@@ -58,11 +58,11 @@ export default function PostForm({ onClose }: PostFormProps) {
                 }
             );
             const successMsg = res.data.message
-            toast.success(successMsg)
-
-            onClose();
-
+            toast.success(successMsg || "Listing created successfully")
+            
             reset();
+            
+            onClose();
             
         } catch (error) {
             if (axios.isAxiosError(error) && error.response && error.response.data) {

@@ -134,6 +134,7 @@ export const ProfileSchema = z.object({
 export type ProfileSchema = z.infer<typeof ProfileSchema>;
 
 export interface ModalProps {
+  title: string;
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
@@ -203,5 +204,19 @@ export interface Waste {
   title: string;
   updated_at: string;
   user_id_id: string;
+  waste_type: string;
+}
+
+
+//recent listingProps
+export interface TListing {
+  created_at: string;
+  id: string;
+  image_url: string;
+  pickup_location: { lat: string; lng: string } | string;
+  quantity: number;
+  reward_estimate: string;
+  status: string;
+  title: string;
   waste_type: string;
 }

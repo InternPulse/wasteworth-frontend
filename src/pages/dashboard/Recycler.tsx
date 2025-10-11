@@ -18,6 +18,7 @@ export default function Recycler() {
   const { data, loading, error } = useFetch(
     `${BASE_URL}/api/v1/users/recycler-dashboard/`
   );
+  console.log(data)
 
   if (error) {
     return (

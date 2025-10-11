@@ -1,21 +1,14 @@
-import { Link } from "react-router-dom";
 import { assets } from "../../../assets/assets";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { LuDot } from "react-icons/lu";
 import EmptyDiv from "@/utils/EmptyDiv";
 import DivLoader from "@/utils/DivLoader";
+import Modal from '../disposer/Modal'
+import { useMemo, useState } from "react";
+import ListingDetails from "./ListingDetails";
+import type { TListing } from "@/types";
 
-export interface TListing {
-  created_at: string;
-  id: number;
-  image_url: string;
-  pickup_location: { lat: string; lng: string } | string;
-  quantity: number;
-  reward_estimate: string;
-  status: string;
-  title: string;
-  waste_type: string;
-}
+
 const getStatusClass = (status: string) => {
   switch (status) {
     case "completed":
@@ -36,10 +29,29 @@ export default function ListingCard({
   data: TListing[];
   loading: boolean;
 }) {
-  console.log(data);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+   const handleDetailsClick = (id: string) => {
+    setSelectedItemId(id);
+    setIsModalOpen(true);
+  };
+
+  // Use useMemo to find the selected item efficiently
+  const selectedItem = useMemo(() => {
+    if (!data || !selectedItemId) {
+      return null;
+    }
+    return data.find(item => item.id === selectedItemId) || null;
+  }, [data, selectedItemId])
+
 
   return (
-    <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       {(loading && <DivLoader />) ||
         (data &&
           data.map((item: TListing) => (
@@ -81,16 +93,26 @@ export default function ListingCard({
                     </span>
                   </p>
                 </div>
-
-                <Link
-                  to="#"
-                  className="flex items-center justify-center bg-[#006837] rounded-md py-1 text-white"
+                  
+                <button
+                  onClick={() => handleDetailsClick(item.id)}
+                  className="flex items-center justify-center bg-[#006837] rounded-md py-1 text-white w-full hover:cursor-pointer"
                 >
                   Check Details
-                </Link>
+                </button>
               </div>
             </div>
           ))) || <EmptyDiv />}
+      
+          {isModalOpen && selectedItem && (
+        <Modal
+          title="Listing Details"
+          isOpen={isModalOpen}
+          onClose={toggleModal}
+        >
+          <ListingDetails item={selectedItem} />
+        </Modal>
+      )}
     </div>
   );
 }

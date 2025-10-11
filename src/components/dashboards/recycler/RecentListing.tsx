@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import ListingCard, { type TListing } from "./ListingCard";
+import ListingCard from "./ListingCard";
+import type { TListing } from "@/types";
 
 export default function RecentListing({
   data,

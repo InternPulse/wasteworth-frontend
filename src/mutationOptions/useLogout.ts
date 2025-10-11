@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const logoutUser = async () => {
-  const userDataString = localStorage.getItem("userData");
+  const userDataString = localStorage.getItem("user-store");
 
   if (!userDataString) {
     console.warn("You are not authenticated");
@@ -15,6 +15,7 @@ const logoutUser = async () => {
   try {
     const userData: UserData = JSON.parse(userDataString);
     const refreshToken = userData.tokens?.refresh_token;
+    console.log(refreshToken)
 
     if (refreshToken) {
       await axios.post(
@@ -33,13 +34,14 @@ export const useLogout = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
+
   const { mutate: logout, isPending } = useMutation({
     mutationFn: logoutUser,
     onSuccess: () => {
       // Clear all query cache data
       queryClient.clear();
 
-      localStorage.removeItem("userData");
+      localStorage.removeItem("user-store");
       localStorage.removeItem("loggedIn"); 
       localStorage.removeItem("tokens"); 
 
@@ -51,7 +53,7 @@ export const useLogout = () => {
 
       queryClient.clear();
 
-      localStorage.removeItem("userData");
+      localStorage.removeItem("user-store");
       localStorage.removeItem("loggedIn"); 
       localStorage.removeItem("tokens"); 
 
