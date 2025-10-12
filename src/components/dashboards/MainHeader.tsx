@@ -13,6 +13,7 @@ export default function MainHeader({
 }: MainHeaderProps) {
   const page = useLocation();
   const { notifications, toggleNotificationOpen } = useStore();
+  
 
   return (
     <nav className="px-4 sm:px-10 py-2 bg-white sticky top-0 shadow shadow-[#0000000e] min-h-15 w-full z-2 flex items-center">
@@ -34,6 +35,8 @@ export default function MainHeader({
           <h3 className="font-bold">Wallet & Rewards</h3>
         ) : page.pathname === "/user/profile" ? (
           <h3 className="font-bold">My Profile</h3>
+        ) : page.pathname.startsWith(`/user/my-waste/`) ? (
+          <h3 className="font-bold">Waste Details</h3>
         ) : (
           ""
         )}

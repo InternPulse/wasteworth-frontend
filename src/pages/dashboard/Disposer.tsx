@@ -19,13 +19,14 @@ const Disposer = () => {
     error,
   } = useFetch(`${BASE_URL}/api/v1/users/user-dashboard/`);
   const data = res?.stats;
+
   useEffect(() => {
     if (error?.status === 401 || error?.message?.includes("401")) {
       localStorage.removeItem("loggedIn");
       navigate("/login");
     }
   }, [error, navigate]);
-  console.log(data);
+ 
 
   if (error && error.status !== 401) {
     <div className="text-red-400 text-5xl font-bold">

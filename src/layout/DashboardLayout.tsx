@@ -13,6 +13,9 @@ import MyProfile from "@/pages/disposerProfile/MyProfile";
 //import MyOffers from "@/pages/my-offers/My-Offers";
 import { useEffect } from "react";
 import { useFetch } from "@/hooks/useFetch";
+import WasteDetails from "@/components/dashboards/disposer/WasteDetails";
+
+
 export const BASE_URL: string = import.meta.env.VITE_BASE_URL1;
 export const BASE_URL2: string = import.meta.env.VITE_BASE_URL2;
 
@@ -62,6 +65,7 @@ export default function DashboardLayout() {
         <Routes>
           <Route index element={<Disposer />} />
           <Route path="my-waste" element={<MyWaste />} />
+          <Route path='my-waste/:id' element={<WasteDetails />}/>
           <Route path="wallet&rewards" element={<WalletAndRewards />} />
           <Route path="profile" element={<MyProfile />} />
           <Route path="notifications" element={<Notification />} />

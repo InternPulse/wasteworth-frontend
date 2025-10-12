@@ -110,7 +110,7 @@ export default function RecentPost({
                         <span className={` ${getStatusClass(item.status)}`}>
                           {item.status}
                         </span>
-                        <Link to="#">
+                        <Link to={`my-waste/${item.id}`}>
                           <FaArrowRight className="text-gray-400" />
                         </Link>
                       </td>
