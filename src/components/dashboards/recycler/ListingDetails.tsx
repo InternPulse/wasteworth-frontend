@@ -16,7 +16,7 @@ return (
         <div>
             <div className="space-y-3">
                 <img src={item.image_url || assets.collect3} alt="waste_img" className="w-full h-full rounded-t-md md:h-80"/>
-                <h2 className="font-semibold text-[16px]">Waste Bottle</h2>
+                <h2 className="font-semibold text-[16px]">{item.title}</h2>
                 <div className="flex items-center border-b pb-1">
                     <div className="flex items-center gap-1 text-sm">
                         <MdOutlineLocationOn className="text-gray-500" />

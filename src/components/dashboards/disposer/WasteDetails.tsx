@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "@/hooks/useFetch";
 import { ClipLoader } from "react-spinners";
+import { FaShoppingCart } from "react-icons/fa";
 
 
 const BASE_URL: string = import.meta.env.VITE_BASE_URL2;
@@ -35,6 +36,9 @@ export default function WasteDetails() {
     }
   };
 
+  const postStatus = post?.status;
+
+
   const formattedDate = new Date(post.created_at).toLocaleDateString("en-GB", {
     day: "2-digit",
     month: "long",
@@ -49,10 +53,11 @@ export default function WasteDetails() {
   return (
     <section className="sm:px-5">
       <div className="space-y-7">
-        <div className="md:flex items-center justify-between bg-white py-5 px-5 rounded-md sm:px-5 space-y-5">
+        <div className="md:flex items-center justify-between bg-white py-5 px-5 rounded-md sm:px-5 space-y-5 md:space-y-0">
           <div className="flex items-center space-x-2">
-            <p>{id?.slice(0, 8)}...</p>
-            <p>{post?.status}</p>
+            <FaShoppingCart size={25} className="text-[#5a615e] border rounded-md p-1 mr-2" />
+            <p className="font-semibold mr-1">#{id?.slice(0, 8)}...</p>
+            <p className="font-bold">{postStatus.charAt(0).toUpperCase() + postStatus.slice(1)}</p>
           </div>
           <button className="text-center border border-gray-300 py-2 w-full md:w-1/5 rounded-md bg-gray-200">Cancel</button>
         </div>
